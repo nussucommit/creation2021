@@ -19,9 +19,9 @@ def login_view(request):
     user = authenticate(request, username=username, password=password)
     if user is not None:
         login(request, user)
-        return HttpResponseRedirect(reverse("submit"))
+        return HttpResponseRedirect(reverse("users:submit"))    # need to specify users: because there are 2 apps to choose from.
     else:
-        return render(request, "users/login.html", {"message": "Invalid credentials."})
+        return render(request, "users/login.html", {"message": "Invalid credentials. Please try again"})
 
 def logout_view(request):
     logout(request)

@@ -1,6 +1,7 @@
 from django.urls import path
 
 from . import views
+from users.views import submit
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -10,6 +11,6 @@ urlpatterns = [
     path('legacy', views.legacy, name="legacy"),
     path('challenge', views.challenge, name="challenge"),
     path('registration', views.registration, name="registration"),
-    path('submission', views.submission, name="submission"),
+    path('submission', submit, name="submission"),  # submit imported from users/views.py
     path('contact', views.contact, name="contact"),
 ]
