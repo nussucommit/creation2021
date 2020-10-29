@@ -126,3 +126,6 @@ STATIC_URL = '/static/'
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+LOGIN_REDIRECT_URL = 'creation:index'
+LOGIN_URL = 'login'
