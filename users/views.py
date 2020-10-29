@@ -1,9 +1,14 @@
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, forms
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
 
 # Create your views here.
+
+def register(request):
+    form = forms.UserCreationForm()
+    return render(request, 'users/register.html', {'form': form})
+
 
 def submit(request):
     if not request.user.is_authenticated:

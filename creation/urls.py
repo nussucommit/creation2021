@@ -1,7 +1,7 @@
 from django.urls import path
 
 from . import views
-from users.views import submit
+from users.views import submit, register
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -10,7 +10,7 @@ urlpatterns = [
     path('timeline', views.timeline, name="timeline"),
     path('legacy', views.legacy, name="legacy"),
     path('challenge', views.challenge, name="challenge"),
-    path('registration', views.registration, name="registration"),
+    path('registration', register, name="registration"),    #register imported from users/views.py
     path('submission', submit, name="submission"),  # submit imported from users/views.py
     path('contact', views.contact, name="contact"),
 ]
