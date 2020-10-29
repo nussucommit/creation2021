@@ -8,26 +8,21 @@ from .forms import UserRegisterForm
 # Create your views here.
 
 def register(request):
+    # If we get a POST request, we instantiate a user creation form with that POST data.
     if request.method == 'POST':
-        # If we get a POST request, we instantiate a user creation form with that POST data.
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            # Creates the user in our database (Check admin page)
+            # Creates the user in our database (Check admin page to confirm)
             form.save()
             username = form.cleaned_data.get('username')
             # Create an alert to tell users that their account has been succesfully created
             messages.success(request, f'Account created for {username}! Please login to continue')
             # Redirect to login page so they can login immidiately
             return redirect('users:submit')
-        
+    # Anything that isn't a POST request, we just create a blank form.
     else:
-        # Anything that isn't a POST request, we just create a blank form.
         form = UserRegisterForm
     return render(request, 'users/register.html', {'form': form})
-
-
-
-
 
 def submit(request):
     if not request.user.is_authenticated:
