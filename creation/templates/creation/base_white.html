@@ -11,53 +11,55 @@
         <title>CREATION 2021</title>
         <style>
             .bottom {
+                text-align: center; 
                 padding-top: 300px;
-                background-color: #474e5d;
+                background-color: white;
                 margin: 0;
             }
 
-            .dropdown-content a {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-                background-color: white;
+            .rules-paragraph {
+                text-align: justify;
             }
 
-            .challenge {
-                background-color: white;
+            ol {
+                color: red;
             }
+
+            .inner {
+                list-style: circle;
+            }
+            
         </style>
     </head>
     <body>
         <div class="container">
             <div class="row">
-                <div class="col-md-auto menu">
+                <div class="col-lg-auto menu">
                     <div class="dropdown">
                         <button class="dropbtn">Competition Details</button>
                         <div class="dropdown-content">
-                            <a href={% url 'creation:challenge' %}>Challenge Statements</a>
-                            <a href={% url 'creation:registration' %}>Registration</a>
-                            <a href={% url 'creation:rules' %}>Rules, Terms & Conditions</a>
-                            <a href={% url 'creation:submission' %}>Submission Portal</a>
+                            <a href="challenge">Challenge Statements</a>
+                            <a href="registration">Registration</a>
+                            <a href="rules">Rules, Terms & Conditions</a>
+                            <a href="submission">Submission Portal</a>
                         </div>
                       </div>
                 </div>
-                <div class="col-md-auto menu">
+                <div class="col-lg-auto menu">
                     <div class="dropdown">
                         <button class="dropbtn">About Us</button>
                         <div class="dropdown-content">
-                            <a href={% url 'creation:index' %}>CREATION 2021</a>
-                            <a href={% url 'creation:legacy' %}>Our Legacy</a>
-                            <a href={% url 'creation:timeline' %}>Timeline</a>
+                            <a href="../creation2021">CREATION 2021</a>
+                            <a href="legacy">Our Legacy</a>
+                            <a href="timeline">Timeline</a>
                         </div>
                       </div>
                 </div>
-                <div class="col-md-auto menu">
-                    <button class="dropbtn"><a href={% url 'creation:faq' %} class="dropbtn">FAQs</a></button>
+                <div class="col-lg-auto menu">
+                    <button class="dropbtn"><a href="faq" class="dropbtn">FAQs</a></button>
                 </div>
-                <div class="col-md-auto menu">
-                    <button class="dropbtn"><a href={% url 'creation:contact' %} class="dropbtn">Contact Us</a></button>
+                <div class="col-lg-auto menu">
+                    <button class="dropbtn"><a href="contact" class="dropbtn">Contact Us</a></button>
                 </div>
             </div>
         </div>

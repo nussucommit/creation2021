@@ -1,83 +1,34 @@
-<!doctype html>
-<html lang="en">
-    <head>
-    <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "creation/base_white.html" %}
+{% block content %}
+<div class="row justify-content-lg-center bottom">
+    <div class="col-lg-6 ">
+        <h1 class="title">FREQUENTLY ASKED QUESTIONS</h1>
+        <div class="faq-container">
+            <h2 class="question">1) Who is eligible to take part in CREATION 2021?</h2>
+            <p class="answer">Only NUS undergraduate students shall be eligible to participate in CREATION 2021.</p>
+            <h2 class="question">2) Are there any charges to participate in CREATION 2021?</h2>
+            <p class="answer">Participation in CREATION 2021 is FREE of charge.</p>
+            <h2 class="question">3) Can each participant participate in more than one challenge statement?</h2>
+            <p class="answer">Yes, however, each participant can submit only ONE submission per challenge statement, of which will be judged by a panel of judges during the closing ceremony on 6 March 2021.</p>
+            <h2 class="question">4) Will the judging criteria vary among the problem statement?</h2>
+            <p class="answer">Yes, assessment criteria will vary among problem statement. Participants could check the assessment criteria on Rules and Regulations > Selection Process.</p>
+            <h2 class="question">5) Is it compulsory for the participants to attend the closing ceremony on 24 February 2020?</h2>
+            <p class="answer">Yes, participants shortlisted into the final round on 3 March 2021 are required to attend the closing ceremony on 6 March 2021 to pitch their final artwork to the panel of judges. Finalists who are unable to attend the closing ceremony for the pitching session will be heavily penalized during the assessment or may face disqualification as well.</p>
+            <h2 class="question">6) Is it compulsory for the participants to attend the Advanced Photoshop Workshop on 6 February 2021?</h2>
+            <p class="answer">No, but the participants are highly encouraged to attend since this free workshop is conducted by a certified trainer from Acadia Training. Participants get to learn advanced Photoshop skills from this workshop and apply them on their designs.</p>
+            <h2 class="question">7) Must I join the competition to be able to attend the Advanced Photoshop Workshop on 8 February 2020?</h2>
+            <p class="answer">No, however, a deposit of $5 needs to be paid by the student which will be returned to the student after he/ she made a submission of the designs.</p>
+            <h2 class="question">8) Can I join the competition as a team?</h2>
+            <p class="answer">No, CREATION 2021 is an individual competition.</p>
+            <h2 class="question">9) What is the Newcomer Award and who is eligible for it?</h2>
+            <p class="answer">Newcomer Award is an award given to ONE participant whose design is not a winning design for any of the challenge statements and is the judges’ favorite among all the challenge statements. However, only participants who have attended Cyberia Camp 2019 and/ or any of the NUSSU commIT’s Adobe Photoshop Workshop (excluding the Advanced Photoshop Workshop on 8 February 2020) and / or any of the NUSSU commIT’s Adobe Illustrator Workshop are eligible for the Newcomer Award</p>
+            <h2 class="question">10) Can I use a software other than Adobe Photoshop or Adobe Illustrator?</h2>
+            <p class="answer">No, participants are strictly required to use Adobe Photoshop and/or Adobe Illustrator or stated otherwise. Please check with the requirement of each challenge statement. Participants can use the computers at NUSSU commIT’s computer centers at YIH Level 3 or AS8 Level 2 to work on their designs, if they do not have the software installed on their computers.</p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <link rel="stylesheet" href="../static/style.css">
-        <title>CREATION 2021</title>
-        <style>
-            .bottom {
-                text-align: center; 
-                padding-top: 300px;
-                background-color: white;
-                margin: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-auto menu">
-                    <div class="dropdown">
-                        <button class="dropbtn">Competition Details</button>
-                        <div class="dropdown-content">
-                            <a href="challenge">Challenge Statements</a>
-                            <a href="registration">Registration</a>
-                            <a href="rules">Rules, Terms & Conditions</a>
-                            <a href="submission">Submission Portal</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-auto menu">
-                    <div class="dropdown">
-                        <button class="dropbtn">About Us</button>
-                        <div class="dropdown-content">
-                            <a href="../creation2021">CREATION 2021</a>
-                            <a href="legacy">Our Legacy</a>
-                            <a href="timeline">Timeline</a>
-                        </div>
-                      </div>
-                </div>
-                <div class="col-lg-auto menu">
-                    <button class="dropbtn"><a href="faq" class="dropbtn">FAQs</a></button>
-                </div>
-                <div class="col-lg-auto menu">
-                    <button class="dropbtn"><a href="" class="dropbtn">Contact Us</a></button>
-                </div>
-            </div>
-        </div>
-        <div class="row justify-content-lg-center bottom">
-            <div class="col-lg-6 ">
-                <h1 class="title">FREQUENTLY ASKED QUESTIONS</h1>
-                <div class="faq-container">
-                    <h2 class="question">1) Who is eligible to take part in CREATION 2021?</h2>
-                    <p class="answer">Only NUS undergraduate students shall be eligible to participate in CREATION 2021.</p>
-                    <h2 class="question">2) Are there any charges to participate in CREATION 2021?</h2>
-                    <p class="answer">Participation in CREATION 2021 is FREE of charge.</p>
-                    <h2 class="question">3) Can each participant participate in more than one challenge statement?</h2>
-                    <p class="answer">Yes, however, each participant can submit only ONE submission per challenge statement, of which will be judged by a panel of judges during the closing ceremony on 6 March 2021.</p>
-                    <h2 class="question">4) Will the judging criteria vary among the problem statement?</h2>
-                    <p class="answer">Yes, assessment criteria will vary among problem statement. Participants could check the assessment criteria on Rules and Regulations > Selection Process.</p>
-                    <h2 class="question">5) Is it compulsory for the participants to attend the closing ceremony on 24 February 2020?</h2>
-                    <p class="answer">Yes, participants shortlisted into the final round on 3 March 2021 are required to attend the closing ceremony on 6 March 2021 to pitch their final artwork to the panel of judges. Finalists who are unable to attend the closing ceremony for the pitching session will be heavily penalized during the assessment or may face disqualification as well.</p>
-                    <h2 class="question">6) Is it compulsory for the participants to attend the Advanced Photoshop Workshop on 6 February 2021?</h2>
-                    <p class="answer">No, but the participants are highly encouraged to attend since this free workshop is conducted by a certified trainer from Acadia Training. Participants get to learn advanced Photoshop skills from this workshop and apply them on their designs.</p>
-                    <h2 class="question">7) Must I join the competition to be able to attend the Advanced Photoshop Workshop on 8 February 2020?</h2>
-                    <p class="answer">No, however, a deposit of $5 needs to be paid by the student which will be returned to the student after he/ she made a submission of the designs.</p>
-                    <h2 class="question">8) Can I join the competition as a team?</h2>
-                    <p class="answer">No, CREATION 2021 is an individual competition.</p>
-                    <h2 class="question">9) What is the Newcomer Award and who is eligible for it?</h2>
-                    <p class="answer">Newcomer Award is an award given to ONE participant whose design is not a winning design for any of the challenge statements and is the judges’ favorite among all the challenge statements. However, only participants who have attended Cyberia Camp 2019 and/ or any of the NUSSU commIT’s Adobe Photoshop Workshop (excluding the Advanced Photoshop Workshop on 8 February 2020) and / or any of the NUSSU commIT’s Adobe Illustrator Workshop are eligible for the Newcomer Award</p>
-                    <h2 class="question">10) Can I use a software other than Adobe Photoshop or Adobe Illustrator?</h2>
-                    <p class="answer">No, participants are strictly required to use Adobe Photoshop and/or Adobe Illustrator or stated otherwise. Please check with the requirement of each challenge statement. Participants can use the computers at NUSSU commIT’s computer centers at YIH Level 3 or AS8 Level 2 to work on their designs, if they do not have the software installed on their computers.</p>
-                </div>
-            </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
-    </body>
-</html>
+
+
+
