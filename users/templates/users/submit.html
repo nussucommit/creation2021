@@ -1,0 +1,38 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <div id='content'>
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit"/>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+          <tr>
+            <th>Link</th>
+            <th>Image</th>
+            <th>User</th>
+            <th>Uploaded</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in images %}
+            <tr>
+              <td><a href="{{ i.url }}" target="_blank">{{ i.url }}</a></td>
+              <td>{{ i.img }}</td>
+              <td>{{ i.user }}</td>
+              <td>{{ i.time }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="3">No data.</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock content %}
+
+
+
