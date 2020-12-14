@@ -7,6 +7,9 @@ from .forms import UserRegisterForm, ImageForm
 from django.contrib.auth.decorators import login_required
 from .models import Image
 import pytz
+import boto
+from decouple import config
+import re
 
 # Create your views here.
 
@@ -56,10 +59,10 @@ def submit(request):
             for f in request.FILES.getlist('raw'): 
                 raw_lst.append(f.name)
 
-            img_fname = img_lst[-1].replace(' ', '_')
+            img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
             form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{img_fname}"
             
-            raw_fname = raw_lst[-1].replace(' ', '_')
+            raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
             form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{raw_fname}"
 
             form.save()
@@ -68,16 +71,25 @@ def submit(request):
             return HttpResponseRedirect(request.path_info)
     # Anything that isn't a POST request, we just create a blank form.
     else:
-        submissions = Image.objects.all()
-        print(submissions)
-        filtered = []
-        for submission in submissions:
-            if submission.user == request.user:
-                filtered.append(submission)
-
         context = {}
-        if filtered:
-            context['submissions'] = filtered
+
+        submissions = Image.objects.all()
+        submissions = list(filter(lambda x: x.user == request.user, submissions))
+
+        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+        bucket = conn.get_bucket('creation-2021')
+        print("bucket", bucket)
+
+        for submission in submissions:
+            img_file_path = bucket.get_key(submission.img)
+            submission.img_url = img_file_path.generate_url(expires_in=600)
+
+            raw_file_path = bucket.get_key(submission.raw)
+            submission.raw_url = raw_file_path.generate_url(expires_in=600)
+
+        if submissions:
+            context['submissions'] = submissions
+            
         form = ImageForm()
         context['form'] = form
     return render(request, "users/submit.html", context)
