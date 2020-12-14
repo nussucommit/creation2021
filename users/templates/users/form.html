@@ -1,0 +1,38 @@
+{% extends "users/base.html" %}
+{% block content %}
+    <div id='content'>
+        <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit"/>
+        </form>
+    </div>
+
+    <table>
+        <thead>
+          <tr>
+            <th>Image name</th>
+            <th>File name</th>
+            <th>User</th>
+            <th>Uploaded</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for obj in submissions %}
+            <tr>
+              <td><a href="{{ obj.img_url }}" download> {{ obj.img }} </a></td>
+              <td><a href="{{ obj.raw_url }}"> {{ obj.raw }} </a></td>
+              <td>{{ obj.user }}</td>
+              <td>{{ obj.time }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="3">No Past Submissions</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+{% endblock content %}
+
+
+
