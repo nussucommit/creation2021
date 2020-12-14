@@ -44,25 +44,40 @@ def submit(request):
             form.instance.user = request.user
 
             # Time changed but the change is not reflected on the display
-            print(form.instance.time)
-            form.instance.time = form.instance.time.astimezone(pytz.timezone('Asia/Singapore'))
-            print(form.instance.time)
-            lst = [] 
-            for f in request.FILES.getlist('img'): 
-                lst.append(f.name)
+            #print(form.instance.time)
+            #form.instance.time = form.instance.time.astimezone(pytz.timezone('Asia/Singapore'))
+            #print(form.instance.time)
 
-            fname = lst[-1].replace(' ', '_')
-            form.instance.url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{fname}"
+            img_lst = [] 
+            for f in request.FILES.getlist('img'): 
+                img_lst.append(f.name)
+
+            raw_lst = []
+            for f in request.FILES.getlist('raw'): 
+                raw_lst.append(f.name)
+
+            img_fname = img_lst[-1].replace(' ', '_')
+            form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{img_fname}"
+            
+            raw_fname = raw_lst[-1].replace(' ', '_')
+            form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{raw_fname}"
+
             form.save()
 
             # Refreshes the page
             return HttpResponseRedirect(request.path_info)
     # Anything that isn't a POST request, we just create a blank form.
     else:
-        images = Image.objects.all()
+        submissions = Image.objects.all()
+        print(submissions)
+        filtered = []
+        for submission in submissions:
+            if submission.user == request.user:
+                filtered.append(submission)
+
         context = {}
-        if images:
-            context['images'] = images
+        if filtered:
+            context['submissions'] = filtered
         form = ImageForm()
         context['form'] = form
     return render(request, "users/submit.html", context)

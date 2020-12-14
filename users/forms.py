@@ -15,4 +15,4 @@ class UserRegisterForm(UserCreationForm):
 class ImageForm(forms.ModelForm):
     class Meta:
         model = Image
-        fields = ['img']
+        fields = ['img', 'raw']
