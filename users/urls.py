@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path("", views.submit, name="submit"),
-    path("login", views.login_view, name="login"),
-    path("logout", views.logout_view, name="logout"),
-    # Kyknya register/ gaperlu di add, krn udah ada path dari main app (creation)
+    path("1/", views.form_1, name='1'),
+    path("2/", views.form_2, name='2'),
+    path("3/", views.form_3, name='3')
 ]
