@@ -73,11 +73,11 @@ def submit(request):
         if form.is_valid():
             statement = form.cleaned_data['statement']
             if statement == '1':
-                return redirect('1/')
+                return redirect('/submit/1/')
             elif statement == '2':
-                return redirect('2/')
+                return redirect('/submit/2/')
             else:
-                return redirect('3/')
+                return redirect('/submit/3/')
 
     form = MasterForm()
     return render(request, "users/submit.html", {'form': form})
