@@ -35,9 +35,6 @@ def contact(request):
 def user(request):
     return render(request, "users/user.html")
 
-def login(request):
-    return render(request, "users/login.html")
-
 @login_required
 def challenge_statement_1(request):
     conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
