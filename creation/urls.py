@@ -13,4 +13,6 @@ urlpatterns = [
     path('registration', register, name="registration"),    #register imported from users/views.py
     path('submission', submit, name="submission"),  # submit imported from users/views.py
     path('contact', views.contact, name="contact"),
+    path('user', views.user, name="user"),
+    path('login', views.login, name="login")
 ]

@@ -28,3 +28,9 @@ def submission(request):
 
 def contact(request):
     return render(request, "creation/contact.html")
+
+def user(request):
+    return render(request, "users/user.html")
+
+def login(request):
+    return render(request, "users/login.html")
