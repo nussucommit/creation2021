@@ -31,7 +31,40 @@ def register(request):
 
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    def checkSubmission(submissionNumber):
+        if not(submissionNumber):
+            return
+            
+        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+        bucket = conn.get_bucket('creation-2021')
+
+        for submission in submissionNumber:
+            img_file_path = bucket.get_key(submission.img)
+            submission.img_url = img_file_path.generate_url(expires_in=600)
+
+            raw_file_path = bucket.get_key(submission.raw)
+            submission.raw_url = raw_file_path.generate_url(expires_in=600)
+
+        if submissionNumber:
+            context['submissions'] = submissionNumber
+
+    context = {}
+    submissions=[]
+
+    submission_1 = Statement_1.objects.all()
+    submission_1 = list(filter(lambda x: x.user == request.user, submission_1))
+
+    submission_2 = Statement_2.objects.all()
+    submission_2 = list(filter(lambda x: x.user == request.user, submission_2))
+
+    submission_3 = Statement_3.objects.all()
+    submission_3 = list(filter(lambda x: x.user == request.user, submission_3))
+
+    submissions += submission_1 + submission_2 + submission_3
+
+    checkSubmission(submissions)
+
+    return render(request, 'users/profile.html',context)
 
 @login_required
 def submit(request):
@@ -40,124 +73,27 @@ def submit(request):
         if form.is_valid():
             statement = form.cleaned_data['statement']
             if statement == '1':
-                return redirect('users:1')
+                return redirect('1/')
             elif statement == '2':
-                return redirect('users:2')
+                return redirect('2/')
             else:
-                return redirect('users:3')
+                return redirect('3/')
 
     form = MasterForm()
     return render(request, "users/submit.html", {'form': form})
 
-
-
 @login_required
-def form_1(request):
+def form(request,pk):
     context = {}
-    # If we get a POST request, we instantiate a submission form with that POST data.
-    if request.method == 'POST':
+    if pk == 1:
         form = Form1(request.POST, request.FILES)
-        if form.is_valid():
-            form.instance.user = request.user
-
-            img_lst = [] 
-            for f in request.FILES.getlist('img'): 
-                img_lst.append(f.name)
-
-            raw_lst = []
-            for f in request.FILES.getlist('raw'): 
-                raw_lst.append(f.name)
-
-            img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
-            form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{img_fname}"
-            
-            raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
-            form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{raw_fname}"
-
-            form.save()
-
-            # Refreshes the page
-            return HttpResponseRedirect(request.path_info)
-    # Anything that isn't a POST request, we just create a blank form.
-    else:
-        submissions = Statement_1.objects.all()
-        submissions = list(filter(lambda x: x.user == request.user, submissions))
-
-        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-        bucket = conn.get_bucket('creation-2021')
-
-        for submission in submissions:
-            img_file_path = bucket.get_key(submission.img)
-            submission.img_url = img_file_path.generate_url(expires_in=600)
-
-            raw_file_path = bucket.get_key(submission.raw)
-            submission.raw_url = raw_file_path.generate_url(expires_in=600)
-
-        if submissions:
-            context['submissions'] = submissions
-            
-        form = Form1()
-        context['form'] = form
-    return render(request, "users/form.html", context)
-
-
-
-@login_required
-def form_2(request):
-    context = {}
-    # If we get a POST request, we instantiate a submission form with that POST data.
-    if request.method == 'POST':
+    elif pk == 2:
         form = Form2(request.POST, request.FILES)
-        if form.is_valid():
-            form.instance.user = request.user
-
-            img_lst = [] 
-            for f in request.FILES.getlist('img'): 
-                img_lst.append(f.name)
-
-            raw_lst = []
-            for f in request.FILES.getlist('raw'): 
-                raw_lst.append(f.name)
-
-            img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
-            form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{img_fname}"
-            
-            raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
-            form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{raw_fname}"
-
-            form.save()
-
-            # Refreshes the page
-            return HttpResponseRedirect(request.path_info)
-    # Anything that isn't a POST request, we just create a blank form.
     else:
-        submissions = Statement_2.objects.all()
-        submissions = list(filter(lambda x: x.user == request.user, submissions))
-
-        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-        bucket = conn.get_bucket('creation-2021')
-
-        for submission in submissions:
-            img_file_path = bucket.get_key(submission.img)
-            submission.img_url = img_file_path.generate_url(expires_in=600)
-
-            raw_file_path = bucket.get_key(submission.raw)
-            submission.raw_url = raw_file_path.generate_url(expires_in=600)
-
-        if submissions:
-            context['submissions'] = submissions
-            
-        form = Form2()
-        context['form'] = form
-    return render(request, "users/form.html", context)
-
-
-@login_required
-def form_3(request):
-    context = {}
+        form = Form3(request.POST, request.FILES)
     # If we get a POST request, we instantiate a submission form with that POST data.
     if request.method == 'POST':
-        form = Form3(request.POST, request.FILES)
+
         if form.is_valid():
             form.instance.user = request.user
 
@@ -170,10 +106,10 @@ def form_3(request):
                 raw_lst.append(f.name)
 
             img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
-            form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{img_fname}"
+            form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{img_fname}"
             
             raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
-            form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/img/{raw_fname}"
+            form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{raw_fname}"
 
             form.save()
 
@@ -181,7 +117,13 @@ def form_3(request):
             return HttpResponseRedirect(request.path_info)
     # Anything that isn't a POST request, we just create a blank form.
     else:
-        submissions = Statement_3.objects.all()
+        if pk == 1:
+            submissions = Statement_1.objects.all()
+        elif pk == 2:
+            submissions = Statement_2.objects.all()
+        else:
+            submissions = Statement_3.objects.all()
+        
         submissions = list(filter(lambda x: x.user == request.user, submissions))
 
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
@@ -197,6 +139,5 @@ def form_3(request):
         if submissions:
             context['submissions'] = submissions
             
-        form = Form3()
         context['form'] = form
     return render(request, "users/form.html", context)
