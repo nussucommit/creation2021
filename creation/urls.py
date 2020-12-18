@@ -14,5 +14,7 @@ urlpatterns = [
     path('submission', submit, name="submission"),  # submit imported from users/views.py
     path('contact', views.contact, name="contact"),
     path('user', views.user, name="user"),
-    path('login', views.login, name="login")
+    path('challenge1', views.challenge_statement_1, name="statement1"),
+    path('challenge2', views.challenge_statement_2, name="statement2"),
+    path('challenge3', views.challenge_statement_3, name="statement3")
 ]
