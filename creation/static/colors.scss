@@ -1,0 +1,165 @@
+$primary-pink : #F15BB5;
+$primary-yellow: #FEE440;
+
+$secondary-blue: #00BBF9;
+$secondary-coastal: #00F5D4;
+$secondary-yellowgreen: #B5F15B;
+
+$tertiary-purple: #9B5DE5;
+$tertiary-orange: #F1975B;
+
+$dark-background: rgb(18, 18, 18);
+
+%shadow-comp {
+    box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+%justification {
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+%floatable {
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+// defined for universal use
+body {
+    min-height: 100vh;
+    background: linear-gradient($primary-pink, $tertiary-purple);
+    filter: brightness(100%);
+}
+
+.justified-par {
+    text-align: justify;
+    text-justify: inter-word;
+}
+// navbar/menu styling
+#navbar {
+    background-color: $dark-background;
+
+    * {
+        background-color: transparent;
+        color: whitesmoke;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        background-color: white;
+    }
+}
+
+// challenge statements styling
+#index-container {
+    .challenge {
+        padding: 20px;
+        border-radius: 25px;
+        background-color: $dark-background;
+        color: whitesmoke;
+        height: 300px;
+    
+        h3 {
+            height: 60px;
+        }
+    
+        hr {
+            border: 1px solid whitesmoke;
+        }
+
+        @extend %shadow-comp;
+    }
+
+    .challenge:hover {
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90vh;
+}
+
+// content-container styling
+.bottom {
+    padding-top: 300px;
+    margin: 0;
+    background-color: transparent;
+}
+
+#regis-container {
+    width: 80%;
+    margin: 40px 10%;
+
+    $breakpoint-tablet: 768px;
+    @media (min-width: $breakpoint-tablet) {
+        width: 50%;
+        margin: 40px 25%;    
+    }
+
+    li{
+        color: black;
+    }
+
+    small {
+        color: black;
+        filter: contrast(1000%);
+    }
+}
+
+#rules-container {
+    background-color: transparent;
+    padding-bottom: 50px;
+
+    .col-lg-6 {
+        padding: 25px;
+    }
+
+    .rules-card {
+        margin: 100px 10px;
+        background-color: $secondary-blue;
+        padding: 20px;
+        border-radius: 10px;
+
+        @extend %shadow-comp;
+    }
+
+    hr {
+        border: 1px solid black;
+    }
+}
+
+#faq-container {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+
+    .faq-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: baseline;
+    }
+    
+    .faq-container div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: baseline;
+        margin-bottom: 30px;
+    }
+
+    .faq-box {
+        margin-top: 100px;
+        width: 60%;
+        min-width: 300px;
+    }
+
+    hr {
+        border: 1px solid black;
+    }
+}
