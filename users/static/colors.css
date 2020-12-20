@@ -64,15 +64,15 @@ body {
 #index-container .challenge {
   padding: 20px;
   border-radius: 25px;
-  background-color: #121212;
-  color: whitesmoke;
+  background-color: whitesmoke;
+  color: #121212;
   height: 300px;
 }
 #index-container .challenge h3 {
   height: 60px;
 }
 #index-container .challenge hr {
-  border: 1px solid whitesmoke;
+  border: 1px solid grey;
 }
 #index-container .challenge:hover {
   margin-top: -10px;
@@ -124,7 +124,7 @@ body {
   background-color: transparent;
   display: flex;
   justify-content: center;
-  color: whitesmoke;
+  color: #121212;
 }
 #faq-container .faq-container {
   display: flex;
@@ -145,7 +145,7 @@ body {
   min-width: 300px;
 }
 #faq-container hr {
-  border: 1px solid whitesmoke;
+  border: 1px solid #121212;
 }
 
 .timeline-container {

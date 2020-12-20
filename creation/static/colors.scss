@@ -87,8 +87,8 @@ body {
     .challenge {
         padding: 20px;
         border-radius: 25px;
-        background-color: $dark-background;
-        color: whitesmoke;
+        background-color: $primary-white;
+        color: $dark-background;
         height: 300px;
     
         h3 {
@@ -96,7 +96,7 @@ body {
         }
     
         hr {
-            border: 1px solid whitesmoke;
+            border: 1px solid grey;
         }
 
         @extend %shadow-comp;
@@ -167,7 +167,7 @@ body {
     background-color: transparent;
     display: flex;
     justify-content: center;
-    color: $primary-white;
+    color: $dark-background;
 
     .faq-container {
         display: flex;
@@ -191,7 +191,7 @@ body {
     }
 
     hr {
-        border: 1px solid $primary-white;
+        border: 1px solid $dark-background;
     }
 }
 
