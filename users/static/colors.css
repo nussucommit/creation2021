@@ -1,4 +1,4 @@
-#rules-container .rules-card, #index-container .challenge {
+.timeline-container .timeline .container div, #rules-container .rules-card, #index-container .challenge {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -14,11 +14,11 @@ body {
 }
 
 #navbar {
-  background-color: #121212;
+  background-color: whitesmoke;
 }
 #navbar * {
   background-color: transparent;
-  color: whitesmoke;
+  color: #121212;
 }
 #navbar .dropdown-content a {
   color: black;
@@ -98,6 +98,7 @@ body {
   background-color: transparent;
   display: flex;
   justify-content: center;
+  color: whitesmoke;
 }
 #faq-container .faq-container {
   display: flex;
@@ -118,7 +119,118 @@ body {
   min-width: 300px;
 }
 #faq-container hr {
-  border: 1px solid black;
+  border: 1px solid whitesmoke;
+}
+
+.timeline-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 200px 0 50px 0;
+}
+.timeline-container #timeline-line {
+  position: absolute;
+  height: 100%;
+  background-color: whitesmoke;
+  width: 0.5em;
+  top: 0;
+}
+.timeline-container .timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.timeline-container .timeline .timeline::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+.timeline-container .timeline .container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+.timeline-container .timeline .container::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.timeline-container .timeline .left {
+  left: 0%;
+}
+.timeline-container .timeline .right {
+  left: 50%;
+}
+.timeline-container .timeline .left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+.timeline-container .timeline .right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+.timeline-container .timeline .right::after {
+  left: -16px;
+}
+.timeline-container .timeline .content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+@media screen and (max-width: 600px) {
+  .timeline-container .timeline .timeline::after {
+    left: 31px;
+  }
+  .timeline-container .timeline .container {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  .timeline-container .timeline .container::before {
+    left: 60px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+  }
+  .timeline-container .timeline .left::after, .timeline-container .timeline .right::after {
+    left: 15px;
+  }
+  .timeline-container .timeline .right {
+    left: 0%;
+  }
+}
+.timeline-container .timeline p {
+  text-align: left;
 }
 
 /*# sourceMappingURL=colors.css.map */
