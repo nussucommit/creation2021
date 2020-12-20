@@ -1,0 +1,25 @@
+{
+  "name": "creation2021",
+  "version": "1.0.0",
+  "description": "Pages: creation2021 (creation2021/) FAQ (creation2021/faq) rules (creation2021/rules) timeline (creation2021/timeline) legacy (creation2021/legacy) challenge (creation2021/challenge) registration (creation2021/registration) submission (creation2021/submission) contact (creation2021/contact)",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --config webpack_config/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nussucommit/creation2021.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nussucommit/creation2021/issues"
+  },
+  "homepage": "https://github.com/nussucommit/creation2021#readme",
+  "devDependencies": {
+    "animejs": "^3.2.1",
+    "webpack": "^5.11.0",
+    "webpack-cli": "^4.2.0"
+  }
+}

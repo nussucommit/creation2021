@@ -111,3 +111,7 @@ static_collected
 .vscode/settings.json
 
 users/migrations
+
+#node and webpack (install modules from package.json)
+node_modules
+dist

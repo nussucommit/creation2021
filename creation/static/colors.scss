@@ -35,6 +35,35 @@ body {
     text-align: justify;
     text-justify: inter-word;
 }
+
+.background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -100;
+
+    .circle {
+        background-color: black;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    .circle-1 {
+        background: linear-gradient($secondary-coastal, $secondary-yellowgreen);
+        position: absolute;
+        top: 400px;
+        left: 400px;
+    }
+
+    .circle-2 {
+        background: linear-gradient($tertiary-orange, $secondary-blue);
+        position: absolute;
+        top: 400px;
+        left: 400px;
+    }
+}
 // navbar/menu styling
 #navbar {
     background-color: $primary-white;
