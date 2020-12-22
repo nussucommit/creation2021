@@ -42,7 +42,7 @@ def challenge_statement_1(request):
     pdf_file_path = bucket.get_key('assets/statement1.pdf')
     pdf_url = pdf_file_path.generate_url(expires_in=600)
 
-    return render(erquest, "creation/statement1.html", {"pdf_url": pdf_url})
+    return render(request, "creation/statement1.html", {"pdf_url": pdf_url})
 
 @login_required
 def challenge_statement_2(request):
@@ -51,7 +51,7 @@ def challenge_statement_2(request):
     pdf_file_path = bucket.get_key('assets/statement2.pdf')
     pdf_url = pdf_file_path.generate_url(expires_in=600)
 
-    return render(erquest, "creation/statement2.html", {"pdf_url": pdf_url})
+    return render(request, "creation/statement2.html", {"pdf_url": pdf_url})
 
 @login_required
 def challenge_statement_3(request):
@@ -60,4 +60,4 @@ def challenge_statement_3(request):
     pdf_file_path = bucket.get_key('assets/statement3.pdf')
     pdf_url = pdf_file_path.generate_url(expires_in=600)
 
-    return render(erquest, "creation/statement3.html", {"pdf_url": pdf_url})
+    return render(request, "creation/statement3.html", {"pdf_url": pdf_url})

@@ -5,11 +5,13 @@ from .models import Statement_1, Statement_2, Statement_3
 
 class UserRegisterForm(UserCreationForm):
     # Write down all the additional inputs we want for the form
+    first_name = forms.CharField(required = True)
+    last_name = forms.CharField(required = True)
     email = forms.EmailField()  # default: required = True
 
     class Meta:
         model = User    # The model that would be affected is the User model
-        fields = ['username', 'email', 'password1', 'password2']    # The fields that we want in the form and in what order
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']    # The fields that we want in the form and in what order
 
 class MasterForm(forms.Form):
     # (value, label) pair
