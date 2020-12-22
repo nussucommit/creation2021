@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import Statement_1, Statement_2, Statement_3
+from .models import SideChallenge, Statement_1, Statement_2, Statement_3
 
 class UserRegisterForm(UserCreationForm):
     # Write down all the additional inputs we want for the form
@@ -18,7 +18,9 @@ class MasterForm(forms.Form):
     CHOICES = [
     ('1', 'Challenge Statement 1'),
     ('2', 'Challenge Statement 2'),
-    ('3', 'Challenge Statement 3')]
+    ('3', 'Challenge Statement 3'),
+    ('4', 'Side Challenge'),
+    ]
 
     statement = forms.CharField(label='Which Challenge Statement do You Want to Submit', widget=forms.RadioSelect(choices=CHOICES))
         
@@ -37,4 +39,9 @@ class Form2(forms.ModelForm):
 class Form3(forms.ModelForm):
     class Meta:
         model = Statement_3
+        fields = ['img', 'raw']
+
+class Form4(forms.ModelForm):
+    class Meta:
+        model = SideChallenge
         fields = ['img', 'raw']
