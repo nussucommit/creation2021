@@ -15,6 +15,9 @@
         <div class="container">
             <div class="row" id="navbar" style="display: flex;">
                 <div class="col-md-auto menu">
+                    <button class="dropbtn"><a href="/" class="dropbtn">Home</a></button>
+                </div>
+                <div class="col-md-auto menu">
                     <div class="dropdown">
                         <button class="dropbtn">Competition Details</button>
                         <div class="dropdown-content">
@@ -46,9 +49,17 @@
                         <div class="media">
                             {% if user.username %}
                             <img class="rounded-circle account-img" style="width: 40px; height: 40px; margin-top: 8px;"src="https://pbs.twimg.com/profile_images/1506592811/Untitled.png">
+                            <div class="media-body">
+                                <h3 class="dropbtn" className="username">{{user.username}}</h3>
+                            </div>
                             <div class="media-body"> 
                                 <button class="dropbtn">
-                                    <a href=user class="dropbtn">{{ user.username }}</a>
+                                    <a href={% url 'profile' %} class="dropbtn">Profile</a>
+                                </button>
+                            </div>
+                            <div class="media-body"> 
+                                <button class="dropbtn">
+                                    <a href={% url 'logout' %}>Logout</a>
                                 </button>
                             </div>
                             {% else %}

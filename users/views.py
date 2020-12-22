@@ -3,9 +3,9 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
-from .forms import UserRegisterForm, MasterForm, Form1, Form2, Form3
+from .forms import UserRegisterForm, MasterForm, Form1, Form2, Form3, Form4
 from django.contrib.auth.decorators import login_required
-from .models import Statement_1, Statement_2, Statement_3
+from .models import Statement_1, Statement_2, Statement_3, SideChallenge
 import boto
 from decouple import config
 import re
@@ -60,7 +60,10 @@ def profile(request):
     submission_3 = Statement_3.objects.all()
     submission_3 = list(filter(lambda x: x.user == request.user, submission_3))
 
-    submissions += submission_1 + submission_2 + submission_3
+    side_challenge = SideChallenge.objects.all()
+    side_challenge = list(filter(lambda x:x.user == request.user, side_challenge))
+
+    submissions += submission_1 + submission_2 + submission_3 + side_challenge
 
     checkSubmission(submissions)
 
@@ -76,8 +79,10 @@ def submit(request):
                 return redirect('/submit/1/')
             elif statement == '2':
                 return redirect('/submit/2/')
-            else:
+            elif statement == '3':
                 return redirect('/submit/3/')
+            else:
+                return redirect('/submit/4/')
 
     form = MasterForm()
     return render(request, "users/submit.html", {'form': form})
@@ -89,8 +94,10 @@ def form(request,pk):
         form = Form1(request.POST, request.FILES)
     elif pk == 2:
         form = Form2(request.POST, request.FILES)
-    else:
+    elif pk == 3:
         form = Form3(request.POST, request.FILES)
+    else:
+        form = Form4(request.POST, request.FILES)
     # If we get a POST request, we instantiate a submission form with that POST data.
     if request.method == 'POST':
 
@@ -121,9 +128,10 @@ def form(request,pk):
             submissions = Statement_1.objects.all()
         elif pk == 2:
             submissions = Statement_2.objects.all()
-        else:
+        elif pk == 3:
             submissions = Statement_3.objects.all()
-        
+        else:
+            submissions = SideChallenge.objects.all()
         submissions = list(filter(lambda x: x.user == request.user, submissions))
 
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
