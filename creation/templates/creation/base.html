@@ -23,20 +23,12 @@
                         <div class="dropdown-content">
                             <a href={% url 'creation:challenge' %}>Challenge Statements</a>
                             <a href={% url 'creation:registration' %}>Registration</a>
-                            <a href={% url 'creation:rules' %}>Rules, Terms & Conditions</a>
                             <a href={% url 'creation:submission' %}>Submission Portal</a>
                         </div>
                       </div>
                 </div>
                 <div class="col-md-auto menu">
-                    <div class="dropdown">
-                        <button class="dropbtn">About Us</button>
-                        <div class="dropdown-content">
-                            <a href={% url 'creation:index' %}>CREATION 2021</a>
-                            <a href={% url 'creation:legacy' %}>Our Legacy</a>
-                            <a href={% url 'creation:timeline' %}>Timeline</a>
-                        </div>
-                      </div>
+                    <button class="dropbtn"><a href={% url 'creation:rules' %} class="dropbtn">Rules, Terms & Conditions</a></button>
                 </div>
                 <div class="col-md-auto menu">
                     <button class="dropbtn"><a href={% url 'creation:faq' %} class="dropbtn">FAQs</a></button>
