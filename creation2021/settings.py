@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'storages'
 ]
 
+
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
