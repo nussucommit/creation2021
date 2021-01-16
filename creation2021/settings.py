@@ -28,7 +28,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['creation-live.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['creation.nussucommit.com','creation-live.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
