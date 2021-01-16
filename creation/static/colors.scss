@@ -26,9 +26,7 @@ $dark-background: rgb(18, 18, 18);
 }
 // defined for universal use
 body {
-    min-height: 100vh;
-    background: linear-gradient($primary-pink, $tertiary-purple);
-    filter: brightness(100%);
+    background-image:url('../../static/images/challstatement_background.png');
 }
 
 .justified-par {
@@ -55,34 +53,11 @@ body {
 
 // challenge statements styling
 #index-container {
-    .challenge {
-        padding: 20px;
-        border-radius: 25px;
-        background-color: $dark-background;
-        color: whitesmoke;
-        height: 300px;
-    
-        h3 {
-            height: 60px;
-        }
-    
-        hr {
-            border: 1px solid whitesmoke;
-        }
-
-        @extend %shadow-comp;
-    }
-
-    .challenge:hover {
-        margin-top: -10px;
-        margin-bottom: 10px;
-    }
-
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
 // content-container styling

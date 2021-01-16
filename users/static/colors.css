@@ -37,7 +37,8 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
+  background-image:url('../../static/images/challstatement_background.png')
 }
 #index-container .challenge {
   padding: 20px;

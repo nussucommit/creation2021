@@ -3,9 +3,7 @@
 }
 
 body {
-  min-height: 100vh;
-  background: linear-gradient(#F15BB5, #9B5DE5);
-  filter: brightness(100%);
+  background-image:url('../../static/images/challstatement_background.png');
 }
 
 .justified-par {
@@ -30,10 +28,10 @@ body {
 
 #index-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
 }
 #index-container .challenge {
   padding: 20px;
