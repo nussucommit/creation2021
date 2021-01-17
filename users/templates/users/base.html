@@ -21,20 +21,20 @@
                     <div class="dropdown">
                         <button class="dropbtn">Competition Details</button>
                         <div class="dropdown-content">
-                            <a href={% url 'creation:challenge' %}>Challenge Statements</a>
-                            <a href={% url 'creation:registration' %}>Registration</a>
-                            <a href={% url 'creation:submission' %}>Submission Portal</a>
+                            <a href={% url 'users:challenge' %}>Challenge Statements</a>
+                            <a href={% url 'users:registration' %}>Registration</a>
+                            <a href={% url 'users:submission' %}>Submission Portal</a>
                         </div>
                       </div>
                 </div>
                 <div class="col-md-auto menu">
-                    <button class="dropbtn"><a href={% url 'creation:rules' %} class="dropbtn">Rules, Terms & Conditions</a></button>
+                    <button class="dropbtn"><a href={% url 'users:rules' %} class="dropbtn">Rules, Terms & Conditions</a></button>
                 </div>
                 <div class="col-md-auto menu">
-                    <button class="dropbtn"><a href={% url 'creation:faq' %} class="dropbtn">FAQs</a></button>
+                    <button class="dropbtn"><a href={% url 'users:faq' %} class="dropbtn">FAQs</a></button>
                 </div>
                 <div class="col-md-auto menu">
-                    <button class="dropbtn"><a href={% url 'creation:contact' %} class="dropbtn">Contact Us</a></button>
+                    <button class="dropbtn"><a href={% url 'users:contact' %} class="dropbtn">Contact Us</a></button>
                 </div>
                 <div class="col-md-auto menu" style="margin-left: auto;">
                     <div class="content-section">
@@ -46,7 +46,7 @@
                             </div>
                             <div class="media-body"> 
                                 <button class="dropbtn">
-                                    <a href={% url 'profile' %} class="dropbtn">Profile</a>
+                                    <a href={% url 'users:profile' %} class="dropbtn">Profile</a>
                                 </button>
                             </div>
                             <div class="media-body"> 

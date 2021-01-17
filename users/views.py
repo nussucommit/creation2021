@@ -9,8 +9,74 @@ from .models import Statement_1, Statement_2, Statement_3, SideChallenge
 import boto
 from decouple import config
 import re
+from django.shortcuts import render
+from django.http import HttpResponse
+import boto
+from decouple import config
+from django.contrib.auth.decorators import login_required
+
+#Frontend Views
+
+def index(request):
+    return render(request, "users/frontend/index.html")
+
+def faq(request):
+    return render(request, "users/frontend/faq.html")
+
+def rules(request):
+    return render(request, "users/frontend/rules.html")
+
+def timeline(request):
+    return render(request, "users/frontend/timeline.html")
+
+def legacy(request):
+    return render(request, "users/frontend/legacy.html")
+
+def challenge(request):
+    return render(request, "users/frontend/challenge.html")
+
+def registration(request):
+    return render(request, "users/frontend/registration.html")
+
+def submission(request):
+    return render(request, "users/frontend/submission.html")
+
+def contact(request):
+    return render(request, "users/frontend/contact.html")
+
+def user(request):
+    return render(request, "users/frontend/user.html")
+
+@login_required
+def challenge_statement_1(request):
+    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+    bucket = conn.get_bucket('creation-2021')
+    pdf_file_path = bucket.get_key('assets/statement1.pdf')
+    pdf_url = pdf_file_path.generate_url(expires_in=600)
+
+    return render(request, "users/frontend/statement1.html", {"pdf_url": pdf_url})
+
+@login_required
+def challenge_statement_2(request):
+    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+    bucket = conn.get_bucket('creation-2021')
+    pdf_file_path = bucket.get_key('assets/statement2.pdf')
+    pdf_url = pdf_file_path.generate_url(expires_in=600)
+
+    return render(request, "users/frontend/statement2.html", {"pdf_url": pdf_url})
+
+@login_required
+def challenge_statement_3(request):
+    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+    bucket = conn.get_bucket('creation-2021')
+    pdf_file_path = bucket.get_key('assets/statement3.pdf')
+    pdf_url = pdf_file_path.generate_url(expires_in=600)
+
+    return render(request, "users/frontend/statement3.html", {"pdf_url": pdf_url})
 
 
+
+# Backend Views
 def register(request):
     # If we get a POST request, we instantiate a user creation form with that POST data.
     if request.method == 'POST':
@@ -26,7 +92,7 @@ def register(request):
     # Anything that isn't a POST request, we just create a blank form.
     else:
         form = UserRegisterForm
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'users/backend/register.html', {'form': form})
 
 
 @login_required
@@ -67,7 +133,7 @@ def profile(request):
 
     checkSubmission(submissions)
 
-    return render(request, 'users/profile.html',context)
+    return render(request, 'users/backend/profile.html',context)
 
 @login_required
 def submit(request):
@@ -85,7 +151,7 @@ def submit(request):
                 return redirect('/submit/4/')
 
     form = MasterForm()
-    return render(request, "users/submit.html", {'form': form})
+    return render(request, "users/backend/submit.html", {'form': form})
 
 @login_required
 def form(request,pk):
@@ -148,4 +214,4 @@ def form(request,pk):
             context['submissions'] = submissions
             
         context['form'] = form
-    return render(request, "users/form.html", context)
+    return render(request, "users/backend/form.html", context)
