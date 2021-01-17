@@ -1,8 +1,4 @@
-* {
-  font-family: Futura,"Trebuchet MS",Arial,sans-serif; 
-}
-
-.timeline-container .timeline .container div, #rules-container .rules-card, #index-container .challenge {
+.timeline-container .timeline .container div, #rules-container .rules-card {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -61,7 +57,10 @@ button:focus {
 #navbarSupportedContent * {
   font-size: 1.5rem;
   background-color: transparent;
-  color: #121212;
+  color: #121212; 
+}
+#navbarSupportedContent .dropbtn {
+  font-size: 16px;
 }
 #navbarSupportedContent .dropdown-content a {
   color: black;
@@ -69,6 +68,7 @@ button:focus {
   text-decoration: none;
   display: block;
   background-color: white;
+  font-size: 16px;
 }
 
 #help {
