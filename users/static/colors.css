@@ -1,11 +1,26 @@
-.timeline-container .timeline .container div, #rules-container .rules-card, #index-container .challenge {
+.timeline-container .timeline .container div, #rules-container .rules-card {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(#F15BB5, #9B5DE5);
-  filter: brightness(100%);
+#faq-container .faq-box h2,
+#faq-container .faq-box p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#index-container #cable2 {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body, #index-container {
+  background: url("assets/real_bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+button:focus {
+  outline: 0;
 }
 
 .justified-par {
@@ -13,14 +28,38 @@ body {
   text-justify: inter-word;
 }
 
-#navbar {
-  background-color: whitesmoke;
+#navvy {
+  width: 100%;
+  padding: 0;
 }
-#navbar * {
+
+#homer {
+  background-color: transparent;
+  width: 200px;
+}
+#homer a.dropbtn {
+  background-color: transparent;
+  color: black;
+  min-width: 1000px;
+}
+#homer button {
+  width: 500px;
+}
+
+#navbarSupportedContent {
+  padding: 0;
+  width: 100%;
+  margin: 0;
+}
+#navbarSupportedContent ul {
+  margin-left: 0px;
+}
+#navbarSupportedContent * {
+  font-size: 1.5rem;
   background-color: transparent;
   color: #121212;
 }
-#navbar .dropdown-content a {
+#navbarSupportedContent .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
@@ -28,29 +67,108 @@ body {
   background-color: white;
 }
 
-#index-container {
+#help {
+  background-color: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+#help img {
+  position: relative;
+  right: -5px;
+  bottom: -10px;
+}
+
+#index-container {
+  margin-top: -10px;
+  width: 100vw;
+  z-index: -8;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 90vh;
 }
-#index-container .challenge {
-  padding: 20px;
-  border-radius: 25px;
-  background-color: #121212;
-  color: whitesmoke;
-  height: 300px;
+#index-container #cable2 {
+  width: 499px;
+  height: 370px;
+  background: url(assets/cable2.png);
+  transform: rotate(-9.87deg);
 }
-#index-container .challenge h3 {
-  height: 60px;
+#index-container #cable1 {
+  width: 348px;
+  height: 437px;
+  background: url(assets/cable1.png);
+  transform: rotate(-80.4deg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-#index-container .challenge hr {
-  border: 1px solid whitesmoke;
+#index-container #logo-title {
+  margin-bottom: 100px;
 }
-#index-container .challenge:hover {
-  margin-top: -10px;
-  margin-bottom: 10px;
+#index-container #hero {
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+}
+#index-container #hero #cables {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 108%;
+  padding-bottom: 100px;
+}
+#index-container #hero #cables img {
+  position: absolute;
+  left: 50vw;
+  transform: translateX(-50%);
+}
+#index-container #main {
+  width: 100vw;
+  background: #3d4264;
+  min-height: 100vh;
+}
+#index-container #main #main1,
+#index-container #main #main2,
+#index-container #main #main3 {
+  background: url("assets/dots.png");
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#index-container #main #main1 {
+  height: 1500px;
+}
+#index-container #main #main2 {
+  height: 1500px;
+}
+#index-container #main #main3 {
+  height: 1200px;
+}
+#index-container #footer {
+  width: 100vw;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .bottom {
@@ -76,6 +194,9 @@ body {
   color: black;
   filter: contrast(1000%);
 }
+#regis-container * {
+  font-size: 1.5rem;
+}
 
 #rules-container {
   background-color: transparent;
@@ -86,19 +207,21 @@ body {
 }
 #rules-container .rules-card {
   margin: 100px 10px;
-  background-color: #00BBF9;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 10px;
+  font-size: 1.5rem;
 }
 #rules-container hr {
   border: 1px solid black;
 }
 
 #faq-container {
+  font-size: 1.5rem;
   background-color: transparent;
   display: flex;
   justify-content: center;
-  color: whitesmoke;
+  color: #121212;
 }
 #faq-container .faq-container {
   display: flex;
@@ -118,8 +241,11 @@ body {
   width: 60%;
   min-width: 300px;
 }
+#faq-container .faq-box h1 {
+  font-size: 3rem;
+}
 #faq-container hr {
-  border: 1px solid whitesmoke;
+  border: 1px solid #121212;
 }
 
 .timeline-container {
@@ -163,7 +289,7 @@ body {
   height: 25px;
   right: -17px;
   background-color: white;
-  border: 4px solid #FF9F55;
+  border: 4px solid #ff9f55;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
@@ -222,7 +348,8 @@ body {
     border-width: 10px 10px 10px 0;
     border-color: transparent white transparent transparent;
   }
-  .timeline-container .timeline .left::after, .timeline-container .timeline .right::after {
+  .timeline-container .timeline .left::after,
+.timeline-container .timeline .right::after {
     left: 15px;
   }
   .timeline-container .timeline .right {
@@ -231,6 +358,94 @@ body {
 }
 .timeline-container .timeline p {
   text-align: left;
+}
+
+#contact-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contact-container #contact,
+#contact-container #subscribe,
+#contact-container #find-us {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
+}
+#contact-container #contact h1,
+#contact-container #subscribe h1,
+#contact-container #find-us h1 {
+  font-size: 5rem;
+}
+#contact-container #contact h3,
+#contact-container #subscribe h3,
+#contact-container #find-us h3 {
+  font-size: 3rem;
+}
+#contact-container #contact h4,
+#contact-container #subscribe h4,
+#contact-container #find-us h4 {
+  font-size: 2rem;
+}
+#contact-container #contact #icons img:first-child,
+#contact-container #subscribe #icons img:first-child,
+#contact-container #find-us #icons img:first-child {
+  margin-right: 100px;
+}
+#contact-container #contact form,
+#contact-container #subscribe form,
+#contact-container #find-us form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contact-container #contact form input,
+#contact-container #contact form textarea,
+#contact-container #subscribe form input,
+#contact-container #subscribe form textarea,
+#contact-container #find-us form input,
+#contact-container #find-us form textarea {
+  width: 80%;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  font-size: 1.5rem;
+  padding: 0.5rem 0;
+}
+#contact-container #contact form input::placeholder,
+#contact-container #contact form textarea::placeholder,
+#contact-container #subscribe form input::placeholder,
+#contact-container #subscribe form textarea::placeholder,
+#contact-container #find-us form input::placeholder,
+#contact-container #find-us form textarea::placeholder {
+  padding-left: 2rem;
+}
+#contact-container #contact form input[type=submit],
+#contact-container #subscribe form input[type=submit],
+#contact-container #find-us form input[type=submit] {
+  width: 40%;
+  background-color: #121212;
+  color: whitesmoke;
+  height: 4rem;
+}
+#contact-container #contact form input[type=submit]:hover,
+#contact-container #subscribe form input[type=submit]:hover,
+#contact-container #find-us form input[type=submit]:hover {
+  background-color: whitesmoke;
+  border: none;
+  color: black;
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  z-index: -10;
 }
 
 /*# sourceMappingURL=colors.css.map */
