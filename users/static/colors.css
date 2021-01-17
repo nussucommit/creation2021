@@ -1,4 +1,8 @@
-.timeline-container .timeline .container div, #rules-container .rules-card {
+* {
+  font-family: Futura,"Trebuchet MS",Arial,sans-serif; 
+}
+
+.timeline-container .timeline .container div, #rules-container .rules-card, #index-container .challenge {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
