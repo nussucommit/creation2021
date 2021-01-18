@@ -1,9 +1,9 @@
- from django.contrib.auth import authenticate, login, logout, forms
+from django.contrib.auth import authenticate, login, logout, forms
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
-from .forms import UserRegisterForm, Form1, Form2, Form3, Form4
+from .forms import UserRegisterForm, Form1, Form2, Form3, Form4, ContactUsForm
 from django.contrib.auth.decorators import login_required
 from .models import Statement_1, Statement_2, Statement_3, SideChallenge
 import boto
@@ -42,7 +42,15 @@ def submission(request):
     return render(request, "users/frontend/submission.html")
 
 def contact(request):
-    return render(request, "users/frontend/contact.html")
+    if request.method == "POST":
+        form = ContactUsForm(request.POST)
+        if form.is_valid():
+            form.save()
+    
+    form = ContactUsForm()
+
+    context = {'form': form}
+    return render(request, "users/frontend/contact.html", context)
 
 def user(request):
     return render(request, "users/frontend/user.html")
