@@ -1,8 +1,25 @@
+/* CSS for form page */
+
+#form-root {
+    display:flex;
+    min-height:100vh;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.past-submission {
+    margin-top:2rem;
+    margin-bottom:2rem;
+}
+
 /* CSS for submit page */
 
+body {
+    background-image:url("images/background.svg");
+}
 
-
-.submit-root{
+#submit-root{
     display:flex;
     width:100%;
     flex-direction:column;
