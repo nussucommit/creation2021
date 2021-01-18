@@ -15,6 +15,8 @@ urlpatterns = [
     path('challenge1', views.challenge_statement_1, name="statement1"),
     path('challenge2', views.challenge_statement_2, name="statement2"),
     path('challenge3', views.challenge_statement_3, name="statement3"),
+    path('challenge4', views.challenge_statement_4, name="statement4"),
+    path('challenge5', views.side_challenge, name="side challenge"),
     path('profile', views.profile, name='profile'),
 ]
 
