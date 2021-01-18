@@ -137,21 +137,8 @@ def profile(request):
 
 @login_required
 def submit(request):
-    if request.method == 'POST':
-        form = MasterForm(request.POST)
-        if form.is_valid():
-            statement = form.cleaned_data['statement']
-            if statement == '1':
-                return redirect('/submit/1/')
-            elif statement == '2':
-                return redirect('/submit/2/')
-            elif statement == '3':
-                return redirect('/submit/3/')
-            else:
-                return redirect('/submit/4/')
 
-    form = MasterForm()
-    return render(request, "users/backend/submit.html", {'form': form})
+    return render(request, "users/backend/submit.html")
 
 @login_required
 def form(request,pk):
