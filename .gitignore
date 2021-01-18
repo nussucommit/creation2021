@@ -112,3 +112,6 @@ static_collected
 
 users/migrations
 venv/
+
+# Prettier stuff
+settings.json

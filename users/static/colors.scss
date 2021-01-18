@@ -339,30 +339,31 @@ button:focus {
       flex-direction: column;
       align-items: center;
 
-      input,
-      textarea {
-        width: 80%;
+      .inputter {
+        width: 40vw;
         margin: 20px 0;
         background-color: rgba(255, 255, 255, 0.8);
         border: 1px solid black;
         font-size: 1.5rem;
-        padding: 0.5rem 0;
+        padding: 0.5rem 2rem;
+        box-sizing: border-box;
       }
 
-      input::placeholder,
-      textarea::placeholder {
-        padding-left: 2rem;
+      .inputter:focus {
+        outline: 0;
       }
+
       input[type="submit"] {
         width: 40%;
         background-color: $dark-background;
         color: $primary-white;
+        font-size: 1.5rem;
         height: 4rem;
+        border: none;
       }
 
       input[type="submit"]:hover {
         background-color: $primary-white;
-        border: none;
         color: black;
       }
     }
@@ -463,4 +464,3 @@ body {
   overflow-x: hidden;
   z-index: -10;
 }
-
