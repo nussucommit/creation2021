@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -15,9 +16,10 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../static/style.css" />
-    <link rel="stylesheet" href="../../static/colors.css" />
-    <title>users 2021</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'colors.css' %}" />
+    <link rel="icon" type="image/png" href="{% static 'images/creationlogo.png' %}" />
+    <title>Creation 2021</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,7 +45,7 @@
                 <div class="dropdown-content">
                     <a href={% url 'users:challenge' %}>Challenge Statements</a>
                     <a href={% url 'users:registration' %}>Registration</a>
-                    <a href={% url 'users:submission' %}>Submission Portal</a>
+                    <a href={% url 'users:submit' %}>Submission Portal</a>
                 </div>
           </li>
           <li class="nav-item">

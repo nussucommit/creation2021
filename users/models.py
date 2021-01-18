@@ -40,3 +40,10 @@ class SideChallenge(models.Model):
     raw_url = models.CharField(max_length=300, blank = True)
     time = models.DateTimeField(default=now())
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
+
+
+class ContactUs(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=300)
+    email = models.EmailField()
+    inquiry = models.TextField()
