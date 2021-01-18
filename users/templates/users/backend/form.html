@@ -1,5 +1,7 @@
 {% extends "users/base.html" %}
+{% load static %}
 {% block content %}
+  <link rel="stylesheet" href="{% static "style.css" %}"> 
     <div id='content'>
         <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
@@ -13,7 +15,7 @@
           <tr>
             <th>Image name</th>
             <th>File name</th>
-            <th>User(For debugging only)</th>
+            <th>User</th>
             <th>Uploaded</th>
           </tr>
         </thead>
