@@ -1,10 +1,17 @@
-{% extends "users/base.html" %} {% block content %}
+{% extends "users/base.html" %} {% block content %} {% load widget_tweaks %}
 <div id="contact-container">
     <div id="contact">
         <h1>Contact Us!</h1>
         <h3>Anything you want to ask?</h3>
         <form action="/contact" method="post">
-            {%csrf_token%} {{form}}
+            {%csrf_token%}
+            <div>
+                {% render_field form.name class="" placeholder="Enter Name" %}
+            </div>
+            <div>
+                {% render_field form.email class="" placeholder="Enter Email" %}
+            </div>
+            <div>{% render_field form.inquiry %}</div>
             <input type="submit" />
         </form>
     </div>
