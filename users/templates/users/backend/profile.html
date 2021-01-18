@@ -1,30 +1,42 @@
 {% extends "users/base.html" %} {% block content %}
 <div id="profile">
-  <h1>Hello, {{ user.first_name }}</h1>
-  <table>
-    <thead>
-      <tr>
-        <th>Image name</th>
-        <th>File name</th>
-        <th>User</th>
-        <th>Uploaded</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for obj in submissions %}
-      <tr>
-        <td><a href="{{ obj.img_url }}" download> {{ obj.img }} </a></td>
-        <td><a href="{{ obj.raw_url }}"> {{ obj.raw }} </a></td>
-        <td>{{ obj.user }}</td>
-        <td>{{ obj.time }}</td>
-      </tr>
-      {% empty %}
-      <tr>
-        <td colspan="3">No Past Submissions</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <h1>Hello, {{ user.first_name }}!</h1>
+  <div id="justcard">
+    <h1>Submissions</h1>
+    <div id="scroller">
+    <table id="submissions-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>File name</th>
+          <th>User</th>
+          <th>Uploaded</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for obj in submissions %}
+        <tr>
+          <td class="image">
+            <a href="{{ obj.img_url }}" download>
+              <img src="{{ obj.img_url }}" alt=""
+            /></a>
+          </td>
+          <td class="filename">
+            <a href="{{ obj.raw_url }}"> <p>{{ obj.raw }}</p> </a>
+          </td>
+          <td class="user">{{ obj.user }}</td>
+          <td class="uploaded">{{ obj.time }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="3">No Past Submissions</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+    <a href={% url 'users:submit' %} id="addsubmission">Add another submission</a>
+  </div>
   <div id="telegram">
     <a href="https://t.me/joinchat/VxF_quxz-kSXL2O1" target="_blank"
       ><img src="../../static/assets/telegram.svg" alt="" /> Get in touch and
