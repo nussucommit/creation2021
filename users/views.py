@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
-from .forms import UserRegisterForm, MasterForm, Form1, Form2, Form3, Form4
+from .forms import UserRegisterForm, Form1, Form2, Form3, Form4
 from django.contrib.auth.decorators import login_required
 from .models import Statement_1, Statement_2, Statement_3, SideChallenge
 import boto
@@ -137,21 +137,8 @@ def profile(request):
 
 @login_required
 def submit(request):
-    if request.method == 'POST':
-        form = MasterForm(request.POST)
-        if form.is_valid():
-            statement = form.cleaned_data['statement']
-            if statement == '1':
-                return redirect('/submit/1/')
-            elif statement == '2':
-                return redirect('/submit/2/')
-            elif statement == '3':
-                return redirect('/submit/3/')
-            else:
-                return redirect('/submit/4/')
 
-    form = MasterForm()
-    return render(request, "users/backend/submit.html", {'form': form})
+    return render(request, "users/backend/submit.html")
 
 @login_required
 def form(request,pk):
@@ -214,4 +201,4 @@ def form(request,pk):
             context['submissions'] = submissions
             
         context['form'] = form
-    return render(request, "users/backend/form.html", context)
+    return render(request, "users/backend/form1.html", context)

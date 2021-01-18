@@ -13,18 +13,6 @@ class UserRegisterForm(UserCreationForm):
         model = User    # The model that would be affected is the User model
         fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']    # The fields that we want in the form and in what order
 
-class MasterForm(forms.Form):
-    # (value, label) pair
-    CHOICES = [
-    ('1', 'Challenge Statement 1'),
-    ('2', 'Challenge Statement 2'),
-    ('3', 'Challenge Statement 3'),
-    ('4', 'Side Challenge'),
-    ]
-
-    statement = forms.CharField(label='Which Challenge Statement do You Want to Submit', widget=forms.RadioSelect(choices=CHOICES))
-        
-
 
 class Form1(forms.ModelForm):
     class Meta:
