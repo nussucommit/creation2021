@@ -1,8 +1,8 @@
-#rules-container .rules-card {
+.statements .statements-cards, #rules-container .rules-card {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-#challenges-container #content .card p, #faq-container .faq-box h2,
+.statements .statements-cards p, #challenges-container #content .card p, #faq-container .faq-box h2,
 #faq-container .faq-box p {
   text-align: justify;
   text-justify: inter-word;
@@ -368,9 +368,12 @@ button:focus {
   font-size: 2rem;
   margin-bottom: 50px;
 }
-#challenges-container #content .card img {
+#challenges-container #content .card a {
+  max-width: 70%;
+}
+#challenges-container #content .card a img {
+  width: 100%;
   height: 100px;
-  max-width: 60%;
 }
 #challenges-container #content .card p {
   margin-top: 20px;
@@ -400,6 +403,25 @@ button:focus {
   color: royalblue;
 }
 
+.statements {
+  width: 100%;
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.statements .statements-cards {
+  width: 60%;
+  padding: 100px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: #3d4264;
+  color: aliceblue;
+  font-size: 1.3rem;
+}
+.statements .statements-cards hr {
+  border: 2px solid aliceblue;
+}
 body {
   width: 100vw;
   min-height: 100vh;

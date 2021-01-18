@@ -1,9 +1,43 @@
-{% extends "users/base.html" %}
-{% block content %}
-    <div>
-        <a href="{{ pdf_url }}" download>Download PDF</a>
+{% extends "users/base.html" %} {% block content %}
+<div class="statements">
+  <div class="statements-cards">
+    <h1>Instant Noodle Infographic for WhatIF Foods</h1>
+    <br />
+    <hr />
+    <br />
+    <div id="content">
+      <p>
+        Create and design an infographic to highlight the wonderful properties
+        of WhatIF Foods Noodles and why they are special. The design should
+        bring out the technology behind our noodles, their nutritional
+        properties and how they compare to other similar products in the market.
+        The infographic should also demonstrate how this product is more
+        environmentally friendly to the planet.
+        <br />
+        <br />
+        <strong>Company Background</strong>
+        <br />
+        <br />
+        “Our team became disillusioned with our current food system's status quo
+        in creating and maintaining the paradoxical existence of hunger,
+        obesity, nutritional deficiency, and the destruction of our planet. In
+        2013, we left our corporate jobs to change the world one meal at a time.
+        <br />
+        <br />
+        Our belief is simple: food should always be nourishing to us and the
+        planet, whether it is a hearty breakfast, a rushed office lunch, or a
+        midnight snack.
+        <br />
+        <br />
+        Finding our roots in nature, we harness the power of Future Fit Crops,
+        which are nutritionally dense, climate-resilient, resource-efficient,
+        and can be grown on degraded lands, to innovate food we know and love.
+        After years of research, we are proud to show you our take on a better
+        future of food: one that is not only nourishing, diverse, and resilient
+        but also empowers farming communities.”
+      </p>
+      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
     </div>
+  </div>
+</div>
 {% endblock content %}
-
-
-

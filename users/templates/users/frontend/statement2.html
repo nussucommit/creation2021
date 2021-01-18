@@ -1,9 +1,27 @@
-{% extends "users/base.html" %}
-{% block content %}
-    <div>
-        <a href="{{ pdf_url }}" download>Download PDF</a>
+{% extends "users/base.html" %} {% block content %}
+<div class="statements">
+  <div class="statements-cards">
+    <h1>Poster for NUS Bug Bounty Challenge</h1>
+    <br />
+    <hr />
+    <br />
+    <div id="content">
+      <p>
+        Create a poster advertisement to join the NUS Bug Bounty Challenge 2021.
+        The design should attract the attention of students and staff of NUS,
+        stirring a desire in them to participate in the NUS Bug Bounty
+        Challenge.
+        <br />
+        <br />
+        <strong>Company Background</strong>
+        <br />
+        <br />
+        NUS Information Technology is the cornerstone for provision of reliable,
+        high performance and secure IT infrastructure and effective IT
+        governance and services for the campus.
+      </p>
+      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
     </div>
+  </div>
+</div>
 {% endblock content %}
-
-
-

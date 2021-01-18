@@ -1,32 +1,49 @@
 {% extends "users/base.html" %} {% block content %}
-<div id="statement-1">
-  <a href="{{ pdf_url }}" download>Download PDF</a>
-  <h1>Key Visual for NUS Commencement Class Giving 2022</h1>
-  <div id="content">
-    <p>
-      Create a new, refreshed key visual for Commencement Class Giving 2022. The
-      design should inspire pride in being affiliated with NUS, as well as
-      encourage students to leave a legacy by making a gift in support of their
-      juniors.
-      <br />
-      A key visual is not a logo design, but an effective add-on to the logo. A
-      key visual refers to an image motif used in campaigns in order to enhance
-      brand recognition. The message and context of a campaign should be easily
-      and quickly grasped from the key visual.
-      <br />
-      Company Background (Development Office)
-      <br />
-      The Development Office is the philanthropic arm of the National University
-      of Singapore (NUS). It leads NUS’ efforts in fundraising for the
-      development of the University.
-      <br />
-      Annual Giving (AG) is a yearly campaign that encourages a commitment to
-      mindful giving. Its success is testament to the solidarity of the NUS
-      community, including alumni, Commencement Class, students, faculty and
-      staff members, as well as friends. The campaign supports University-wide
-      bursaries and scholarships, as well as the priority funds of different
-      faculties. Annual Giving oversees four different programmes:
-    </p>
+<div class="statements">
+  <div class="statements-cards">
+    <h1>Key Visual for NUS Commencement Class Giving 2022</h1>
+    <br />
+    <hr />
+    <br />
+    <div id="content">
+      <p>
+        Create a new, refreshed key visual for Commencement Class Giving 2022.
+        The design should inspire pride in being affiliated with NUS, as well as
+        encourage students to leave a legacy by making a gift in support of
+        their juniors.
+        <br />
+        <br />
+        A key visual is not a logo design, but an effective add-on to the logo.
+        A key visual refers to an image motif used in campaigns in order to
+        enhance brand recognition. The message and context of a campaign should
+        be easily and quickly grasped from the key visual.
+        <br />
+        <br />
+        Company Background (Development Office)
+        <br />
+        <br />
+        <strong>The Development Office</strong> is the philanthropic arm of the
+        National University of Singapore (NUS). It leads NUS’ efforts in
+        fundraising for the development of the University.
+        <br />
+        <br />
+        <strong>Annual Giving (AG)</strong> is a yearly campaign that encourages
+        a commitment to mindful giving. Its success is testament to the
+        solidarity of the NUS community, including alumni, Commencement Class,
+        students, faculty and staff members, as well as friends. The campaign
+        supports University-wide bursaries and scholarships, as well as the
+        priority funds of different faculties. Annual Giving oversees four
+        different programmes:
+
+        <ul>
+          <li>Commencement Class Giving</li>
+          <li>Faculty & Staff Giving</li>
+          <li>Alumni Giving</li>
+          <li>Friends & Corporate Giving</li>
+        </ul>
+      </p>
+      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
+    </div>
   </div>
 </div>
 {% endblock content %}

@@ -416,9 +416,12 @@ button:focus {
       font-size: 2rem;
       margin-bottom: 50px;
 
-      img {
-        height: 100px;
-        max-width: 60%;
+      a {
+        max-width: 70%;
+        img {
+          width: 100%;
+          height: 100px;
+        }
       }
 
       p {
@@ -452,6 +455,34 @@ button:focus {
 
     a:hover {
       color: royalblue;
+    }
+  }
+}
+
+.statements {
+  width: 100%;
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .statements-cards {
+    width: 60%;
+    padding: 100px;
+    box-sizing: border-box;
+    border-radius: 25px;
+    background-color: #3d4264;
+    color: aliceblue;
+    font-size: 1.3rem;
+
+    @extend %shadow-comp;
+
+    hr {
+      border: 2px solid aliceblue;
+    }
+
+    p {
+      @extend %justification;
     }
   }
 }

@@ -1,9 +1,28 @@
-{% extends "users/base.html" %}
-{% block content %}
-    <div>
-        <a href="{{ pdf_url }}" download>Download PDF</a>
+{% extends "users/base.html" %} {% block content %}
+<div class="statements">
+  <div class="statements-cards">
+    <h1>Key Visual for NUS Commencement Class Giving 2022</h1>
+    <br />
+    <hr />
+    <br />
+    <div id="content">
+      <p>
+        Create a series of digital badge as credentials that can be published on Accredible, and downloadable by the respective group of students, which include: 
+        <ol>
+            <li>CFA Arts Excellence Group Executive Committee (EXCO)</li>
+            <li>CFA Arts Ambassador</li>
+            <li>Community Outreach Ambassador</li>
+        </ol>
+        The digital badge design should include:
+        <ul>
+          <li>NUS CFA Logo (Pls refer to the visual identity guide for proper usage and application of the NUS CFA logo, pantone and recommended use of secondary elements)</li>
+          <li>Elements (graphics/motifs/typography) that represent the various community identified. </li>
+          <li>Category/title for the respective group of student community listed above.</li>
+          <li>Please refer to artwork requirements for detailed specs</li>
+        </ul>
+      </p>
+      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
     </div>
+  </div>
+</div>
 {% endblock content %}
-
-
-

@@ -1,9 +1,28 @@
-{% extends "users/base.html" %}
-{% block content %}
-    <div>
-        <a href="{{ pdf_url }}" download>Download PDF</a>
+{% extends "users/base.html" %} {% block content %}
+<div class="statements">
+  <div class="statements-cards">
+    <h1>Logo and Slogan for AlumNUS</h1>
+    <br />
+    <hr />
+    <br />
+    <div id="content">
+      <p>
+        Think up and re-write a slogan and create a logo that alumni can rally
+        together under: being both visually appealing and catchy in pure text
+        form (hashtag-able). Bonus points if it includes NUS (or AlumNUS), and
+        uses NUS colours.
+        <br />
+        <br />
+        <strong>Company Background</strong>
+        <br />
+        <br />
+        The NUS Office of Alumni Relation’s (OAR) key purpose is to help you
+        stay connected to your alma mater and to the University. As an alumnus,
+        you are part of our family of 312,000 alumni from more than 100
+        countries across the globe.
+      </p>
+      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
     </div>
+  </div>
+</div>
 {% endblock content %}
-
-
-
