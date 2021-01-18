@@ -36,7 +36,11 @@
         future of food: one that is not only nourishing, diverse, and resilient
         but also empowers farming communities.”
       </p>
+      {% if user.username %}
       <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
+      {% else %}
+      <p><strong><a href={ url 'login' } >Sign in to see more of the prompt.</a></strong></p>
+      {% endif %}
     </div>
   </div>
 </div>

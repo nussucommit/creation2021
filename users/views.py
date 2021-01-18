@@ -55,7 +55,7 @@ def contact(request):
 def user(request):
     return render(request, "users/frontend/user.html")
 
-@login_required
+
 def challenge_statement_1(request):
     conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
     bucket = conn.get_bucket('creation-2021')
@@ -64,7 +64,6 @@ def challenge_statement_1(request):
 
     return render(request, "users/frontend/statement1.html", {"pdf_url": pdf_url})
 
-@login_required
 def challenge_statement_2(request):
     conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
     bucket = conn.get_bucket('creation-2021')
@@ -73,7 +72,6 @@ def challenge_statement_2(request):
 
     return render(request, "users/frontend/statement2.html", {"pdf_url": pdf_url})
 
-@login_required
 def challenge_statement_3(request):
     conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
     bucket = conn.get_bucket('creation-2021')
@@ -82,7 +80,6 @@ def challenge_statement_3(request):
 
     return render(request, "users/frontend/statement3.html", {"pdf_url": pdf_url})
 
-@login_required
 def challenge_statement_4(request):
     conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
     bucket = conn.get_bucket('creation-2021')
@@ -91,7 +88,6 @@ def challenge_statement_4(request):
 
     return render(request, "users/frontend/statement4.html", {"pdf_url": pdf_url})
 
-@login_required
 def side_challenge(request):
     conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
     bucket = conn.get_bucket('creation-2021')
