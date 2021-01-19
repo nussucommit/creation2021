@@ -84,8 +84,12 @@ WSGI_APPLICATION = 'creation2021.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'test_2',
+        'USER': 'postgres',
+        'PASSWORD': 'nielsen123',
+        'HOST': 'database-2.cqjttimbxo5b.ap-southeast-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
