@@ -82,6 +82,13 @@
                                 </button>
                             </div>
                             {% endif %}
+                            {% if request.user.is_superuser %}
+                            <div class="media-body"> 
+                              <button class="dropbtn">
+                                <a href={% url 'users:inquiries' %} class="dropbtn">View Inquiries</a>
+                              </button>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

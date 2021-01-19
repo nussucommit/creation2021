@@ -21,6 +21,7 @@ urlpatterns = [
     path('challenge4', views.challenge_statement_4, name="statement4"),
     path('challenge5', views.side_challenge, name="side challenge"),
     path('profile', views.profile, name='profile'),
+    path('inquiries',views.inquiries, name="inquiries")
 ]
 
 urlpatterns += [

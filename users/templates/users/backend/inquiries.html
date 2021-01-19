@@ -2,6 +2,19 @@
 
 {% load static %}
 {% block content %}
-
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Question</th>
+    </tr>
+    {% for query in queries%}
+        <tr>
+            <td>{{query.name}}</td>
+            <td>{{query.email}}</td>
+            <td>{{query.inquiry}}</td>
+        </tr>
+    {% endfor %}
+</table>
 
 {% endblock content %}

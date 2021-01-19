@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib import messages
 from .forms import UserRegisterForm, Form1, Form2, Form3, Form4, Form5, ContactUsForm
 from django.contrib.auth.decorators import login_required
-from .models import Statement_1, Statement_2, Statement_3, Statement_4, SideChallenge
+from .models import Statement_1, Statement_2, Statement_3, Statement_4, SideChallenge,ContactUs
 import boto
 from decouple import config
 import re
@@ -14,6 +14,7 @@ from django.http import HttpResponse
 import boto
 from decouple import config
 from django.contrib.auth.decorators import login_required
+from .decorators import allowed_users
 
 #Frontend Views
 
@@ -43,9 +44,14 @@ def submission(request):
 
 #Backend Views
 
+@allowed_users(allowed_roles=['admin'])
 def inquiries(request):
-    
-    return render(request, "users/backend/inquiries.html")
+
+    queries = ContactUs.objects.all()
+
+    context = {'queries':queries}
+
+    return render(request, "users/backend/inquiries.html",context)
 
 def contact(request):
     if request.method == "POST":
