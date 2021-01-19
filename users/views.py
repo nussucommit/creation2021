@@ -41,6 +41,12 @@ def registration(request):
 def submission(request):
     return render(request, "users/frontend/submission.html")
 
+#Backend Views
+
+def inquiries(request):
+    
+    return render(request, "users/backend/inquiries.html")
+
 def contact(request):
     if request.method == "POST":
         form = ContactUsForm(request.POST)
