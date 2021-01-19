@@ -84,12 +84,8 @@ WSGI_APPLICATION = 'creation2021.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'test_2',
-        'USER': 'postgres',
-        'PASSWORD': 'nielsen123',
-        'HOST': 'database-2.cqjttimbxo5b.ap-southeast-1.rds.amazonaws.com',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -156,10 +152,3 @@ AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 
 AWS_STORAGE_BUCKET_NAME = 'creation-2021'
 
-#SMTP Configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'radiansteam@gmail.com'
-EMAIL_HOST_PASSWORD = 'radianMD11'
