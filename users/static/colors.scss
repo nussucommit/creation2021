@@ -250,7 +250,7 @@ button:focus {
   .rules-card {
     margin: 100px 10px;
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
+    padding: 30px 50px;
     border-radius: 10px;
     font-size: 1.5rem;
     @extend %shadow-comp;
@@ -258,6 +258,10 @@ button:focus {
 
   hr {
     border: 1px solid black;
+  }
+
+  p {
+    @extend %justification;
   }
 }
 

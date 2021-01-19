@@ -1,487 +1,471 @@
-.statements .statements-cards,
-#rules-container .rules-card {
-    box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
+.statements .statements-cards, #rules-container .rules-card {
+  box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-.statements .statements-cards p,
-#challenges-container #content .card p,
-#faq-container .faq-box h2,
-#faq-container .faq-box p {
-    text-align: justify;
-    text-justify: inter-word;
+.statements .statements-cards p, #challenges-container #content .card p, #faq-container .faq-box h2,
+#faq-container .faq-box p, #rules-container p {
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 #index-container #cable2 {
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-body,
-#index-container {
-    background: url("assets/real_bg.svg");
-    background-repeat: no-repeat;
-    background-size: cover;
+body, #index-container {
+  background: url("assets/real_bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 button:focus {
-    outline: 0;
+  outline: 0;
 }
 
 .justified-par {
-    text-align: justify;
-    text-justify: inter-word;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 #navvy {
-    width: 100%;
-    padding: 0;
+  width: 100%;
+  padding: 0;
 }
 
 #homer {
-    background-color: transparent;
-    width: 200px;
+  background-color: transparent;
+  width: 200px;
 }
 #homer a.dropbtn {
-    background-color: transparent;
-    color: black;
-    min-width: 1000px;
+  background-color: transparent;
+  color: black;
+  min-width: 1000px;
 }
 #homer button {
-    width: 500px;
+  width: 500px;
 }
 
 #navbarSupportedContent {
-    padding: 0;
-    width: 100%;
-    margin: 0;
+  padding: 0;
+  width: 100%;
+  margin: 0;
 }
 #navbarSupportedContent ul {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 #navbarSupportedContent * {
-    font-size: 1.2rem;
-    background-color: transparent;
-    color: #121212;
+  font-size: 1.2rem;
+  background-color: transparent;
+  color: #121212;
 }
 #navbarSupportedContent .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    background-color: white;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background-color: white;
 }
 
 #help {
-    background-color: rgba(255, 255, 255, 0.5);
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    z-index: 100;
+  background-color: rgba(255, 255, 255, 0.5);
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  z-index: 100;
 }
 #help img {
-    position: relative;
-    right: -5px;
-    bottom: -10px;
+  position: relative;
+  right: -5px;
+  bottom: -10px;
 }
 
 #index-container {
-    margin-top: -10px;
-    width: 100vw;
-    z-index: -8;
-    overflow-x: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+  margin-top: -10px;
+  width: 100vw;
+  z-index: -8;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 #index-container #cable2 {
-    width: 499px;
-    height: 370px;
-    background: url(assets/cable2.png);
-    transform: rotate(-9.87deg);
+  width: 499px;
+  height: 370px;
+  background: url(assets/cable2.png);
+  transform: rotate(-9.87deg);
 }
 #index-container #cable1 {
-    width: 348px;
-    height: 437px;
-    background: url(assets/cable1.png);
-    transform: rotate(-80.4deg);
-    background-repeat: no-repeat;
-    background-size: cover;
+  width: 348px;
+  height: 437px;
+  background: url(assets/cable1.png);
+  transform: rotate(-80.4deg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #index-container #logo-title {
-    margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 #index-container #hero {
-    margin-top: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 }
 #index-container #hero #cables {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 108%;
-    padding-bottom: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 108%;
+  padding-bottom: 100px;
 }
 #index-container #hero #cables img {
-    position: absolute;
-    left: 50vw;
-    transform: translateX(-50%);
+  position: absolute;
+  left: 50vw;
+  transform: translateX(-50%);
 }
 #index-container #main {
-    width: 100vw;
-    background: #3d4264;
-    min-height: 100vh;
+  width: 100vw;
+  background: #3d4264;
+  min-height: 100vh;
 }
 #index-container #main #main1,
 #index-container #main #main2,
 #index-container #main #main3 {
-    background: url("assets/dots.png");
-    background-size: cover;
-    background-repeat: repeat-y;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+  background: url("assets/dots.png");
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 #index-container #main #main1 {
-    height: 1500px;
+  height: 1500px;
 }
 #index-container #main #main2 {
-    height: 1500px;
+  height: 1500px;
 }
 #index-container #main #main3 {
-    height: 1200px;
+  height: 1200px;
 }
 #index-container #footer {
-    width: 100vw;
-    padding-top: 100px;
-    padding-bottom: 100px;
-    background: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+  width: 100vw;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .bottom {
-    padding-top: 300px;
-    margin: 0;
-    background-color: transparent;
+  padding-top: 300px;
+  margin: 0;
+  background-color: transparent;
 }
 
 #regis-container {
-    width: 80%;
-    margin: 40px 10%;
+  width: 80%;
+  margin: 40px 10%;
 }
 @media (min-width: 768px) {
-    #regis-container {
-        width: 50%;
-        margin: 40px 25%;
-    }
+  #regis-container {
+    width: 50%;
+    margin: 40px 25%;
+  }
 }
 #regis-container li {
-    color: black;
+  color: black;
 }
 #regis-container small {
-    color: black;
-    filter: contrast(1000%);
+  color: black;
+  filter: contrast(1000%);
 }
 #regis-container * {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 #rules-container {
-    background-color: transparent;
-    padding-bottom: 50px;
-    margin-top: 100px;
+  background-color: transparent;
+  padding-bottom: 50px;
+  margin-top: 100px;
 }
 #rules-container .col-lg-6 {
-    padding: 25px;
+  padding: 25px;
 }
 #rules-container .rules-card {
-    margin: 100px 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 1.5rem;
+  margin: 100px 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px 50px;
+  border-radius: 10px;
+  font-size: 1.5rem;
 }
 #rules-container hr {
-    border: 1px solid black;
+  border: 1px solid black;
 }
-
 #faq-container {
-    font-size: 1.5rem;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    color: #121212;
+  font-size: 1.5rem;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  color: #121212;
 }
 #faq-container .faq-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: baseline;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: baseline;
 }
 #faq-container .faq-container div {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: baseline;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: baseline;
+  margin-bottom: 30px;
 }
 #faq-container .faq-box {
-    margin-top: 100px;
-    width: 60%;
-    min-width: 300px;
+  margin-top: 100px;
+  width: 60%;
+  min-width: 300px;
 }
 #faq-container .faq-box h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 #faq-container hr {
-    border: 1px solid #121212;
+  border: 1px solid #121212;
 }
 
 #contact-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
 }
 #contact-container #contact,
 #contact-container #subscribe,
 #contact-container #find-us {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 100px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 100px;
 }
 #contact-container #contact h1,
 #contact-container #subscribe h1,
 #contact-container #find-us h1 {
-    font-size: 5rem;
+  font-size: 5rem;
 }
 #contact-container #contact h3,
 #contact-container #subscribe h3,
 #contact-container #find-us h3 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 #contact-container #contact h4,
 #contact-container #subscribe h4,
 #contact-container #find-us h4 {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 #contact-container #contact #icons a:first-child,
 #contact-container #subscribe #icons a:first-child,
 #contact-container #find-us #icons a:first-child {
-    margin-right: 100px;
+  margin-right: 100px;
 }
 #contact-container #contact form,
 #contact-container #subscribe form,
 #contact-container #find-us form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #contact-container #contact form .inputter,
 #contact-container #subscribe form .inputter,
 #contact-container #find-us form .inputter {
-    width: 40vw;
-    margin: 20px 0;
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid black;
-    font-size: 1.5rem;
-    padding: 0.5rem 2rem;
-    box-sizing: border-box;
+  width: 40vw;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  font-size: 1.5rem;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
 }
 #contact-container #contact form .inputter:focus,
 #contact-container #subscribe form .inputter:focus,
 #contact-container #find-us form .inputter:focus {
-    outline: 0;
+  outline: 0;
 }
-#contact-container #contact form input[type="submit"],
-#contact-container #subscribe form input[type="submit"],
-#contact-container #find-us form input[type="submit"] {
-    width: 40%;
-    background-color: #121212;
-    color: whitesmoke;
-    font-size: 1.5rem;
-    height: 4rem;
-    border: none;
+#contact-container #contact form input[type=submit],
+#contact-container #subscribe form input[type=submit],
+#contact-container #find-us form input[type=submit] {
+  width: 40%;
+  background-color: #121212;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  height: 4rem;
+  border: none;
 }
-#contact-container #contact form input[type="submit"]:hover,
-#contact-container #subscribe form input[type="submit"]:hover,
-#contact-container #find-us form input[type="submit"]:hover {
-    background-color: whitesmoke;
-    color: black;
+#contact-container #contact form input[type=submit]:hover,
+#contact-container #subscribe form input[type=submit]:hover,
+#contact-container #find-us form input[type=submit]:hover {
+  background-color: whitesmoke;
+  color: black;
 }
 
 #challenges-container {
-    width: 101%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 0px;
-    margin-left: -25px;
-    background: #3d4264;
-    overflow-x: hidden;
+  width: 101%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  margin-left: -25px;
+  background: #3d4264;
+  overflow-x: hidden;
 }
 #challenges-container #hero img {
-    width: 115vw;
+  width: 115vw;
 }
 #challenges-container #partners {
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: white;
-    margin-top: -220px;
-    padding-top: 100px;
-    z-index: 1;
-    padding-bottom: 50px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  margin-top: -220px;
+  padding-top: 100px;
+  z-index: 1;
+  padding-bottom: 50px;
 }
 #challenges-container #content {
-    width: 100%;
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: url("assets/dots.png");
-    z-index: 1;
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("assets/dots.png");
+  z-index: 1;
 }
 #challenges-container #content .card {
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: none;
-    font-size: 2rem;
-    margin-bottom: 50px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  font-size: 2rem;
+  margin-bottom: 50px;
 }
 #challenges-container #content .card a {
-    max-width: 70%;
+  max-width: 70%;
 }
 #challenges-container #content .card a img {
-    width: 100%;
-    height: 100px;
+  width: 100%;
+  height: 100px;
 }
 #challenges-container #content .card p {
-    margin-top: 20px;
-    width: 60%;
-    padding: 50px;
-    background: rgba(255, 255, 255, 0.5);
+  margin-top: 20px;
+  width: 60%;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 #profile {
-    font-size: 1.5rem;
-    margin-left: 50%;
-    transform: translateX(-50%);
-    margin-top: 100px;
-    margin-bottom: 100px;
+  font-size: 1.5rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 #profile #justcard {
-    padding: 25px;
-    margin: 50px 0;
-    box-sizing: border-box;
-    border-radius: 25px;
-    background: #3d4264;
-    color: aliceblue;
+  padding: 25px;
+  margin: 50px 0;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background: #3d4264;
+  color: aliceblue;
 }
 #profile #justcard #scroller {
-    max-width: 100%;
-    overflow-x: auto;
-    margin-bottom: 50px;
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: 50px;
 }
 #profile #justcard #addsubmission {
-    padding: 15px;
-    border-radius: 30px;
-    background: #00c39c;
-    color: aliceblue;
-    text-decoration: none;
+  padding: 15px;
+  border-radius: 30px;
+  background: #00c39c;
+  color: aliceblue;
+  text-decoration: none;
 }
 #profile #justcard #addsubmission:hover {
-    background: #116754;
+  background: #116754;
 }
 #profile #submissions-table td {
-    padding: 20px;
+  padding: 20px;
 }
 #profile #submissions-table .image img {
-    width: 200px;
+  width: 200px;
 }
 #profile #submissions-table .filename {
-    max-width: 300px;
-    overflow-x: scroll;
+  max-width: 300px;
+  overflow-x: scroll;
 }
 #profile #telegram {
-    padding: 10px;
-    width: 100%;
-    background: white;
-    border-radius: 50px;
+  padding: 10px;
+  width: 100%;
+  background: white;
+  border-radius: 50px;
 }
 #profile #telegram a {
-    text-decoration: none;
-    color: black;
-    font-size: 2rem;
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
 }
 #profile #telegram a img {
-    width: 3rem;
+  width: 3rem;
 }
 #profile #telegram a:hover {
-    color: royalblue;
+  color: royalblue;
 }
 
 .statements {
-    width: 100%;
-    margin: 100px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 100%;
+  margin: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .statements .statements-cards {
-    width: 60%;
-    padding: 100px;
-    box-sizing: border-box;
-    border-radius: 25px;
-    background-color: #3d4264;
-    color: aliceblue;
-    font-size: 1.3rem;
+  width: 60%;
+  padding: 100px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: #3d4264;
+  color: aliceblue;
+  font-size: 1.3rem;
 }
 .statements .statements-cards hr {
-    border: 2px solid aliceblue;
+  border: 2px solid aliceblue;
 }
 body {
-    width: 100vw;
-    min-height: 100vh;
-    box-sizing: border-box;
-    overflow-x: hidden;
-    z-index: -10;
-}
-
-.logout {
-    width: 50vw;
-    padding: 25px;
-    margin: auto;
-    margin-top: 50px;
-    box-sizing: border-box;
-    border-radius: 25px;
-    background: #3d4264;
-    color: aliceblue;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  z-index: -10;
 }
 
 /*# sourceMappingURL=colors.css.map */
