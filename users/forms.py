@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from .models import SideChallenge, Statement_1, Statement_2, Statement_3, ContactUs
+from .models import SideChallenge, Statement_1, Statement_2, Statement_3, Statement_4, ContactUs
 
 class UserRegisterForm(UserCreationForm):
     # Write down all the additional inputs we want for the form
@@ -28,8 +28,13 @@ class Form3(forms.ModelForm):
     class Meta:
         model = Statement_3
         fields = ['img', 'raw']
-
+        
 class Form4(forms.ModelForm):
+    class Meta:
+        model = Statement_4
+        fields = ['img', 'raw']
+
+class Form5(forms.ModelForm):
     class Meta:
         model = SideChallenge
         fields = ['img', 'raw']
