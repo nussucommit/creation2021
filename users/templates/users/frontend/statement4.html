@@ -37,9 +37,9 @@
         but also empowers farming communities.”
       </p>
       {% if user.username %}
-      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
+      <a href="https://drive.google.com/drive/folders/1R6JlY0le0Tk5_lIzBy7odGElcVgsXbT9" target="_blank" download>Download PDF</a>
       {% else %}
-      <p><strong><a href={ url 'login' } >Sign in to see more of the prompt.</a></strong></p>
+      <p><strong><a href={% url 'login' %} >Sign in to see more of the prompt.</a></strong></p>
       {% endif %}
     </div>
   </div>
