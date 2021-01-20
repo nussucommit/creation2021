@@ -531,8 +531,7 @@ button:focus {
     hr {
       border: 2px solid aliceblue;
     }
-
-    p {
+    #content p {
       @extend %justification;
     }
   }

@@ -2,7 +2,7 @@
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-.statements .statements-cards p, #challenges-container #content .card p, #faq-container .faq-box h2,
+.statements .statements-cards #content p, #challenges-container #content .card p, #faq-container .faq-box h2,
 #faq-container .faq-box p, #rules-container p {
   text-align: justify;
   text-justify: inter-word;

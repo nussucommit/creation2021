@@ -13,12 +13,49 @@
         Challenge.
         <br />
         <br />
-        <strong>Company Background</strong>
+        {% if user.username %}
+        <p>
+        <strong><u>Challenge Background</u></strong>
+        <br><br>
+        NUS Bug Bounty Challenge is an annual initiative to improve our cybersecurity awareness and posture through community effort. The challenge is normally held in August, the start of school term.
+<br><br>
+        Contents to be included in the poster advertisement is as follows. These should be reflected in your submissions. Note that the contents are merely placeholders and not the final product. 
+        The challenge will happen between 12 Aug and 2 Sep 2021
+        Prizes offered would be cash of up to USD1500 per bug, inclusion in Hall of Fame, Modules Credit and Certificates. 
+        Sign-up link is <a href="https://nus.edu/bugbounty">https://nus.edu/bugbounty </a> .
+<br><br>
+        The target audience of the advertisement are the students and staff of NUS
+        <br><br>
+        {% endif %}
+        <strong><u>Company Background</u></strong>
         <br />
         <br />
         NUS Information Technology is the cornerstone for provision of reliable,
         high performance and secure IT infrastructure and effective IT
         governance and services for the campus.
+        <br><br>
+        <strong><u>Prizes</u></strong>
+        <br>
+<strong>First prize: </strong>
+<ul>
+  <li>Apple iPad (32GB) and</li>
+  <li>Apple Pencil (1st Generation)</li>
+</ul>
+<strong>Second prize: </strong>
+<ul>
+  <li>Google Nest Audio</li>
+</ul>
+<strong>Third prize:</strong>
+<ul>
+  <li>Toshiba Canvio 1TB External Hard Drive</li>
+</ul>
+<strong>Newcomer Award: </strong>
+<ul>
+  <li>Wacom Intuos S </li>
+</ul>
+<i>
+Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={ url 'users:rules' } > Rules and Regulations</a>.
+</i>
       </p>
       {% if user.username %}
       <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
