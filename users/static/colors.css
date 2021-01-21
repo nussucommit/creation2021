@@ -3,7 +3,7 @@
 }
 
 .statements .statements-cards #content p, #challenges-container #content .card p, #faq-container .faq-box h2,
-#faq-container .faq-box p, #rules-container p {
+#faq-container .faq-box p, #rules-container p, #rules-container .rules-card * {
   text-align: justify;
   text-justify: inter-word;
 }
@@ -197,21 +197,33 @@ button:focus {
 #rules-container {
   background-color: transparent;
   padding-bottom: 50px;
-  margin-top: 100px;
+  margin-top: 5vw;
 }
 #rules-container .col-lg-6 {
   padding: 25px;
+  box-sizing: border-box;
 }
 #rules-container .rules-card {
-  margin: 100px 10px;
+  margin: 5vw 1vw;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 30px 50px;
   border-radius: 10px;
   font-size: 1.5rem;
+  word-wrap: break-word;
 }
 #rules-container hr {
   border: 1px solid black;
 }
+@media screen {
+  #rules-container h1 {
+    font-size: 2rem;
+  }
+  #rules-container .rules-card {
+    font-size: 1rem;
+    padding: 10px 10px;
+  }
+}
+
 #faq-container {
   font-size: 1.5rem;
   background-color: transparent;
@@ -238,7 +250,7 @@ button:focus {
   width: 100%;
 }
 #faq-container .faq-box {
-  margin-top: 100px;
+  margin-top: 5vw;
   width: 60%;
   min-width: 300px;
 }
@@ -247,6 +259,17 @@ button:focus {
 }
 #faq-container hr {
   border: 1px solid #121212;
+}
+@media screen and (max-width: 600px) {
+  #faq-container {
+    font-size: 1rem;
+  }
+  #faq-container h1.title {
+    font-size: 2rem;
+  }
+  #faq-container h2 {
+    font-size: 1.5rem;
+  }
 }
 
 #contact-container {
