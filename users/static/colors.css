@@ -496,21 +496,21 @@ button:focus {
   max-width: 300px;
   overflow-x: scroll;
 }
-#profile #telegram {
+#telegram {
   padding: 10px;
   width: 100%;
   background: white;
   border-radius: 50px;
 }
-#profile #telegram a {
+#telegram a {
   text-decoration: none;
   color: black;
   font-size: 2rem;
 }
-#profile #telegram a img {
+#telegram a img {
   width: 3rem;
 }
-#profile #telegram a:hover {
+#telegram a:hover {
   color: royalblue;
 }
 
