@@ -270,6 +270,7 @@ button:focus {
   display: flex;
   justify-content: center;
   color: $dark-background;
+  margin-bottom: 5vw;
 
   .faq-container {
     display: flex;
@@ -278,12 +279,18 @@ button:focus {
     align-items: baseline;
   }
 
-  .faq-container div {
+  .faq-container > div {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: baseline;
     margin-bottom: 30px;
+
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 20px;
+    width: 100%;
+    @extend %shadow-comp;
   }
 
   .faq-box {
