@@ -214,7 +214,7 @@ button:focus {
 #rules-container hr {
   border: 1px solid black;
 }
-@media screen {
+@media screen and (max-width: 600px) {
   #rules-container h1 {
     font-size: 2rem;
   }
@@ -277,7 +277,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 5vw;
 }
 #contact-container #contact,
 #contact-container #subscribe,
@@ -286,7 +286,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 100px;
+  padding-bottom: 5vw;
 }
 #contact-container #contact h1,
 #contact-container #subscribe h1,
@@ -306,7 +306,7 @@ button:focus {
 #contact-container #contact #icons a:first-child,
 #contact-container #subscribe #icons a:first-child,
 #contact-container #find-us #icons a:first-child {
-  margin-right: 100px;
+  margin-right: 5vw;
 }
 #contact-container #contact form,
 #contact-container #subscribe form,
@@ -316,11 +316,19 @@ button:focus {
   flex-direction: column;
   align-items: center;
 }
+#contact-container #contact form > div,
+#contact-container #subscribe form > div,
+#contact-container #find-us form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #contact-container #contact form .inputter,
 #contact-container #subscribe form .inputter,
 #contact-container #find-us form .inputter {
-  width: 40vw;
-  margin: 20px 0;
+  width: 80%;
+  margin: 1.2vw 0;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid black;
   font-size: 1.5rem;
@@ -347,6 +355,45 @@ button:focus {
 #contact-container #find-us form input[type=submit]:hover {
   background-color: whitesmoke;
   color: black;
+}
+@media screen and (max-width: 600px) {
+  #contact-container #contact,
+#contact-container #subscribe,
+#contact-container #find-us {
+    width: 90%;
+  }
+  #contact-container #contact h1,
+#contact-container #subscribe h1,
+#contact-container #find-us h1 {
+    font-size: 2.5rem;
+  }
+  #contact-container #contact h3,
+#contact-container #subscribe h3,
+#contact-container #find-us h3 {
+    font-size: 2rem;
+  }
+  #contact-container #contact h4,
+#contact-container #subscribe h4,
+#contact-container #find-us h4 {
+    font-size: 1.5rem;
+  }
+  #contact-container #contact form .inputter,
+#contact-container #subscribe form .inputter,
+#contact-container #find-us form .inputter {
+    width: 100%;
+    font-size: 1rem;
+  }
+  #contact-container #contact form input[type=submit],
+#contact-container #subscribe form input[type=submit],
+#contact-container #find-us form input[type=submit] {
+    font-size: 1.2rem;
+    height: 2.5rem;
+  }
+  #contact-container #contact #icons a img,
+#contact-container #subscribe #icons a img,
+#contact-container #find-us #icons a img {
+    width: 30vw;
+  }
 }
 
 #challenges-container {

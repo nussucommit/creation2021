@@ -6,22 +6,14 @@
     <form action="/contact" method="post">
       {%csrf_token%}
       <div>
-        {% render_field form.name class="inputter" placeholder="Enter Name" %}
+        {% render_field form.name class="inputter" placeholder="Enter Name"  required="true" %}
       </div>
       <div>
-        {% render_field form.email class="inputter" placeholder="Enter Email" %}
+        {% render_field form.email class="inputter" placeholder="Enter Email"  required="true" %}
       </div>
       <div>
-        {% render_field form.inquiry class="inputter" placeholder="Type your inquiry here" %}
+        {% render_field form.inquiry class="inputter" placeholder="Type your inquiry here"  required="true" %}
       </div>
-      <input type="submit" />
-    </form>
-  </div>
-  <div id="subscribe">
-    <h1>Subscribe</h1>
-    <h3>for more updates</h3>
-    <form action="">
-      <input type="email" placeholder="Email" required class="inputter" />
       <input type="submit" />
     </form>
   </div>
