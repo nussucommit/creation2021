@@ -366,6 +366,7 @@ button:focus {
 }
 #challenges-container #content .card a {
   max-width: 70%;
+  text-decoration: none;
 }
 #challenges-container #content .card a img {
   width: 100%;
