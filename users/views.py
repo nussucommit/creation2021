@@ -15,7 +15,10 @@ import boto
 from decouple import config
 from django.contrib.auth.decorators import login_required
 from .decorators import allowed_users
-from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.conf import settings
+from django.template.loader import render_to_string
+
 
 #Frontend Views
 
@@ -109,7 +112,7 @@ def side_challenge(request):
 
     return render(request, "users/frontend/sidestatement.html")
 
-# Backend Views
+
 def register(request):
     # If we get a POST request, we instantiate a user creation form with that POST data.
     if request.method == 'POST':
@@ -125,6 +128,17 @@ def register(request):
             # Create an alert to tell users that their account has been succesfully created
             messages.success(request, f'You account has been created! Please log in to continue')
             # Redirect to login page so they can login immidiately
+            template = render_to_string('users/backend/email_template.html', {'name': form.cleaned_data.get('first_name')})
+
+            email = EmailMessage(
+                'Registration Confirmation',
+                template,
+                settings.EMAIL_HOST_USER,
+                [form.cleaned_data.get('email')],
+            )
+            email.fail_silently = False
+            email.send()
+            
             return redirect('login')
     # Anything that isn't a POST request, we just create a blank form.
     else:

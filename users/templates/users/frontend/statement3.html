@@ -18,7 +18,7 @@
         <br><br>
         "Proud to be an AlumNUS" has been a slogan that alumni can gather together with for more than a decade. Having gone through 4 iterations:
         <br><br>
-        (/OAR Slogan.png)
+        Please refer to the <a href="#download">Challenge Brief</a> for the previous 4 iterations.
         <br><br>
         One of goals in staying up-to-date is to explore new options for both the slogan and design to stay abreast of the digital age and reflect Alumni identity going forward.
         <br><br>
@@ -50,14 +50,19 @@
   <li>Wacom Intuos S </li>
 </ul>
 <i>
-Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={ url 'users:rules' } > Rules and Regulations</a>.
+Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={% url 'users:rules' %} > Rules and Regulations</a>.
 </i>
       </p>
       {% if user.username %}
-      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
+      <a href="{{ pdf_url }}" target="_blank" download id="download">Download Challenge Brief</a>
       {% else %}
       <p><strong><a href={% url 'login' %} >Sign in to see more of the prompt.</a></strong></p>
       {% endif %}
+    </div>
+    <div id="telegram" style="margin-top: 10px">
+      <a href="https://t.me/joinchat/VxF_quxz-kSXL2O1" target="_blank"
+        ><img src="../../static/assets/telegram.svg" alt="" /> Get in touch and
+        get the latest information</a>
     </div>
   </div>
 </div>

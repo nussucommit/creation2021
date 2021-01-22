@@ -54,14 +54,19 @@
   <li>Wacom Intuos S </li>
 </ul>
 <i>
-Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={ url 'users:rules' } > Rules and Regulations</a>.
+Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={% url 'users:rules' %} > Rules and Regulations</a>.
 </i>
       </p>
       {% if user.username %}
-      <a href="{{ pdf_url }}" target="_blank" download>Download PDF</a>
+      <a href="{{ pdf_url }}" target="_blank" download>Download Challenge Brief</a>
       {% else %}
       <p><strong><a href={% url 'login' %} >Sign in to see more of the prompt.</a></strong></p>
       {% endif %}
+    </div>
+    <div id="telegram" style="margin-top: 10px">
+      <a href="https://t.me/joinchat/VxF_quxz-kSXL2O1" target="_blank"
+        ><img src="../../static/assets/telegram.svg" alt="" /> Get in touch and
+        get the latest information</a>
     </div>
   </div>
 </div>

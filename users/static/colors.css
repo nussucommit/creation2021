@@ -1,9 +1,9 @@
-.statements .statements-cards, #rules-container .rules-card {
+.statements .statements-cards, #faq-container .faq-container > div, #rules-container .rules-card {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
 .statements .statements-cards #content p, #challenges-container #content .card p, #faq-container .faq-box h2,
-#faq-container .faq-box p, #rules-container p {
+#faq-container .faq-box p, #rules-container p, #rules-container .rules-card * {
   text-align: justify;
   text-justify: inter-word;
 }
@@ -197,27 +197,40 @@ button:focus {
 #rules-container {
   background-color: transparent;
   padding-bottom: 50px;
-  margin-top: 100px;
+  margin-top: 5vw;
 }
 #rules-container .col-lg-6 {
   padding: 25px;
+  box-sizing: border-box;
 }
 #rules-container .rules-card {
-  margin: 100px 10px;
+  margin: 5vw 1vw;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 30px 50px;
   border-radius: 10px;
   font-size: 1.5rem;
+  word-wrap: break-word;
 }
 #rules-container hr {
   border: 1px solid black;
 }
+@media screen and (max-width: 600px) {
+  #rules-container h1 {
+    font-size: 2rem;
+  }
+  #rules-container .rules-card {
+    font-size: 1rem;
+    padding: 10px 10px;
+  }
+}
+
 #faq-container {
   font-size: 1.5rem;
   background-color: transparent;
   display: flex;
   justify-content: center;
   color: #121212;
+  margin-bottom: 5vw;
 }
 #faq-container .faq-container {
   display: flex;
@@ -225,15 +238,19 @@ button:focus {
   justify-content: space-evenly;
   align-items: baseline;
 }
-#faq-container .faq-container div {
+#faq-container .faq-container > div {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: baseline;
   margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
 }
 #faq-container .faq-box {
-  margin-top: 100px;
+  margin-top: 5vw;
   width: 60%;
   min-width: 300px;
 }
@@ -243,13 +260,24 @@ button:focus {
 #faq-container hr {
   border: 1px solid #121212;
 }
+@media screen and (max-width: 600px) {
+  #faq-container {
+    font-size: 1rem;
+  }
+  #faq-container h1.title {
+    font-size: 2rem;
+  }
+  #faq-container h2 {
+    font-size: 1.5rem;
+  }
+}
 
 #contact-container {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 5vw;
 }
 #contact-container #contact,
 #contact-container #subscribe,
@@ -258,7 +286,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 100px;
+  padding-bottom: 5vw;
 }
 #contact-container #contact h1,
 #contact-container #subscribe h1,
@@ -278,7 +306,7 @@ button:focus {
 #contact-container #contact #icons a:first-child,
 #contact-container #subscribe #icons a:first-child,
 #contact-container #find-us #icons a:first-child {
-  margin-right: 100px;
+  margin-right: 5vw;
 }
 #contact-container #contact form,
 #contact-container #subscribe form,
@@ -288,11 +316,19 @@ button:focus {
   flex-direction: column;
   align-items: center;
 }
+#contact-container #contact form > div,
+#contact-container #subscribe form > div,
+#contact-container #find-us form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #contact-container #contact form .inputter,
 #contact-container #subscribe form .inputter,
 #contact-container #find-us form .inputter {
-  width: 40vw;
-  margin: 20px 0;
+  width: 80%;
+  margin: 1.2vw 0;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid black;
   font-size: 1.5rem;
@@ -320,6 +356,45 @@ button:focus {
   background-color: whitesmoke;
   color: black;
 }
+@media screen and (max-width: 600px) {
+  #contact-container #contact,
+#contact-container #subscribe,
+#contact-container #find-us {
+    width: 90%;
+  }
+  #contact-container #contact h1,
+#contact-container #subscribe h1,
+#contact-container #find-us h1 {
+    font-size: 2.5rem;
+  }
+  #contact-container #contact h3,
+#contact-container #subscribe h3,
+#contact-container #find-us h3 {
+    font-size: 2rem;
+  }
+  #contact-container #contact h4,
+#contact-container #subscribe h4,
+#contact-container #find-us h4 {
+    font-size: 1.5rem;
+  }
+  #contact-container #contact form .inputter,
+#contact-container #subscribe form .inputter,
+#contact-container #find-us form .inputter {
+    width: 100%;
+    font-size: 1rem;
+  }
+  #contact-container #contact form input[type=submit],
+#contact-container #subscribe form input[type=submit],
+#contact-container #find-us form input[type=submit] {
+    font-size: 1.2rem;
+    height: 2.5rem;
+  }
+  #contact-container #contact #icons a img,
+#contact-container #subscribe #icons a img,
+#contact-container #find-us #icons a img {
+    width: 30vw;
+  }
+}
 
 #challenges-container {
   width: 101%;
@@ -328,7 +403,9 @@ button:focus {
   align-items: center;
   margin-top: 0px;
   margin-left: -25px;
-  background: #3d4264;
+  background: url("assets/background web 2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
   overflow-x: hidden;
 }
 #challenges-container #hero img {
@@ -366,6 +443,7 @@ button:focus {
 }
 #challenges-container #content .card a {
   max-width: 70%;
+  text-decoration: none;
 }
 #challenges-container #content .card a img {
   width: 100%;
@@ -418,21 +496,21 @@ button:focus {
   max-width: 300px;
   overflow-x: scroll;
 }
-#profile #telegram {
+#telegram {
   padding: 10px;
   width: 100%;
   background: white;
   border-radius: 50px;
 }
-#profile #telegram a {
+#telegram a {
   text-decoration: none;
   color: black;
   font-size: 2rem;
 }
-#profile #telegram a img {
+#telegram a img {
   width: 3rem;
 }
-#profile #telegram a:hover {
+#telegram a:hover {
   color: royalblue;
 }
 
