@@ -1,7 +1,22 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.conf import settings
 from django.utils.timezone import now
 import pytz
+
+
+class ChallengeStatus(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    register1 = models.BooleanField(default=False)
+    submit1 = models.BooleanField(default=False)
+    register2 = models.BooleanField(default=False)
+    submit2 = models.BooleanField(default=False)
+    register3 = models.BooleanField(default=False)
+    submit3 = models.BooleanField(default=False)
+    register4 = models.BooleanField(default=False)
+    submit4 = models.BooleanField(default=False)
+    registerSide = models.BooleanField(default=False)
+    submitSide = models.BooleanField(default=False)
 
 # Create your models here.
 class Statement_1(models.Model):
