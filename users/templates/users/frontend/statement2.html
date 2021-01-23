@@ -13,7 +13,7 @@
         Challenge.
         <br />
         <br />
-        {% if user.username and 'signedup' %}
+        {% if user.username and user.challengestatus.Register2 %}
         <p>
         <strong><u>Challenge Background</u></strong>
         <br><br>
@@ -57,7 +57,7 @@
 Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={% url 'users:rules' %} > Rules and Regulations</a>.
 </i>
       </p>
-      {% if user.username and 'signedup' %}
+      {% if user.username and user.challengestatus.Register2 %}
       <a href="{{ pdf_url }}" target="_blank" download>Download Challenge Brief</a>
       {% else %}
       <p><strong><a href={% url 'users:signup2' %} >Sign in to see more of the prompt.</a></strong></p>

@@ -13,7 +13,7 @@
         their juniors.
         <br />
         <br />
-        {% if user.username and 'signedup' %}
+        {% if user.username and user.challengestatus.Register1 %}
       <strong><u>Challenge Background </u></strong>
       <br>
       <br>
@@ -79,7 +79,7 @@ Commencement Class Giving is an annual tradition in which the graduating cohort 
 Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={% url 'users:rules' %} > Rules and Regulations</a>.
 </i>
       </p>
-      {% if user.username and 'signedup' %}
+      {% if user.username and user.challengestatus.Register1 %}
       <a href="{{ pdf_url }}" target="_blank" download>Download Challenge Brief</a>
       {% else %}
       <p><strong><a href={% url 'users:signup1' %} >Sign up to see more of the prompt.</a></strong></p>

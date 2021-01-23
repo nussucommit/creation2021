@@ -77,6 +77,7 @@ def challenge_statement_1(request):
     return render(request, "users/frontend/statement1.html", {'signedup': False})
 
 def challenge_statement_2(request):
+    print("HERE")
     return render(request, "users/frontend/statement2.html", {'signedup': False})
 
 def challenge_statement_3(request):
@@ -104,6 +105,7 @@ def signup_statement_1(request):
 
 @login_required
 def signup_statement_2(request):
+    print("THERE")
     if request.method == 'POST':
         current_user = User.objects.get(username = request.user.username)
         if hasattr(current_user, 'challengestatus'):

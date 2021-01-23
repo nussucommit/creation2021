@@ -20,7 +20,7 @@
           <li>Category/title for the respective group of student community listed above.</li>
           <li>Please refer to artwork requirements for detailed specs</li>
         </ul>
-        {% if user.username and 'signedup' %}
+        {% if user.username and user.challengestatus.RegisterSide %}
         <strong><u>Challenge Background</u></strong>
         <br><br>
         <p>
@@ -60,7 +60,7 @@ For more information, visit <a href="https://cfa.nus.edu.sg">cfa.nus.edu.sg</a>
   <li>1 x CFA t-shirt + 1 x NUS Arts Festival exclusive tote bag</li>
   <li>$80 worth of Art Friend e-voucher</li>
 </ul>
-      {% if user.username and 'signedup' %}
+      {% if user.username and user.challengestatus.RegisterSide %}
       <a href="https://drive.google.com/drive/folders/1RMBTqBjabJfPYsrqrWqNyuA7Ab_kUojs" target="_blank" download>Download Challenge Brief</a>
       {% else %}
       <p><strong><a href={% url 'users:signupside' %} >Sign in to see more of the prompt.</a></strong></p>
