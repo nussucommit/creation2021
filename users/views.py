@@ -3,9 +3,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
+from django.contrib.auth.models import User
 from .forms import UserRegisterForm, Form1, Form2, Form3, Form4, Form5, ContactUsForm
 from django.contrib.auth.decorators import login_required
-from .models import Statement_1, Statement_2, Statement_3, Statement_4, SideChallenge,ContactUs
+from .models import Statement_1, Statement_2, Statement_3, Statement_4, SideChallenge,ContactUs, ChallengeStatus
 import boto
 from decouple import config
 import re
@@ -73,44 +74,84 @@ def user(request):
 
 
 def challenge_statement_1(request):
-    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-    bucket = conn.get_bucket('creation-2021')
-    pdf_file_path = bucket.get_key('assets/statement1.pdf')
-    pdf_url = pdf_file_path.generate_url(expires_in=600)
-
-    return render(request, "users/frontend/statement1.html", {"pdf_url": pdf_url})
+    return render(request, "users/frontend/statement1.html", {'signedup': False})
 
 def challenge_statement_2(request):
-    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-    bucket = conn.get_bucket('creation-2021')
-    pdf_file_path = bucket.get_key('assets/statement2.pdf') # remember to change back to respective pdf
-    pdf_url = pdf_file_path.generate_url(expires_in=600)
-
-    return render(request, "users/frontend/statement2.html", {"pdf_url": pdf_url})
+    return render(request, "users/frontend/statement2.html", {'signedup': False})
 
 def challenge_statement_3(request):
-    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-    bucket = conn.get_bucket('creation-2021')
-    pdf_file_path = bucket.get_key('assets/statement3.pdf') # remember to change back to respective pdf
-    pdf_url = pdf_file_path.generate_url(expires_in=600)
-
-    return render(request, "users/frontend/statement3.html", {"pdf_url": pdf_url})
+    return render(request, "users/frontend/statement3.html", {'signedup': False})
 
 def challenge_statement_4(request):
-    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-    bucket = conn.get_bucket('creation-2021')
-    # pdf_file_path = bucket.get_key('assets/statement1.pdf') # remember to change back to respective pdf
-    # pdf_url = pdf_file_path.generate_url(expires_in=600)
-
-    return render(request, "users/frontend/statement4.html")
+    return render(request, "users/frontend/statement4.html", {'signedup': False})
 
 def side_challenge(request):
-    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-    bucket = conn.get_bucket('creation-2021')
-    # pdf_file_path = bucket.get_key('assets/statement1.pdf') # remember to change back to respective pdf
-    # pdf_url = pdf_file_path.generate_url(expires_in=600)
+    return render(request, "users/frontend/sidestatement.html", {'signedup': False})
 
-    return render(request, "users/frontend/sidestatement.html")
+@login_required
+def signup_statement_1(request):
+    if request.method == 'POST':
+        current_user = User.objects.get(username = request.user.username)
+        if hasattr(current_user, 'challengestatus'):
+            current_user.challengestatus.Register1 = True
+            current_user.save()
+        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+        bucket = conn.get_bucket('creation-2021')
+        pdf_file_path = bucket.get_key('assets/statement1.pdf')
+        pdf_url = pdf_file_path.generate_url(expires_in=600)
+        return render(request, "users/frontend/statement1.html", {'signedup': True, "pdf_url": pdf_url})
+    return render(request, "users/frontend/signup1.html")
+
+@login_required
+def signup_statement_2(request):
+    if request.method == 'POST':
+        current_user = User.objects.get(username = request.user.username)
+        if hasattr(current_user, 'challengestatus'):
+            current_user.challengestatus.Register2 = True
+            current_user.save()
+        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+        bucket = conn.get_bucket('creation-2021')
+        pdf_file_path = bucket.get_key('assets/statement2.pdf') # remember to change back to respective pdf
+        pdf_url = pdf_file_path.generate_url(expires_in=600)
+        return render(request, "users/frontend/statement2.html", {'signedup': True, "pdf_url": pdf_url})
+    return render(request, "users/frontend/signup2.html")
+
+@login_required
+def signup_statement_3(request):
+    if request.method == 'POST':
+        current_user = User.objects.get(username = request.user.username)
+        if hasattr(current_user, 'challengestatus'):
+            current_user.challengestatus.Register3 = True
+            current_user.save()
+        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+        bucket = conn.get_bucket('creation-2021')
+        pdf_file_path = bucket.get_key('assets/statement3.pdf') # remember to change back to respective pdf
+        pdf_url = pdf_file_path.generate_url(expires_in=600)
+
+        return render(request, "users/frontend/statement3.html", {'signedup': True, "pdf_url": pdf_url})
+    return render(request, "users/frontend/signup3.html")
+
+@login_required
+def signup_statement_4(request):
+    if request.method == 'POST':
+        current_user = User.objects.get(username = request.user.username)
+        if hasattr(current_user, 'challengestatus'):
+            current_user.challengestatus.Register4 = True
+            current_user.save()
+
+        return render(request, "users/frontend/statement4.html", {'signedup': True})
+    return render(request, "users/frontend/signup4.html")
+
+@login_required
+def signup_side_statement(request):
+    if request.method == 'POST':
+        current_user = User.objects.get(username = request.user.username)
+        if hasattr(current_user, 'challengestatus'):
+            current_user.challengestatus.RegisterSide = True
+            current_user.save()
+
+        return render(request, "users/frontend/sidestatement.html", {'signedup': True})
+    return render(request, "users/frontend/signupside.html")
 
 
 def register(request):

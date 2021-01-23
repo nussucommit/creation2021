@@ -20,6 +20,11 @@ urlpatterns = [
     path('challenge3', views.challenge_statement_3, name="statement3"),
     path('challenge4', views.challenge_statement_4, name="statement4"),
     path('challenge5', views.side_challenge, name="sidechallenge"),
+    path('signup1', views.signup_statement_1, name="signup1"),
+    path('signup2', views.signup_statement_2, name="signup2"),
+    path('signup3', views.signup_statement_3, name="signup3"),
+    path('signup4', views.signup_statement_4, name="signup4"),
+    path('signup5', views.signup_side_statement, name="signupside"),
     path('profile', views.profile, name='profile'),
     path('inquiries',views.inquiries, name="inquiries")
 ]

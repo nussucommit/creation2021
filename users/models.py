@@ -6,7 +6,8 @@ import pytz
 
 
 class ChallengeStatus(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=False)
+    test = models.BooleanField(default=True)
     register1 = models.BooleanField(default=False)
     submit1 = models.BooleanField(default=False)
     register2 = models.BooleanField(default=False)
