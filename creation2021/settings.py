@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'users',
     'crispy_forms',
     'storages',
-    'widget_tweaks'
+    'widget_tweaks',
+    'captcha'
 ]
 
 

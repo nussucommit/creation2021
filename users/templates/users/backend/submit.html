@@ -8,10 +8,12 @@
         <h1>Submission</h1>
     </div>
     <div class="submission-boxes">
+        {% if registered.register1 %}
         <a class="boxes" href="/submit/1/">
             <img src="{% static 'images/development_office_submission.png' %}" class="image">
             <h4>#1 Key Visual for Commencement Class Giving 2022</h4>
         </a>
+        {% endif %}
         <a class="boxes" href="/submit/2/">
             <img src="{% static 'images/information_technology_submission.png' %}" class="image">
             <h4>#2 Poster for NUS Bug Bounty Challenge 2021</h4>

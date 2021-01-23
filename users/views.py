@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib import messages
 from .forms import UserRegisterForm, Form1, Form2, Form3, Form4, Form5, ContactUsForm
 from django.contrib.auth.decorators import login_required
-from .models import Statement_1, Statement_2, Statement_3, Statement_4, SideChallenge,ContactUs
+from .models import Statement_1, Statement_2, Statement_3, Statement_4, SideChallenge,ContactUs, ChallengeStatus
 import boto
 from decouple import config
 import re
@@ -52,7 +52,6 @@ def submission(request):
 def inquiries(request):
 
     queries = ContactUs.objects.all()
-
     context = {'queries':queries}
 
     return render(request, "users/backend/inquiries.html",context)
@@ -121,13 +120,18 @@ def register(request):
             # Creates the user in our database (Check admin page to confirm)
             form.save()
             username = form.cleaned_data.get('username')
-
+            to = form.cleaned_data.get('email')
+            subject='Thanks for registering'
+            message= f'Hey {username}, you have succesfully registered for an account.'
+            send_mail(subject,message,'creation.committee@nussucommit.com',[to])
             # Create an alert to tell users that their account has been succesfully created
             messages.success(request, f'You account has been created! Please log in to continue')
+            # Redirect to login page so they can login immidiately
+            template = render_to_string('users/backend/email_template.html', {'name': form.cleaned_data.get('first_name')})
 
             email = EmailMessage(
-                'Thanks for Registering for Creation 2021',
-                f'Hey {username}, you have succesfully registered for an account.',
+                'Registration Confirmation',
+                template,
                 settings.EMAIL_HOST_USER,
                 [form.cleaned_data.get('email')],
             )
@@ -186,8 +190,9 @@ def profile(request):
 
 @login_required
 def submit(request):
-
-    return render(request, "users/backend/submit.html")
+    registered = ChallengeStatus.objects.filter(user == request.user)
+    context = {'registered':registered}
+    return render(request, "users/backend/submit.html",context)
 
 @login_required
 def form(request,pk):
