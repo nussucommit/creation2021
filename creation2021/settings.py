@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
     'widget_tweaks',
-    'captcha',
+    'captcha'
 ]
 
 
@@ -161,3 +161,6 @@ EMAIL_USE_SSL = False
 EMAIL_HOST_USER = 'creation.committee@nussucommit.com'
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'creation.committee@nussucommit.com'
+
+RECAPTCHA_PUBLIC_KEY = '6LfxSToaAAAAAAG3WDxIW9n_xkKjP2AP7_oc74k3'
+RECAPTCHA_PRIVATE_KEY = '6LfxSToaAAAAAEUE4zU3nfAizVjLN3nzzyTgBBN_'
