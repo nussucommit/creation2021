@@ -703,6 +703,44 @@ button:focus {
   }
 }
 
+.sign-up {
+  margin-top: 10vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: aliceblue;
+  border-radius: 5vh;
+  padding: 2vh;
+  @extend %shadow-comp;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      padding: 1vw;
+      border-radius: 1vw;
+      border: none;
+      background-color: #00c39c;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    input:hover {
+      background-color: #116754;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    margin-left: 20px;
+    transform: translateX(-10px);
+  }
+}
+
 body {
   @extend %gradient-background;
   width: 100vw;
