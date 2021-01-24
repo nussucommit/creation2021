@@ -15,7 +15,7 @@
         environmentally friendly to the planet.
         <br />
         <br />
-        {% if user.username and user.challengestatus.Register4 %}
+        {% if user.username and user.challengestatus.register4 %}
         <strong><u>Challenge Background</u></strong>
         <br><br>
         The poster should include:
@@ -91,7 +91,7 @@ All winners will also receive WhatIF Foods products.
 Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={% url 'users:rules' %} > Rules and Regulations</a>.
 </i>
       </p>
-      {% if user.username and user.challengestatus.Register4 %}
+      {% if user.username and user.challengestatus.register4 %}
       <a href="https://drive.google.com/drive/folders/1R6JlY0le0Tk5_lIzBy7odGElcVgsXbT9" target="_blank" download>Download Challenge Brief</a>
       {% else %}
       <p><strong><a href={% url 'users:signup4' %} >Sign in to see more of the prompt.</a></strong></p>

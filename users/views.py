@@ -73,20 +73,31 @@ def user(request):
 
 
 def challenge_statement_1(request):
-    return render(request, "users/frontend/statement1.html", {'signedup': False})
+    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+    bucket = conn.get_bucket('creation-2021')
+    pdf_file_path = bucket.get_key('assets/statement1.pdf')
+    pdf_url = pdf_file_path.generate_url(expires_in=600)
+    return render(request, "users/frontend/statement1.html", {"pdf_url": pdf_url})
 
 def challenge_statement_2(request):
-    print("HERE")
-    return render(request, "users/frontend/statement2.html", {'signedup': False})
+    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+    bucket = conn.get_bucket('creation-2021')
+    pdf_file_path = bucket.get_key('assets/statement2.pdf') # remember to change back to respective pdf
+    pdf_url = pdf_file_path.generate_url(expires_in=600)
+    return render(request, "users/frontend/statement2.html", {"pdf_url": pdf_url})
 
 def challenge_statement_3(request):
-    return render(request, "users/frontend/statement3.html", {'signedup': False})
+    conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
+    bucket = conn.get_bucket('creation-2021')
+    pdf_file_path = bucket.get_key('assets/statement3.pdf') # remember to change back to respective pdf
+    pdf_url = pdf_file_path.generate_url(expires_in=600)
+    return render(request, "users/frontend/statement3.html", {"pdf_url": pdf_url})
 
 def challenge_statement_4(request):
-    return render(request, "users/frontend/statement4.html", {'signedup': False})
+    return render(request, "users/frontend/statement4.html")
 
 def side_challenge(request):
-    return render(request, "users/frontend/sidestatement.html", {'signedup': False})
+    return render(request, "users/frontend/sidestatement.html")
 
 @login_required
 def signup_statement_1(request):
@@ -96,14 +107,26 @@ def signup_statement_1(request):
             status = ChallengeStatus.objects.get(user = current_user)
             status.register1 = True
             status.save()
+            print(vars(current_user.challengestatus))
         else:
             status = ChallengeStatus(user = current_user, register1=True)
             status.save()
+
+        to = current_user.email
+        email = EmailMessage(
+                'Challenge Statement Registration Confirmation',
+                'Succesfully registered for challenge statement 1',
+                settings.EMAIL_HOST_USER,
+                [to],
+            )
+        email.fail_silently = False
+        email.send()
+
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
         bucket = conn.get_bucket('creation-2021')
         pdf_file_path = bucket.get_key('assets/statement1.pdf')
         pdf_url = pdf_file_path.generate_url(expires_in=600)
-        return render(request, "users/frontend/statement1.html", {'signedup': True, "pdf_url": pdf_url})
+        return render(request, "users/frontend/statement1.html", {"pdf_url": pdf_url})
     return render(request, "users/frontend/signup1.html")
 
 @login_required
@@ -114,14 +137,27 @@ def signup_statement_2(request):
             status = ChallengeStatus.objects.get(user = current_user)
             status.register2 = True
             status.save()
+            print(vars(current_user.challengestatus))
         else:
             status = ChallengeStatus(user = current_user, register2=True)
             status.save()
+
+        to = current_user.email
+        email = EmailMessage(
+                'Challenge Statement Registration Confirmation',
+                'Succesfully registered for challenge statement 2',
+                settings.EMAIL_HOST_USER,
+                [to],
+            )
+        email.fail_silently = False
+        email.send()
+
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
         bucket = conn.get_bucket('creation-2021')
         pdf_file_path = bucket.get_key('assets/statement2.pdf') # remember to change back to respective pdf
         pdf_url = pdf_file_path.generate_url(expires_in=600)
-        return render(request, "users/frontend/statement2.html", {'signedup': True, "pdf_url": pdf_url})
+        return render(request, "users/frontend/statement2.html", {"pdf_url": pdf_url})
+
     return render(request, "users/frontend/signup2.html")
 
 @login_required
@@ -136,12 +172,23 @@ def signup_statement_3(request):
         else:
             status = ChallengeStatus(user = current_user, register3=True)
             status.save()
+
+        to = current_user.email
+        email = EmailMessage(
+                'Challenge Statement Registration Confirmation',
+                'Succesfully registered for challenge statement 3',
+                settings.EMAIL_HOST_USER,
+                [to],
+            )
+        email.fail_silently = False
+        email.send()
+
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
         bucket = conn.get_bucket('creation-2021')
         pdf_file_path = bucket.get_key('assets/statement3.pdf') # remember to change back to respective pdf
         pdf_url = pdf_file_path.generate_url(expires_in=600)
 
-        return render(request, "users/frontend/statement3.html", {'signedup': True, "pdf_url": pdf_url})
+        return render(request, "users/frontend/statement3.html", {"pdf_url": pdf_url})
     return render(request, "users/frontend/signup3.html")
 
 @login_required
@@ -157,7 +204,17 @@ def signup_statement_4(request):
             status = ChallengeStatus(user = current_user, register4=True)
             status.save()
 
-        return render(request, "users/frontend/statement4.html", {'signedup': True})
+        to = current_user.email
+        email = EmailMessage(
+                'Challenge Statement Registration Confirmation',
+                'Succesfully registered for challenge statement 4',
+                settings.EMAIL_HOST_USER,
+                [to],
+            )
+        email.fail_silently = False
+        email.send()
+
+        return render(request, "users/frontend/statement4.html")
     return render(request, "users/frontend/signup4.html")
 
 @login_required
@@ -173,7 +230,17 @@ def signup_side_statement(request):
             status = ChallengeStatus(user = current_user, registerSide=True)
             status.save()
 
-        return render(request, "users/frontend/sidestatement.html", {'signedup': True})
+        to = current_user.email
+        email = EmailMessage(
+                'Challenge Statement Registration Confirmation',
+                'Succesfully registered for side challenge statement',
+                settings.EMAIL_HOST_USER,
+                [to],
+            )
+        email.fail_silently = False
+        email.send()
+
+        return render(request, "users/frontend/sidestatement.html")
     return render(request, "users/frontend/signupside.html")
 
 
@@ -186,14 +253,13 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             to = form.cleaned_data.get('email')
+            name = form.cleaned_data.get('first_name')
             # Create an alert to tell users that their account has been succesfully created
             messages.success(request, f'You account has been created! Please log in to continue')
-            # Redirect to login page so they can login immidiately
-            template = render_to_string('users/backend/email_template.html', {'name': form.cleaned_data.get('first_name')})
-
+            
             email = EmailMessage(
                 'Registration Confirmation',
-                template,
+                f'Hi {name}! Thank you for registering for Creation 2021',
                 settings.EMAIL_HOST_USER,
                 [to],
             )
