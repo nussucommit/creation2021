@@ -1,4 +1,4 @@
-.statements .statements-cards, #faq-container .faq-container > div, #rules-container .rules-card {
+.sign-up, .statements .statements-cards, #faq-container .faq-container > div, #rules-container .rules-card {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -192,6 +192,11 @@ button:focus {
 }
 #regis-container * {
   font-size: 1.5rem;
+}
+@media screen and (max-width: 600px) {
+  #regis-container * {
+    font-size: 1.2rem;
+  }
 }
 
 #rules-container {
@@ -417,8 +422,8 @@ button:focus {
   flex-direction: column;
   align-items: center;
   background: white;
-  margin-top: -220px;
-  padding-top: 100px;
+  margin-top: -15vw;
+  padding-top: 10vw;
   z-index: 1;
   padding-bottom: 50px;
 }
@@ -454,6 +459,31 @@ button:focus {
   width: 60%;
   padding: 50px;
   background: rgba(255, 255, 255, 0.5);
+}
+@media screen and (max-width: 600px) {
+  #challenges-container {
+    width: 105%;
+    margin-left: -10px;
+  }
+  #challenges-container * {
+    font-size: 1.2rem;
+  }
+  #challenges-container #content {
+    padding: 20px 0;
+  }
+  #challenges-container #content .card {
+    margin-bottom: 20px;
+  }
+  #challenges-container #content .card a {
+    max-width: 90%;
+  }
+  #challenges-container #content .card a img {
+    height: 40px;
+  }
+  #challenges-container #content .card p {
+    width: 80%;
+    padding: 10px;
+  }
 }
 
 #profile {
@@ -496,34 +526,50 @@ button:focus {
   max-width: 300px;
   overflow-x: scroll;
 }
-#telegram {
+#profile #telegram {
   padding: 10px;
   width: 100%;
   background: white;
   border-radius: 50px;
 }
-#telegram a {
+#profile #telegram a {
   text-decoration: none;
   color: black;
   font-size: 2rem;
 }
-#telegram a img {
+#profile #telegram a img {
   width: 3rem;
 }
-#telegram a:hover {
+#profile #telegram a:hover {
   color: royalblue;
+}
+@media screen and (max-width: 600px) {
+  #profile {
+    font-size: 1rem;
+    margin-left: 10px;
+    transform: translateX(-5px);
+  }
+  #profile h1 {
+    font-size: 1.5rem;
+  }
+  #profile #telegram a {
+    font-size: 1rem;
+  }
+  #profile #telegram a img {
+    width: 1.5rem;
+  }
 }
 
 .statements {
   width: 100%;
-  margin: 100px 0;
+  margin: 10vw 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 .statements .statements-cards {
   width: 60%;
-  padding: 100px;
+  padding: 5vw;
   box-sizing: border-box;
   border-radius: 25px;
   background-color: #3d4264;
@@ -533,6 +579,73 @@ button:focus {
 .statements .statements-cards hr {
   border: 2px solid aliceblue;
 }
+.statements .statements-cards #telegram {
+  padding: 10px;
+  width: 100%;
+  background: white;
+  border-radius: 50px;
+}
+.statements .statements-cards #telegram a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+.statements .statements-cards #telegram a img {
+  width: 3rem;
+}
+.statements .statements-cards #telegram a:hover {
+  color: royalblue;
+}
+@media screen and (max-width: 600px) {
+  .statements .statements-cards {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+  .statements .statements-cards h1 {
+    font-size: 2rem;
+  }
+  .statements .statements-cards #telegram a {
+    font-size: 1rem;
+  }
+  .statements .statements-cards #telegram a img {
+    width: 1.5rem;
+  }
+}
+
+.sign-up {
+  margin-top: 10vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: aliceblue;
+  border-radius: 5vh;
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up form input {
+  padding: 1vw;
+  border-radius: 1vw;
+  border: none;
+  background-color: #00c39c;
+  color: white;
+  font-size: 1.5rem;
+}
+.sign-up form input:hover {
+  background-color: #116754;
+}
+@media screen and (max-width: 700px) {
+  .sign-up {
+    margin-left: 20px;
+    transform: translateX(-10px);
+  }
+}
+
 body {
   width: 100vw;
   min-height: 100vh;

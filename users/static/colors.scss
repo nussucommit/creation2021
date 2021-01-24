@@ -235,6 +235,12 @@ button:focus {
   * {
     font-size: 1.5rem;
   }
+
+  @media screen and (max-width: 600px) {
+    * {
+      font-size: 1.2rem;
+    }
+  }
 }
 
 #rules-container {
@@ -468,8 +474,8 @@ button:focus {
     flex-direction: column;
     align-items: center;
     background: white;
-    margin-top: -220px;
-    padding-top: 100px;
+    margin-top: -15vw;
+    padding-top: 10vw;
     z-index: 1;
     padding-bottom: 50px;
   }
@@ -508,6 +514,33 @@ button:focus {
         width: 60%;
         padding: 50px;
         background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    * {
+      font-size: 1.2rem;
+    }
+    width: 105%;
+    margin-left: -10px;
+
+    #content {
+      padding: 20px 0;
+    }
+
+    #content .card {
+      margin-bottom: 20px;
+      a {
+        max-width: 90%;
+        img {
+          height: 40px;
+        }
+      }
+
+      p {
+        width: 80%;
+        padding: 10px;
       }
     }
   }
@@ -580,18 +613,38 @@ button:focus {
       color: royalblue;
     }
   }
+
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+    margin-left: 10px;
+    transform: translateX(-5px);
+
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    #telegram {
+      a {
+        font-size: 1rem;
+
+        img {
+          width: 1.5rem;
+        }
+      }
+    }
+  }
 }
 
 .statements {
   width: 100%;
-  margin: 100px 0;
+  margin: 10vw 0;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   .statements-cards {
     width: 60%;
-    padding: 100px;
+    padding: 5vw;
     box-sizing: border-box;
     border-radius: 25px;
     background-color: #3d4264;
@@ -606,6 +659,85 @@ button:focus {
     #content p {
       @extend %justification;
     }
+
+    #telegram {
+      padding: 10px;
+      width: 100%;
+      background: white;
+      border-radius: 50px;
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 2rem;
+
+        img {
+          width: 3rem;
+        }
+      }
+
+      a:hover {
+        color: royalblue;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .statements-cards {
+      width: 90%;
+      font-size: 1.2rem;
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      #telegram {
+        a {
+          font-size: 1rem;
+
+          img {
+            width: 1.5rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+.sign-up {
+  margin-top: 10vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: aliceblue;
+  border-radius: 5vh;
+  padding: 2vh;
+  @extend %shadow-comp;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input {
+      padding: 1vw;
+      border-radius: 1vw;
+      border: none;
+      background-color: #00c39c;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    input:hover {
+      background-color: #116754;
+    }
+  }
+
+  @media screen and (max-width: 700px) {
+    margin-left: 20px;
+    transform: translateX(-10px);
   }
 }
 

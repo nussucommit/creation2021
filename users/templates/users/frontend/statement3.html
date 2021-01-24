@@ -13,7 +13,7 @@
         uses NUS colours.
         <br />
         <br />
-        {% if user.username %}
+        {% if user.username and user.challengestatus.Register3 %}
         <strong><u>Challenge Background </u></strong>
         <br><br>
         "Proud to be an AlumNUS" has been a slogan that alumni can gather together with for more than a decade. Having gone through 4 iterations:
@@ -53,10 +53,10 @@
 Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={% url 'users:rules' %} > Rules and Regulations</a>.
 </i>
       </p>
-      {% if user.username %}
+      {% if user.username and user.challengestatus.Register3 %}
       <a href="{{ pdf_url }}" target="_blank" download id="download">Download Challenge Brief</a>
       {% else %}
-      <p><strong><a href={% url 'login' %} >Sign in to see more of the prompt.</a></strong></p>
+      <p><strong><a href={% url 'users:signup3' %} >Sign in to see more of the prompt.</a></strong></p>
       {% endif %}
     </div>
     <div id="telegram" style="margin-top: 10px">
