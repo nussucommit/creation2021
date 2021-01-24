@@ -1,5 +1,8 @@
 {% extends "users/base.html" %} {% block content %}
 <div id="index-container">
+  {% if alert %}
+    <script>alert('You are already signed in!')</script>  
+  {% endif %}
   <div id="hero">
     <img src="../../static/assets/creationHero.png" alt="" />
   </div>
@@ -34,3 +37,8 @@
   </div>
 </div>
 {% endblock content %}
+<script>
+        {% if messages %}
+          Materialize.toast('{{ messages }}', 4000);
+        {% endif %}
+</script>

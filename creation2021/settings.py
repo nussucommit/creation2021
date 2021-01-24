@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
     'widget_tweaks',
-    'captcha'
+    'captcha',
 ]
 
 
