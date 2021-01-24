@@ -48,8 +48,8 @@ body {
 
 .boxes {
   margin: 0.5rem;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
   background: #ffffff;
   opacity: 0.9;
   border-radius: 70px;
@@ -111,4 +111,3 @@ td {
     font-size: 1rem;
     max-width: 25vw;
   }
-}

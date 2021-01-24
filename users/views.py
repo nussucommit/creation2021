@@ -121,9 +121,6 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             to = form.cleaned_data.get('email')
-            subject='Thanks for registering'
-            message= f'Hey {username}, you have succesfully registered for an account.'
-            send_mail(subject,message,'creation.committee@nussucommit.com',[to])
             # Create an alert to tell users that their account has been succesfully created
             messages.success(request, f'You account has been created! Please log in to continue')
             # Redirect to login page so they can login immidiately
@@ -133,7 +130,7 @@ def register(request):
                 'Registration Confirmation',
                 template,
                 settings.EMAIL_HOST_USER,
-                [form.cleaned_data.get('email')],
+                [to],
             )
             email.fail_silently = False
             email.send()
@@ -190,7 +187,7 @@ def profile(request):
 
 @login_required
 def submit(request):
-    registered = ChallengeStatus.objects.filter(user == request.user)
+    registered = ChallengeStatus.objects.filter(user = request.user)
     context = {'registered':registered}
     return render(request, "users/backend/submit.html",context)
 

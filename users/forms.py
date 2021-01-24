@@ -46,6 +46,7 @@ class Form5(forms.ModelForm):
         fields = ['img', 'raw']
 
 class ContactUsForm(forms.ModelForm):
+    captcha = CaptchaField()
     class Meta:
         model = ContactUs
         fields = ['name', 'email', 'inquiry']
