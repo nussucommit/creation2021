@@ -319,6 +319,8 @@ def profile(request):
 @login_required
 def submit(request):
     current_user = User.objects.get(username = request.user.username)
+    status = ChallengeStatus(user = current_user)
+    status.save()
     print((current_user.challengestatus.register3))
     if hasattr(current_user,'challengestatus'):
         registered1= current_user.challengestatus.register1
