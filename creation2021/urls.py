@@ -30,6 +30,4 @@ urlpatterns = [
     #path('register/', users_views.register)
 ]
 
-urlpatterns += [
-    path('captcha/', include('captcha.urls')),
-]
+

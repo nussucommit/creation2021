@@ -342,7 +342,20 @@ def form(request,pk):
 
         if form.is_valid():
             form.instance.user = request.user
-
+            current_user = User.objects.get(username = request.user.username)
+            status = ChallengeStatus.objects.get(user=current_user)
+            if pk == 1:
+                status.submit1 = True
+            elif pk == 2:
+                status.submit2 = True
+            elif pk == 3:
+                status.submit3 = True
+            elif pk == 4:
+                status.submit4 = True
+            else:
+                status.submitSide = True
+            status.save()
+            
             img_lst = [] 
             for f in request.FILES.getlist('img'): 
                 img_lst.append(f.name)
