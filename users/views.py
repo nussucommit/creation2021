@@ -254,12 +254,11 @@ def profile(request):
 def submit(request):
     current_user = User.objects.get(username = request.user.username)
     print((current_user.challengestatus.register3))
-    if hasattr(current_user,'challengestatus'):
-        registered1= current_user.challengestatus.register1
-        registered2= current_user.challengestatus.register2
-        registered3= current_user.challengestatus.register3
-        registered4= current_user.challengestatus.register4
-        registered5= current_user.challengestatus.registerSide
+    registered1= current_user.challengestatus.register1
+    registered2= current_user.challengestatus.register2
+    registered3= current_user.challengestatus.register3
+    registered4= current_user.challengestatus.register4
+    registered5= current_user.challengestatus.registerSide
     context = {'registered1':registered1,'registered2':registered2, 'registered3:':registered3, 'registered4':registered4, 'registered5':registered5}
     return render(request, "users/backend/submit.html",context)
 
