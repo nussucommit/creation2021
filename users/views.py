@@ -93,8 +93,12 @@ def signup_statement_1(request):
     if request.method == 'POST':
         current_user = User.objects.get(username = request.user.username)
         if hasattr(current_user, 'challengestatus'):
-            current_user.challengestatus.Register1 = True
-            current_user.save()
+            status = ChallengeStatus.objects.get(user = current_user)
+            status.register1 = True
+            status.save()
+        else:
+            status = ChallengeStatus(user = current_user, register1=True)
+            status.save()
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
         bucket = conn.get_bucket('creation-2021')
         pdf_file_path = bucket.get_key('assets/statement1.pdf')
@@ -104,12 +108,15 @@ def signup_statement_1(request):
 
 @login_required
 def signup_statement_2(request):
-    print("THERE")
     if request.method == 'POST':
         current_user = User.objects.get(username = request.user.username)
         if hasattr(current_user, 'challengestatus'):
-            current_user.challengestatus.Register2 = True
-            current_user.save()
+            status = ChallengeStatus.objects.get(user = current_user)
+            status.register2 = True
+            status.save()
+        else:
+            status = ChallengeStatus(user = current_user, register2=True)
+            status.save()
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
         bucket = conn.get_bucket('creation-2021')
         pdf_file_path = bucket.get_key('assets/statement2.pdf') # remember to change back to respective pdf
@@ -122,8 +129,13 @@ def signup_statement_3(request):
     if request.method == 'POST':
         current_user = User.objects.get(username = request.user.username)
         if hasattr(current_user, 'challengestatus'):
-            current_user.challengestatus.Register3 = True
-            current_user.save()
+            status = ChallengeStatus.objects.get(user = current_user)
+            status.register3 = True
+            status.save()
+            print(vars(current_user.challengestatus))
+        else:
+            status = ChallengeStatus(user = current_user, register3=True)
+            status.save()
         conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
         bucket = conn.get_bucket('creation-2021')
         pdf_file_path = bucket.get_key('assets/statement3.pdf') # remember to change back to respective pdf
@@ -137,8 +149,13 @@ def signup_statement_4(request):
     if request.method == 'POST':
         current_user = User.objects.get(username = request.user.username)
         if hasattr(current_user, 'challengestatus'):
-            current_user.challengestatus.Register4 = True
-            current_user.save()
+            status = ChallengeStatus.objects.get(user = current_user)
+            status.register4 = True
+            status.save()
+            print(vars(current_user.challengestatus))
+        else:
+            status = ChallengeStatus(user = current_user, register4=True)
+            status.save()
 
         return render(request, "users/frontend/statement4.html", {'signedup': True})
     return render(request, "users/frontend/signup4.html")
@@ -148,8 +165,13 @@ def signup_side_statement(request):
     if request.method == 'POST':
         current_user = User.objects.get(username = request.user.username)
         if hasattr(current_user, 'challengestatus'):
-            current_user.challengestatus.RegisterSide = True
-            current_user.save()
+            status = ChallengeStatus.objects.get(user = current_user)
+            status.registerSide = True
+            status.save()
+            print(vars(current_user.challengestatus))
+        else:
+            status = ChallengeStatus(user = current_user, registerSide=True)
+            status.save()
 
         return render(request, "users/frontend/sidestatement.html", {'signedup': True})
     return render(request, "users/frontend/signupside.html")
@@ -230,8 +252,15 @@ def profile(request):
 
 @login_required
 def submit(request):
-    registered = ChallengeStatus.objects.filter(user = request.user)
-    context = {'registered':registered}
+    current_user = User.objects.get(username = request.user.username)
+    print((current_user.challengestatus.register3))
+    if hasattr(current_user,'challengestatus'):
+        registered1= current_user.challengestatus.register1
+        registered2= current_user.challengestatus.register2
+        registered3= current_user.challengestatus.register3
+        registered4= current_user.challengestatus.register4
+        registered5= current_user.challengestatus.registerSide
+    context = {'registered1':registered1,'registered2':registered2, 'registered3:':registered3, 'registered4':registered4, 'registered5':registered5}
     return render(request, "users/backend/submit.html",context)
 
 @login_required

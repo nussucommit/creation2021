@@ -9,61 +9,64 @@
     </div>
     <div class="submission-boxes">
 
-        {% if registered.register1 %}
+        {% if registered1 %}
         <a class="boxes" href="/submit/1/">
             <img src="{% static 'images/development_office_submission.png' %}" class="image">
             <h4>#1 Key Visual for Commencement Class Giving 2022</h4>
         </a>
         {% else %}
-        <div class="boxes" href="/submit/1/">
+        <div class="boxes">
             <img src="{% static 'images/development_office_submission.png' %}" class="image">
             <h4>#1 Key Visual for Commencement Class Giving 2022</h4>
         </div>
         {% endif %}
 
-        {% if registered.register2 %}
+        {% if registered2 %}
         <a class="boxes" href="/submit/2/">
             <img src="{% static 'images/information_technology_submission.png' %}" class="image">
             <h4>#2 Poster for NUS Bug Bounty Challenge 2021</h4>
         </a>
         {% else %}
-        <div class="boxes" href="/submit/2/">
+        <div class="boxes">
             <img src="{% static 'images/information_technology_submission.png' %}" class="image">
             <h4>#2 Poster for NUS Bug Bounty Challenge 2021</h4>
         </div>
         {% endif %}
 
-        {% if registered.register3 %}
+        {% block content1 %}
+        <h4>{{registered3}}Hey</h4>
+        {% endblock %}
+        {% if registered3 %}
         <a class="boxes" href="/submit/3/">
             <img src="{% static 'images/alumni_relations_submission.png' %}" class="image">
             <h4>#3 Redesign Logo and Slogan for AlumNUS</h4>
         </a>
         {% else %}
-        <div class="boxes" href="/submit/3/">
+        <div class="boxes">
             <img src="{% static 'images/alumni_relations_submission.png' %}" class="image">
             <h4>#3 Redesign Logo and Slogan for AlumNUS</h4>
         </div>
         {% endif %}
 
-        {% if registered.register4 %}
+        {% if registered4 %}
         <a class="boxes" href="/submit/4/">
             <img src="{% static 'images/namz_submission.png' %}" class="image">
             <h4>#4 Instant Noodles Infographic for WhatIF Foods</h4>
         </a>
         {% else %}
-        <div class="boxes" href="/submit/4/">
+        <div class="boxes">
             <img src="{% static 'images/namz_submission.png' %}" class="image">
             <h4>#4 Instant Noodles Infographic for WhatIF Foods</h4>
         </div>
         {% endif %}
 
-        {% if registered.register5 %}
+        {% if registered5 %}
         <a class="boxes" href="/submit/5/">
             <img src="{% static 'images/centreofarts_submission.png' %}" class="image">
             <h4>[Side Challenge] NUS CFA Digital Badges</h4>
         </a>
         {% else %}
-        <div class="boxes" href="/submit/5/">
+        <div class="boxes">
             <img src="{% static 'images/centreofarts_submission.png' %}" class="image">
             <h4>[Side Challenge] NUS CFA Digital Badges</h4>
         </div>
