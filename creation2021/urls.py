@@ -15,17 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from users import views as users_views
 from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(('creation.urls', 'creation'), namespace='creation')), 
     path('', include(('users.urls', 'users'), namespace='users')),
-    path('profile/', users_views.profile, name='profile'),
-    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
-
-    #path('register/', users_views.register)
+    path('admin/', admin.site.urls), 
+    path('login/', auth_views.LoginView.as_view(template_name='users/backend/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/backend/logout.html'), name='logout'),
+    path('reset_password/', auth_views.PasswordResetView.as_view(), name="reset_password"),
+    path('reset_password_sent/', auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
+    path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
 ]
+
+

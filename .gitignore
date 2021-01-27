@@ -89,7 +89,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-creation_env/
+creation-env/
 
 # Spyder project settings
 .spyderproject
@@ -112,3 +112,6 @@ static_collected
 
 users/migrations
 venv/
+
+# Prettier stuff
+settings.json

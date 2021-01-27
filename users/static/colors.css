@@ -1,16 +1,11 @@
-.timeline-container .timeline .container div, #rules-container .rules-card {
+.sign-up, .statements .statements-cards, #faq-container .faq-container > div, #rules-container .rules-card {
   box-shadow: 2px 8px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-#faq-container .faq-box h2,
-#faq-container .faq-box p {
+.statements .statements-cards #content p, #challenges-container #content .card p, #faq-container .faq-box h2,
+#faq-container .faq-box p, #rules-container p, #rules-container .rules-card * {
   text-align: justify;
   text-justify: inter-word;
-}
-
-#index-container #cable2 {
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 body, #index-container {
@@ -35,15 +30,18 @@ button:focus {
 
 #homer {
   background-color: transparent;
-  width: 200px;
 }
 #homer a.dropbtn {
-  background-color: transparent;
+  background: transparent;
   color: black;
-  min-width: 1000px;
 }
-#homer button {
-  width: 500px;
+#homer a.dropbtn img {
+  width: 200px;
+}
+@media screen and (max-width: 600px) {
+  #homer a.dropbtn img {
+    width: 40vw;
+  }
 }
 
 #navbarSupportedContent {
@@ -55,12 +53,9 @@ button:focus {
   margin-left: 0px;
 }
 #navbarSupportedContent * {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: transparent;
-  color: #121212; 
-}
-#navbarSupportedContent .dropbtn {
-  font-size: 16px;
+  color: #121212;
 }
 #navbarSupportedContent .dropdown-content a {
   color: black;
@@ -68,7 +63,6 @@ button:focus {
   text-decoration: none;
   display: block;
   background-color: white;
-  font-size: 16px;
 }
 
 #help {
@@ -83,11 +77,28 @@ button:focus {
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  z-index: 100;
 }
 #help img {
   position: relative;
   right: -5px;
   bottom: -10px;
+}
+@media screen and (max-width: 500px) {
+  #help {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    bottom: 25px;
+    right: 25px;
+  }
+  #help img {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    right: -3px;
+    bottom: -7px;
+  }
 }
 
 #index-container {
@@ -100,43 +111,15 @@ button:focus {
   justify-content: space-evenly;
   align-items: center;
 }
-#index-container #cable2 {
-  width: 499px;
-  height: 370px;
-  background: url(assets/cable2.png);
-  transform: rotate(-9.87deg);
-}
-#index-container #cable1 {
-  width: 348px;
-  height: 437px;
-  background: url(assets/cable1.png);
-  transform: rotate(-80.4deg);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-#index-container #logo-title {
-  margin-bottom: 100px;
-}
 #index-container #hero {
-  margin-top: 300px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
 }
-#index-container #hero #cables {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 108%;
-  padding-bottom: 100px;
-}
-#index-container #hero #cables img {
-  position: absolute;
-  left: 50vw;
-  transform: translateX(-50%);
+#index-container #hero img {
+  width: 100%;
 }
 #index-container #main {
   width: 100vw;
@@ -156,18 +139,27 @@ button:focus {
   align-items: center;
 }
 #index-container #main #main1 {
-  height: 1500px;
+  padding: 10vw 0;
+}
+#index-container #main #main1 img:first-child {
+  margin-bottom: 5vw;
 }
 #index-container #main #main2 {
-  height: 1500px;
+  padding: 10vw 0;
+}
+#index-container #main #main2 img:first-child {
+  margin-bottom: 5vw;
 }
 #index-container #main #main3 {
-  height: 1200px;
+  padding: 10vw 0;
+}
+#index-container #main #main3 img:first-child {
+  margin-bottom: 5vw;
 }
 #index-container #footer {
   width: 100vw;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 10vw;
+  padding-bottom: 10vw;
   background: white;
   display: flex;
   flex-direction: column;
@@ -201,23 +193,40 @@ button:focus {
 #regis-container * {
   font-size: 1.5rem;
 }
+@media screen and (max-width: 600px) {
+  #regis-container * {
+    font-size: 1.2rem;
+  }
+}
 
 #rules-container {
   background-color: transparent;
   padding-bottom: 50px;
+  margin-top: 5vw;
 }
 #rules-container .col-lg-6 {
   padding: 25px;
+  box-sizing: border-box;
 }
 #rules-container .rules-card {
-  margin: 100px 10px;
+  margin: 5vw 1vw;
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
+  padding: 30px 50px;
   border-radius: 10px;
   font-size: 1.5rem;
+  word-wrap: break-word;
 }
 #rules-container hr {
   border: 1px solid black;
+}
+@media screen and (max-width: 600px) {
+  #rules-container h1 {
+    font-size: 2rem;
+  }
+  #rules-container .rules-card {
+    font-size: 1rem;
+    padding: 10px 10px;
+  }
 }
 
 #faq-container {
@@ -226,6 +235,7 @@ button:focus {
   display: flex;
   justify-content: center;
   color: #121212;
+  margin-bottom: 5vw;
 }
 #faq-container .faq-container {
   display: flex;
@@ -233,15 +243,19 @@ button:focus {
   justify-content: space-evenly;
   align-items: baseline;
 }
-#faq-container .faq-container div {
+#faq-container .faq-container > div {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: baseline;
   margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 20px;
+  width: 100%;
 }
 #faq-container .faq-box {
-  margin-top: 100px;
+  margin-top: 5vw;
   width: 60%;
   min-width: 300px;
 }
@@ -251,117 +265,16 @@ button:focus {
 #faq-container hr {
   border: 1px solid #121212;
 }
-
-.timeline-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 200px 0 50px 0;
-}
-.timeline-container #timeline-line {
-  position: absolute;
-  height: 100%;
-  background-color: whitesmoke;
-  width: 0.5em;
-  top: 0;
-}
-.timeline-container .timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.timeline-container .timeline .timeline::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  background-color: white;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-}
-.timeline-container .timeline .container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-.timeline-container .timeline .container::after {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: white;
-  border: 4px solid #ff9f55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 1;
-}
-.timeline-container .timeline .left {
-  left: 0%;
-}
-.timeline-container .timeline .right {
-  left: 50%;
-}
-.timeline-container .timeline .left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
-}
-.timeline-container .timeline .right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid white;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent white transparent transparent;
-}
-.timeline-container .timeline .right::after {
-  left: -16px;
-}
-.timeline-container .timeline .content {
-  padding: 20px 30px;
-  background-color: white;
-  position: relative;
-  border-radius: 6px;
-}
 @media screen and (max-width: 600px) {
-  .timeline-container .timeline .timeline::after {
-    left: 31px;
+  #faq-container {
+    font-size: 1rem;
   }
-  .timeline-container .timeline .container {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
+  #faq-container h1.title {
+    font-size: 2rem;
   }
-  .timeline-container .timeline .container::before {
-    left: 60px;
-    border: medium solid white;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent white transparent transparent;
+  #faq-container h2 {
+    font-size: 1.5rem;
   }
-  .timeline-container .timeline .left::after,
-.timeline-container .timeline .right::after {
-    left: 15px;
-  }
-  .timeline-container .timeline .right {
-    left: 0%;
-  }
-}
-.timeline-container .timeline p {
-  text-align: left;
 }
 
 #contact-container {
@@ -369,6 +282,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 5vw;
 }
 #contact-container #contact,
 #contact-container #subscribe,
@@ -377,7 +291,7 @@ button:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 100px;
+  padding-bottom: 5vw;
 }
 #contact-container #contact h1,
 #contact-container #subscribe h1,
@@ -394,10 +308,10 @@ button:focus {
 #contact-container #find-us h4 {
   font-size: 2rem;
 }
-#contact-container #contact #icons img:first-child,
-#contact-container #subscribe #icons img:first-child,
-#contact-container #find-us #icons img:first-child {
-  margin-right: 100px;
+#contact-container #contact #icons a:first-child,
+#contact-container #subscribe #icons a:first-child,
+#contact-container #find-us #icons a:first-child {
+  margin-right: 5vw;
 }
 #contact-container #contact form,
 #contact-container #subscribe form,
@@ -407,26 +321,29 @@ button:focus {
   flex-direction: column;
   align-items: center;
 }
-#contact-container #contact form input,
-#contact-container #contact form textarea,
-#contact-container #subscribe form input,
-#contact-container #subscribe form textarea,
-#contact-container #find-us form input,
-#contact-container #find-us form textarea {
+#contact-container #contact form > div,
+#contact-container #subscribe form > div,
+#contact-container #find-us form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#contact-container #contact form .inputter,
+#contact-container #subscribe form .inputter,
+#contact-container #find-us form .inputter {
   width: 80%;
-  margin: 20px 0;
+  margin: 1.2vw 0;
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid black;
   font-size: 1.5rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 2rem;
+  box-sizing: border-box;
 }
-#contact-container #contact form input::placeholder,
-#contact-container #contact form textarea::placeholder,
-#contact-container #subscribe form input::placeholder,
-#contact-container #subscribe form textarea::placeholder,
-#contact-container #find-us form input::placeholder,
-#contact-container #find-us form textarea::placeholder {
-  padding-left: 2rem;
+#contact-container #contact form .inputter:focus,
+#contact-container #subscribe form .inputter:focus,
+#contact-container #find-us form .inputter:focus {
+  outline: 0;
 }
 #contact-container #contact form input[type=submit],
 #contact-container #subscribe form input[type=submit],
@@ -434,14 +351,299 @@ button:focus {
   width: 40%;
   background-color: #121212;
   color: whitesmoke;
+  font-size: 1.5rem;
   height: 4rem;
+  border: none;
 }
 #contact-container #contact form input[type=submit]:hover,
 #contact-container #subscribe form input[type=submit]:hover,
 #contact-container #find-us form input[type=submit]:hover {
   background-color: whitesmoke;
-  border: none;
   color: black;
+}
+@media screen and (max-width: 600px) {
+  #contact-container #contact,
+#contact-container #subscribe,
+#contact-container #find-us {
+    width: 90%;
+  }
+  #contact-container #contact h1,
+#contact-container #subscribe h1,
+#contact-container #find-us h1 {
+    font-size: 2.5rem;
+  }
+  #contact-container #contact h3,
+#contact-container #subscribe h3,
+#contact-container #find-us h3 {
+    font-size: 2rem;
+  }
+  #contact-container #contact h4,
+#contact-container #subscribe h4,
+#contact-container #find-us h4 {
+    font-size: 1.5rem;
+  }
+  #contact-container #contact form .inputter,
+#contact-container #subscribe form .inputter,
+#contact-container #find-us form .inputter {
+    width: 100%;
+    font-size: 1rem;
+  }
+  #contact-container #contact form input[type=submit],
+#contact-container #subscribe form input[type=submit],
+#contact-container #find-us form input[type=submit] {
+    font-size: 1.2rem;
+    height: 2.5rem;
+  }
+  #contact-container #contact #icons a img,
+#contact-container #subscribe #icons a img,
+#contact-container #find-us #icons a img {
+    width: 30vw;
+  }
+}
+
+#challenges-container {
+  width: 101%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  margin-left: -25px;
+  background: url("assets/background web 2.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+#challenges-container #hero img {
+  width: 115vw;
+}
+#challenges-container #partners {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  margin-top: -15vw;
+  padding-top: 10vw;
+  z-index: 1;
+  padding-bottom: 50px;
+}
+#challenges-container #content {
+  width: 100%;
+  padding: 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url("assets/dots.png");
+  z-index: 1;
+}
+#challenges-container #content .card {
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: none;
+  font-size: 2rem;
+  margin-bottom: 50px;
+}
+#challenges-container #content .card a {
+  max-width: 70%;
+  text-decoration: none;
+}
+#challenges-container #content .card a img {
+  width: 100%;
+  height: 100px;
+}
+#challenges-container #content .card p {
+  margin-top: 20px;
+  width: 60%;
+  padding: 50px;
+  background: rgba(255, 255, 255, 0.5);
+}
+@media screen and (max-width: 600px) {
+  #challenges-container {
+    width: 105%;
+    margin-left: -10px;
+  }
+  #challenges-container * {
+    font-size: 1.2rem;
+  }
+  #challenges-container #content {
+    padding: 20px 0;
+  }
+  #challenges-container #content .card {
+    margin-bottom: 20px;
+  }
+  #challenges-container #content .card a {
+    max-width: 90%;
+  }
+  #challenges-container #content .card a img {
+    height: 40px;
+  }
+  #challenges-container #content .card p {
+    width: 80%;
+    padding: 10px;
+  }
+}
+
+#profile {
+  font-size: 1.5rem;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+#profile #justcard {
+  padding: 25px;
+  margin: 50px 0;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background: #3d4264;
+  color: aliceblue;
+}
+#profile #justcard #scroller {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-bottom: 50px;
+}
+#profile #justcard #addsubmission {
+  padding: 15px;
+  border-radius: 30px;
+  background: #00c39c;
+  color: aliceblue;
+  text-decoration: none;
+}
+#profile #justcard #addsubmission:hover {
+  background: #116754;
+}
+#profile #submissions-table td {
+  padding: 20px;
+}
+#profile #submissions-table .image img {
+  width: 200px;
+}
+#profile #submissions-table .filename {
+  max-width: 300px;
+  overflow-x: scroll;
+}
+#profile #telegram {
+  padding: 10px;
+  width: 100%;
+  background: white;
+  border-radius: 50px;
+}
+#profile #telegram a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+#profile #telegram a img {
+  width: 3rem;
+}
+#profile #telegram a:hover {
+  color: royalblue;
+}
+@media screen and (max-width: 600px) {
+  #profile {
+    font-size: 1rem;
+    margin-left: 10px;
+    transform: translateX(-5px);
+  }
+  #profile h1 {
+    font-size: 1.5rem;
+  }
+  #profile #telegram a {
+    font-size: 1rem;
+  }
+  #profile #telegram a img {
+    width: 1.5rem;
+  }
+}
+
+.statements {
+  width: 100%;
+  margin: 10vw 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.statements .statements-cards {
+  width: 60%;
+  padding: 5vw;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: #3d4264;
+  color: aliceblue;
+  font-size: 1.3rem;
+}
+.statements .statements-cards hr {
+  border: 2px solid aliceblue;
+}
+.statements .statements-cards #telegram {
+  padding: 10px;
+  width: 100%;
+  background: white;
+  border-radius: 50px;
+}
+.statements .statements-cards #telegram a {
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+}
+.statements .statements-cards #telegram a img {
+  width: 3rem;
+}
+.statements .statements-cards #telegram a:hover {
+  color: royalblue;
+}
+@media screen and (max-width: 600px) {
+  .statements .statements-cards {
+    width: 90%;
+    font-size: 1.2rem;
+  }
+  .statements .statements-cards h1 {
+    font-size: 2rem;
+  }
+  .statements .statements-cards #telegram a {
+    font-size: 1rem;
+  }
+  .statements .statements-cards #telegram a img {
+    width: 1.5rem;
+  }
+}
+
+.sign-up {
+  margin-top: 10vh;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  background-color: aliceblue;
+  border-radius: 5vh;
+  padding: 2vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sign-up form input {
+  padding: 1vw;
+  border-radius: 1vw;
+  border: none;
+  background-color: #00c39c;
+  color: white;
+  font-size: 1.5rem;
+}
+.sign-up form input:hover {
+  background-color: #116754;
+}
+@media screen and (max-width: 700px) {
+  .sign-up {
+    margin-left: 20px;
+    transform: translateX(-10px);
+  }
 }
 
 body {

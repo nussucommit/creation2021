@@ -1,0 +1,44 @@
+{% extends "users/base.html" %} {% block content %}
+<div id="index-container">
+  {% if alert %}
+    <script>alert('You are already signed in!')</script>  
+  {% endif %}
+  <div id="hero">
+    <img src="../../static/assets/creationHero.png" alt="" />
+  </div>
+  <div id="main">
+    <div id="main1">
+      <img
+        src="../../static/assets/challenge_statements.png"
+        alt=""
+        width="80%"
+      />
+      <img
+        src="../../static/assets/challenge_statements_content.svg"
+        alt=""
+        width="80%"
+      />
+    </div>
+    <div id="main2">
+      <img
+        src="../../static/assets/competition_timeline.png"
+        alt=""
+        width="80%"
+      />
+      <img src="../../static/assets/timeline-content.svg" alt="" width="90%" />
+    </div>
+    <div id="main3">
+      <img src="../../static/assets/prizes.png" alt="" width="60%" />
+      <img src="../../static/assets/prize-content.svg" alt="" width="60%" />
+    </div>
+  </div>
+  <div id="footer">
+    <img src="../../static/assets/partner_sponsor.svg" alt="" width="80%" />
+  </div>
+</div>
+{% endblock content %}
+<script>
+        {% if messages %}
+          Materialize.toast('{{ messages }}', 4000);
+        {% endif %}
+</script>

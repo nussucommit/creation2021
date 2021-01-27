@@ -25,7 +25,6 @@ SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
-DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = ['www.creation.nussucommit.com','creation.nussucommit.com','creation-live.herokuapp.com', '127.0.0.1']
@@ -40,10 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'creation',
     'users',
     'crispy_forms',
-    'storages'
+    'storages',
+    'widget_tweaks',
+    'captcha'
 ]
 
 
@@ -134,12 +134,15 @@ USE_TZ = True
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'creation:index'
+LOGIN_REDIRECT_URL = 'users:index'
 LOGIN_URL = 'login'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
@@ -149,3 +152,15 @@ AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
 
 AWS_STORAGE_BUCKET_NAME = 'creation-2021'
 
+#SMTP Configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.zoho.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = 'creation.committee@nussucommit.com'
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = 'creation.committee@nussucommit.com'
+
+RECAPTCHA_PUBLIC_KEY = '6Ld6TToaAAAAAAuCkhc7rP1YwRAz5y6RuSRuaaVZ'
+RECAPTCHA_PRIVATE_KEY = '6Ld6TToaAAAAACHHMd2FTX9W93qDvsceJeRrO9D7'

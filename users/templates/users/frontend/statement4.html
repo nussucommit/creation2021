@@ -1,0 +1,107 @@
+{% extends "users/base.html" %} {% block content %}
+<div class="statements">
+  <div class="statements-cards">
+    <h1>Instant Noodle Infographic for WhatIF Foods</h1>
+    <br />
+    <hr />
+    <br />
+    <div id="content">
+      <p>
+        Create and design an infographic to highlight the wonderful properties
+        of WhatIF Foods Noodles and why they are special. The design should
+        bring out the technology behind our noodles, their nutritional
+        properties and how they compare to other similar products in the market.
+        The infographic should also demonstrate how this product is more
+        environmentally friendly to the planet.
+        <br />
+        <br />
+        {% if user.username and user.challengestatus.register4 %}
+        <strong><u>Challenge Background</u></strong>
+        <br><br>
+        The poster should include:
+        <ol>
+          <li>Logo</li>
+          <li>A simple and engaging explanation of our mission (see ppt brief for further detailed information)</li>
+          <li>Name of our noodles: “Moringa Noodles with Sesame Garlic seasoning” and “BamNut Noodles with Sweet Hot seasoning”</li>
+          <li>The USPs of the noodles (their special powers: high protein/contains iron). Note the 2 noodles have different USPs (see ppt brief).</li>
+          <li>Outlining the technology behind WhatIF Foods noodles that make them healthier! (see ppt brief).</li>
+          <li>Nutritional comparison of our noodles compared to market benchmarks. </li>
+          <li>Taglines of our noodles: ‘In the mood for noods?’, ‘Not deep-fried like the other guys’, bonus points if you can come up with playful lines!</li>
+          <li>Our social media channels: Instagram, Facebook, LinkedIn, Email: hello@whatif-foods.com</li>
+        </ol>
+        When attempting this challenge, participants may consult with the WhatIF Foods Team through an online meeting. They will need to adhere to the following steps:
+        <ol>
+          <li>Email a request for consultation to hello@whatif-foods.com </li>
+          <ol type="a">
+            <li>Subject for the mail: CREATION 2021 Consultation</li>
+            <li>Suggest a meeting date, time and duration for the meeting (at least 15 minutes, at most 30 minutes)</li>
+            <li>CC email to creation2021@nussucommit.com</li>
+          </ol>
+          <li>WhatIF Foods will confirm whether they are available for the online meeting on the suggested date. Meeting links will be provided together with this reply.</li>
+          <li>Once confirmed, prepare a list of questions for enquiries beforehand for a smooth consultation and responsibly attend the meeting.</li>
+        </ol>
+        {% endif %}
+        <strong><u>Company Background</u></strong>
+        <p>
+          <br />
+        <br />
+        “Our team became disillusioned with our current food system's status quo
+        in creating and maintaining the paradoxical existence of hunger,
+        obesity, nutritional deficiency, and the destruction of our planet. In
+        2013, we left our corporate jobs to change the world one meal at a time.
+        <br />
+        <br />
+        Our belief is simple: food should always be nourishing to us and the
+        planet, whether it is a hearty breakfast, a rushed office lunch, or a
+        midnight snack.
+        <br />
+        <br />
+        Finding our roots in nature, we harness the power of Future Fit Crops,
+        which are nutritionally dense, climate-resilient, resource-efficient,
+        and can be grown on degraded lands, to innovate food we know and love.
+        After years of research, we are proud to show you our take on a better
+        future of food: one that is not only nourishing, diverse, and resilient
+        but also empowers farming communities.”
+        <br><br>
+        (/WhatIF Foods-light.png)
+        <br><br>
+        </p>
+        <strong><u>Prizes</u></strong>
+        <br>
+<strong>First prize: </strong>
+<ul>
+  <li>Nintendo Switch Lite + Animal Crossing: New Horizons</li>
+</ul>
+<strong>Second prize: </strong>
+<ul>
+  <li>Google Nest Audio</li>
+</ul>
+<strong>Third prize:</strong>
+<ul>
+  <li>Toshiba Canvio 1TB External Hard Drive</li>
+</ul>
+<br>
+All winners will also receive WhatIF Foods products.
+<br><br>
+<strong>Newcomer Award: </strong>
+<ul>
+  <li>Wacom Intuos S </li>
+</ul>
+<i>
+Note that ONE Newcomer Award will be given to ONE eligible participant whose design is the judges’ favorite among the 4 main challenge statements. Eligibility criteria for Newcomer Award can be found under <a href={% url 'users:rules' %} > Rules and Regulations</a>.
+</i>
+      </p>
+      {% if user.username and user.challengestatus.register4 %}
+      <a href="https://drive.google.com/drive/folders/1R6JlY0le0Tk5_lIzBy7odGElcVgsXbT9" target="_blank" download>Download Challenge Brief</a>
+      {% else %}
+      <p><strong><a href={% url 'users:signup4' %} >Sign in to see more of the prompt.</a></strong></p>
+      {% endif %}
+    </div>
+    <div id="telegram" style="margin-top: 10px">
+      <a href="https://t.me/joinchat/VxF_quxz-kSXL2O1" target="_blank"
+        ><img src="../../static/assets/telegram.svg" alt="" /> Get in touch and
+        get the latest information</a>
+    </div>
+  </div>
+</div>
+{% endblock content %}

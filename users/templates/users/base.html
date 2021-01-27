@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -15,14 +16,15 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../../static/style.css" />
-    <link rel="stylesheet" href="../../static/colors.css" />
-    <title>CREATION 2021</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'colors.css' %}" />
+    <link rel="icon" type="image/png" href="{% static 'images/creationlogo.png' %}" />
+    <title>Creation 2021</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 100px">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <button class="dropbtn" id="homer">
-        <a href="/" class="dropbtn"><img src="../../static/assets/Logo with Design Competition.png" alt="Creation2021" height="80px"></a>
+        <a href="/" class="dropbtn"><img src="../../static/assets/horizontalLogo.png" alt=""></a>
       </button>
       <button
         class="navbar-toggler"
@@ -41,37 +43,36 @@
           <li class="nav-item dropdown">
                 <button class="dropbtn">Competition Details</button>
                 <div class="dropdown-content">
-                    <a href={% url 'creation:challenge' %}>Challenge Statements</a>
-                    <a href={% url 'creation:registration' %}>Registration</a>
-                    <a href={% url 'creation:submission' %}>Submission Portal</a>
+                    <a href={% url 'users:challenge' %}>Challenge Statements</a>
+                    <a href={% url 'users:registration' %}>Registration</a>
+                    <a href={% url 'users:submit' %}>Submission Portal</a>
                 </div>
           </li>
           <li class="nav-item">
-            <button class="dropbtn"><a href={% url 'creation:rules' %} class="dropbtn">Rules, Terms & Conditions</a></button>
+            <button class="dropbtn"><a href={% url 'users:rules' %} class="dropbtn">Rules, Terms & Conditions</a></button>
           </li>
           <li class="nav-item">
-              <button class="dropbtn"><a href={% url 'creation:faq' %} class="dropbtn">FAQs</a></button>
+              <button class="dropbtn"><a href={% url 'users:faq' %} class="dropbtn">FAQs</a></button>
           </li>
           <li class="nav-item">
-              <button class="dropbtn"><a href={% url 'creation:contact' %} class="dropbtn">Contact Us</a></button>
+              <button class="dropbtn"><a href={% url 'users:contact' %} class="dropbtn">Contact Us</a></button>
           </li>
         </ul>
         <div class="col-md-auto menu" style="margin-left: auto;">
                     <div class="content-section">
                         <div class="media">
                             {% if user.username %}
-                            <img class="rounded-circle account-img" style="width: 40px; height: 40px; margin-top: 8px;"src="https://pbs.twimg.com/profile_images/1506592811/Untitled.png">
                             <div class="media-body">
                                 <h3 class="dropbtn" className="username">{{user.username}}</h3>
                             </div>
                             <div class="media-body"> 
                                 <button class="dropbtn">
-                                    <a href={% url 'profile' %} class="dropbtn">Profile</a>
+                                    <a href={% url 'users:profile' %} class="dropbtn">Profile</a>
                                 </button>
                             </div>
                             <div class="media-body"> 
                                 <button class="dropbtn">
-                                    <a href={% url 'logout' %} class="dropbtn">Logout</a>
+                                    <a href={% url 'logout' %}>Logout</a>
                                 </button>
                             </div>
                             {% else %}
@@ -81,13 +82,20 @@
                                 </button>
                             </div>
                             {% endif %}
+                            {% if request.user.is_superuser %}
+                            <div class="media-body"> 
+                              <button class="dropbtn">
+                                <a href={% url 'users:inquiries' %} class="dropbtn">View Inquiries</a>
+                              </button>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
       </div>
     </nav>
     <div id="help">
-        <a href={% url 'creation:contact' %}><img src="../../static/assets/Untitled.png" alt="" width="150px"></a>
+        <a href={% url 'users:contact' %}><img src="../../static/assets/Untitled.png" alt="" width="150px"></a>
     </div>
     <div>
       {% if messages %} {% for message in messages %}
