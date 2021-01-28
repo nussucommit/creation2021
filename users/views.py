@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login, logout, forms
+from django.contrib.auth import authenticate, login, logout, forms, get_user_model
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
@@ -58,7 +58,38 @@ def inquiries(request):
     queries = ContactUs.objects.all()
     context = {'queries':queries}
 
-    return render(request, "users/backend/inquiries.html",context)
+    User = get_user_model()
+    users = User.objects.all()
+    context['total'] = len(users)
+
+    register1 = len(list(filter(lambda x: x.challengestatus.register1, users)))
+    register2 = len(list(filter(lambda x: x.challengestatus.register2, users)))
+    register3 = len(list(filter(lambda x: x.challengestatus.register3, users)))
+    register4 = len(list(filter(lambda x: x.challengestatus.register4, users)))
+    registerSide = len(list(filter(lambda x: x.challengestatus.registerSide, users)))
+
+    context['register1'] = register1
+    context['register2'] = register2
+    context['register3'] = register3
+    context['register4'] = register4
+    context['registerSide'] = registerSide
+
+    uniqueSubmitter = len(list(filter(lambda x: x.challengestatus.submit1 or x.challengestatus.submit2 or x.challengestatus.submit3
+    or x.challengestatus.submit4 or x.challengestatus.submitSide, users)))
+    submit1 = len(list(filter(lambda x: x.challengestatus.submit1, users)))
+    submit2 = len(list(filter(lambda x: x.challengestatus.submit2, users)))
+    submit3 = len(list(filter(lambda x: x.challengestatus.submit3, users)))
+    submit4 = len(list(filter(lambda x: x.challengestatus.submit4, users)))
+    submitSide = len(list(filter(lambda x: x.challengestatus.submitSide, users)))
+
+    context['uniqueSubmitter'] = uniqueSubmitter
+    context['submit1'] = submit1
+    context['submit2'] = submit2
+    context['submit3'] = submit3
+    context['submit4'] = submit4
+    context['submitSide'] = submitSide
+
+    return render(request, "users/backend/inquiries.html", context)
 
 def contact(request):
     if request.method == "POST":
