@@ -1,7 +1,4 @@
-{% extends "users/base.html" %}
-
-{% load static %}
-{% block content %}
+{% extends "users/base.html" %} {% load static %} {% block content %}
 <table class="table">
     <tr>
         <th>Name</th>
@@ -9,12 +6,52 @@
         <th>Question</th>
     </tr>
     {% for query in queries%}
-        <tr>
-            <td>{{query.name}}</td>
-            <td>{{query.email}}</td>
-            <td>{{query.inquiry}}</td>
-        </tr>
+    <tr>
+        <td>{{query.name}}</td>
+        <td>{{query.email}}</td>
+        <td>{{query.inquiry}}</td>
+    </tr>
     {% endfor %}
+</table>
+
+<h1>Registration Tracker</h1>
+<table class="table">
+    <tr>
+        <th>Total Participants (unique)</th>
+        <th>Challenge 1</th>
+        <th>Challenge 2</th>
+        <th>Challenge 3</th>
+        <th>Challenge 4</th>
+        <th>Side Challenge</th>
+    </tr>
+    <tr>
+        <td>{{total}}</td>
+        <td>{{register1}}</td>
+        <td>{{register2}}</td>
+        <td>{{register3}}</td>
+        <td>{{register4}}</td>
+        <td>{{registerSide}}</td>
+    </tr>
+</table>
+
+<h1>Submission Tracker</h1>
+<table class="table">
+    <tr>
+        <th>No. of people who submitted (unique)</th>
+        <th>Challenge 1</th>
+        <th>Challenge 2</th>
+        <th>Challenge 3</th>
+        <th>Challenge 4</th>
+        <th>Side Challenge</th>
+    </tr>
+    <tr>
+        <td>{{uniqueSubmitter}}</td>
+        <td>{{submit1}}</td>
+        <td>{{submit2}}</td>
+        <td>{{submit3}}</td>
+        <td>{{submit4}}</td>
+        <td>{{submitSide}}</td>
+    </tr>
 </table>
 
 {% endblock content %}
