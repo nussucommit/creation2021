@@ -16,37 +16,32 @@ class UserRegisterForm(UserCreationForm):
 
 
 class Form1(forms.ModelForm):
-    captcha = ReCaptchaField()
     class Meta:
         model = Statement_1
         fields = ['img', 'raw']
 
 class Form2(forms.ModelForm):
-    captcha = ReCaptchaField()
     class Meta:
         model = Statement_2
         fields = ['img', 'raw']
 
 class Form3(forms.ModelForm):
-    captcha = ReCaptchaField()
     class Meta:
         model = Statement_3
         fields = ['img', 'raw']
         
 class Form4(forms.ModelForm):
-    captcha = ReCaptchaField()
     class Meta:
         model = Statement_4
         fields = ['img', 'raw']
 
 class Form5(forms.ModelForm):
-    captcha = ReCaptchaField()
     class Meta:
         model = SideChallenge
         fields = ['img', 'raw']
 
 class ContactUsForm(forms.ModelForm):
-    captcha = ReCaptchaField
+    captcha = ReCaptchaField()
     class Meta:
         model = ContactUs
         fields = ['name', 'email', 'inquiry']

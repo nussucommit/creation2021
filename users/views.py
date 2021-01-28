@@ -386,50 +386,50 @@ def form(request,pk):
         form = Form5(request.POST, request.FILES)
     # If we get a POST request, we instantiate a submission form with that POST data.
     if request.method == 'POST':
-        captcha_token = request.POST.get("g-recaptcha-response")
-        cap_url = "https://www.google.com/recaptcha/api/siteverify"
-        cap_secret = settings.RECAPTCHA_PRIVATE_KEY
-        cap_data = {"secret":cap_secret, "response":captcha_token}
-        cap_server_response = requests.post(url=cap_url, data =cap_data)
-        cap_json = json.loads(cap_server_response.text)
-        print(cap_server_response.text)
-        if cap_json['success'] == False:
-            messages.warning(request,"Verify Captcha")
-        else:
-            if form.is_valid():
-                form.instance.user = request.user
-                current_user = User.objects.get(username = request.user.username)
-                status = ChallengeStatus.objects.get(user=current_user)
-                if pk == 1:
-                    status.submit1 = True
-                elif pk == 2:
-                    status.submit2 = True
-                elif pk == 3:
-                    status.submit3 = True
-                elif pk == 4:
-                    status.submit4 = True
-                else:
-                    status.submitSide = True
-                status.save()
-                
-                img_lst = [] 
-                for f in request.FILES.getlist('img'): 
-                    img_lst.append(f.name)
+        # captcha_token = request.POST.get("g-recaptcha-response")
+        # cap_url = "https://www.google.com/recaptcha/api/siteverify"
+        # cap_secret = settings.RECAPTCHA_PRIVATE_KEY
+        # cap_data = {"secret":cap_secret, "response":captcha_token}
+        # cap_server_response = requests.post(url=cap_url, data =cap_data)
+        # cap_json = json.loads(cap_server_response.text)
+        # print(cap_server_response.text)
+        # if cap_json['success'] == False:
+        #     messages.warning(request,"Verify Captcha")
+        # else:
+        if form.is_valid():
+            form.instance.user = request.user
+            current_user = User.objects.get(username = request.user.username)
+            status = ChallengeStatus.objects.get(user=current_user)
+            if pk == 1:
+                status.submit1 = True
+            elif pk == 2:
+                status.submit2 = True
+            elif pk == 3:
+                status.submit3 = True
+            elif pk == 4:
+                status.submit4 = True
+            else:
+                status.submitSide = True
+            status.save()
+            
+            img_lst = [] 
+            for f in request.FILES.getlist('img'): 
+                img_lst.append(f.name)
 
-                raw_lst = []
-                for f in request.FILES.getlist('raw'): 
-                    raw_lst.append(f.name)
+            raw_lst = []
+            for f in request.FILES.getlist('raw'): 
+                raw_lst.append(f.name)
 
-                img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
-                form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{img_fname}"
-                
-                raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
-                form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{raw_fname}"
+            img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
+            form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{img_fname}"
+            
+            raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
+            form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{raw_fname}"
 
-                form.save()
+            form.save()
 
-                # Refreshes the page
-                return HttpResponseRedirect(request.path_info)
+            # Refreshes the page
+            return HttpResponseRedirect(request.path_info)
     # Anything that isn't a POST request, we just create a blank form.
     else:
         if pk == 1:
