@@ -294,10 +294,10 @@ def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST, request.FILES)
         if form.is_valid():
-            status = ChallengeStatus(user = request.user)
-            status.save()
             # Creates the user in our database (Check admin page to confirm)
             form.save()
+            status = ChallengeStatus(user = User.objects.get(username = request.user.username))
+            status.save()
             username = form.cleaned_data.get('username')
             to = form.cleaned_data.get('email')
             name = form.cleaned_data.get('first_name')
