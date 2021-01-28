@@ -431,31 +431,6 @@ def form(request,pk):
             # Refreshes the page
             return HttpResponseRedirect(request.path_info)
     # Anything that isn't a POST request, we just create a blank form.
-    else:
-        if pk == 1:
-            submissions = Statement_1.objects.all()
-        elif pk == 2:
-            submissions = Statement_2.objects.all()
-        elif pk == 3:
-            submissions = Statement_3.objects.all()
-        elif pk == 4:
-            submissions = Statement_4.objects.all()
-        else:
-            submissions = SideChallenge.objects.all()
-        submissions = list(filter(lambda x: x.user == request.user, submissions))
-
-        conn = boto.connect_s3(config('AWS_ACCESS_KEY_ID'), config('AWS_SECRET_ACCESS_KEY'))
-        bucket = conn.get_bucket('creation-2021')
-
-        for submission in submissions:
-            img_file_path = bucket.get_key(submission.img)
-            submission.img_url = img_file_path.generate_url(expires_in=600)
-
-            raw_file_path = bucket.get_key(submission.raw)
-            submission.raw_url = raw_file_path.generate_url(expires_in=600)
-
-        if submissions:
-            context['submissions'] = submissions
-            
+    else:   
         context['form'] = form
     return render(request, "users/backend/form1.html", context)
