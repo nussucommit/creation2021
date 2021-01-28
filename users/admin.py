@@ -15,3 +15,17 @@ class UserAdmin(BaseUserAdmin):
 
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
+
+from users.models import ContactUs, Statement_1
+from users.models import Statement_2
+from users.models import Statement_3
+from users.models import Statement_4
+from users.models import SideChallenge
+
+
+admin.site.register(Statement_1)
+admin.site.register(Statement_2)
+admin.site.register(Statement_3)
+admin.site.register(Statement_4)
+admin.site.register(SideChallenge)
+admin.site.register(ContactUs)
