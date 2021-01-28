@@ -296,11 +296,11 @@ def register(request):
         if form.is_valid():
             # Creates the user in our database (Check admin page to confirm)
             form.save()
-            status = ChallengeStatus(user = User.objects.get(username = request.user.username))
-            status.save()
             username = form.cleaned_data.get('username')
             to = form.cleaned_data.get('email')
             name = form.cleaned_data.get('first_name')
+            status = ChallengeStatus(user = User.objects.get(username = username))
+            status.save()
             # Create an alert to tell users that their account has been succesfully created
             messages.success(request, f'You account has been created! Please log in to continue')
             
