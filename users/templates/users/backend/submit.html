@@ -2,92 +2,87 @@
 <link rel="stylesheet" href="{% static 'submit.css' %}" />
 
 <div id="submit-root">
-    <div class="header">
-        <h1>Submission</h1>
+  <div class="header">
+    <h1>Submission</h1>
+    <h3>Please sign up for the challenge before submitting</h2>
+  </div>
+  <div class="submission-boxes">
+    {% if user.challengestatus.register1 %}
+    <a class="boxes" href="/submit/1/">
+      <img
+        src="{% static 'images/development_office_submission.png' %}"
+        class="image"
+      />
+      <h4>#1 Key Visual for Commencement Class Giving 2022</h4>
+    </a>
+    {% else %}
+    <div class="boxes grey">
+      <img
+        src="{% static 'images/development_office_submission.png' %}"
+        class="image"
+      />
+      <h4>#1 Key Visual for Commencement Class Giving 2022</h4>
     </div>
-    <div class="submission-boxes">
-        {% if user.challengestatus.register1 %}
-        <a class="boxes" href="/submit/1/">
-            <img
-                src="{% static 'images/development_office_submission.png' %}"
-                class="image"
-            />
-            <h4>#1 Key Visual for Commencement Class Giving 2022</h4>
-        </a>
-        {% else %}
-        <div class="boxes">
-            <img
-                src="{% static 'images/development_office_submission.png' %}"
-                class="image"
-            />
-            <h4>#1 Key Visual for Commencement Class Giving 2022</h4>
-        </div>
-        {% endif %} {% if user.challengestatus.register2 %}
-        <a class="boxes" href="/submit/2/">
-            <img
-                src="{% static 'images/information_technology_submission.png' %}"
-                class="image"
-            />
-            <h4>#2 Poster for NUS Bug Bounty Challenge 2021</h4>
-        </a>
-        {% else %}
-        <div class="boxes">
-            <img
-                src="{% static 'images/information_technology_submission.png' %}"
-                class="image"
-            />
-            <h4>#2 Poster for NUS Bug Bounty Challenge 2021</h4>
-        </div>
-        {% endif %} {% block content1 %} {% endblock %} {% if user.challengestatus.register3 %}
-        <a class="boxes" href="/submit/3/">
-            <img
-                src="{% static 'images/alumni_relations_submission.png' %}"
-                class="image"
-            />
-            <h4>#3 Redesign Logo and Slogan for AlumNUS</h4>
-        </a>
-        {% else %}
-        <div class="boxes">
-            <img
-                src="{% static 'images/alumni_relations_submission.png' %}"
-                class="image"
-            />
-            <h4>#3 Redesign Logo and Slogan for AlumNUS</h4>
-        </div>
-        {% endif %} {% if user.challengestatus.register4 %}
-        <a class="boxes" href="/submit/4/">
-            <img
-                src="{% static 'images/namz_submission.png' %}"
-                class="image"
-            />
-            <h4>#4 Instant Noodles Infographic for WhatIF Foods</h4>
-        </a>
-        {% else %}
-        <div class="boxes">
-            <img
-                src="{% static 'images/namz_submission.png' %}"
-                class="image"
-            />
-            <h4>#4 Instant Noodles Infographic for WhatIF Foods</h4>
-        </div>
-        {% endif %} {% if user.challengestatus.registerSide %}
-        <a class="boxes" href="/submit/5/">
-            <img
-                src="{% static 'images/centreofarts_submission.png' %}"
-                class="image"
-            />
-            <h4>[Side Challenge] NUS CFA Digital Badges</h4>
-        </a>
-        {% else %}
-        <div class="boxes">
-            <img
-                src="{% static 'images/centreofarts_submission.png' %}"
-                class="image"
-            />
-            <h4>[Side Challenge] NUS CFA Digital Badges</h4>
-        </div>
-        {% endif %}
+    {% endif %} {% if user.challengestatus.register2 %}
+    <a class="boxes" href="/submit/2/">
+      <img
+        src="{% static 'images/information_technology_submission.png' %}"
+        class="image"
+      />
+      <h4>#2 Poster for NUS Bug Bounty Challenge 2021</h4>
+    </a>
+    {% else %}
+    <div class="boxes grey">
+      <img
+        src="{% static 'images/information_technology_submission.png' %}"
+        class="image"
+      />
+      <h4>#2 Poster for NUS Bug Bounty Challenge 2021</h4>
     </div>
+    {% endif %} {% block content1 %} {% endblock %} {% if user.challengestatus.register3 %}
+    <a class="boxes" href="/submit/3/">
+      <img
+        src="{% static 'images/alumni_relations_submission.png' %}"
+        class="image"
+      />
+      <h4>#3 Redesign Logo and Slogan for AlumNUS</h4>
+    </a>
+    {% else %}
+    <div class="boxes grey">
+      <img
+        src="{% static 'images/alumni_relations_submission.png' %}"
+        class="image"
+      />
+      <h4>#3 Redesign Logo and Slogan for AlumNUS</h4>
+    </div>
+    {% endif %} {% if user.challengestatus.register4 %}
+    <a class="boxes" href="/submit/4/">
+      <img src="{% static 'images/namz_submission.png' %}" class="image" />
+      <h4>#4 Instant Noodles Infographic for WhatIF Foods</h4>
+    </a>
+    {% else %}
+    <div class="boxes grey">
+      <img src="{% static 'images/namz_submission.png' %}" class="image" />
+      <h4>#4 Instant Noodles Infographic for WhatIF Foods</h4>
+    </div>
+    {% endif %} {% if user.challengestatus.registerSide %}
+    <a class="boxes" href="/submit/5/">
+      <img
+        src="{% static 'images/centreofarts_submission.png' %}"
+        class="image"
+      />
+      <h4>[Side Challenge] NUS CFA Digital Badges</h4>
+    </a>
+    {% else %}
+    <div class="boxes grey">
+      <img
+        src="{% static 'images/centreofarts_submission.png' %}"
+        class="image"
+      />
+      <h4>[Side Challenge] NUS CFA Digital Badges</h4>
+    </div>
+    {% endif %}
+  </div>
 </div>
 
 {% endblock content %}
