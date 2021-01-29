@@ -4,6 +4,12 @@
     <h1>Key Visual for NUS Commencement Class Giving 2022</h1>
     <br />
     <hr />
+    {% if user.username and user.challengestatus.register1 %}
+      <div id="telegram" style="margin-top: 10px">
+      <a href="{{ pdf_url }}" target="_blank" download
+        ><img src="../../static/assets/download.svg" alt="" /> Download Challenge Brief</a>
+    </div>
+      {% endif %}
     <br />
     <div id="content">
       <p>
@@ -80,9 +86,11 @@ Note that ONE Newcomer Award will be given to ONE eligible participant whose des
 </i>
       </p>
       {% if user.username and user.challengestatus.register1 %}
-      <a href="{{ pdf_url }}" target="_blank" download>Download Challenge Brief</a>
       {% else %}
-      <p><strong><a href={% url 'users:signup1' %} >Sign up to see more of the prompt.</a></strong></p>
+      <div id="telegram" style="margin-top: 10px">
+      <a href={% url 'users:signup1' %}
+        ><img src="../../static/assets/contract.svg" alt="" /> Sign up to see the challenge brief</a>
+    </div>
       {% endif %}
     </div>
     <div id="telegram" style="margin-top: 10px">

@@ -4,6 +4,12 @@
     <h1>Instant Noodle Infographic for WhatIF Foods</h1>
     <br />
     <hr />
+    {% if user.username and user.challengestatus.register4 %}
+      <div id="telegram" style="margin-top: 10px">
+      <a href="{{ pdf_url }}" target="_blank" download
+        ><img src="../../static/assets/download.svg" alt="" /> Download Challenge Brief</a>
+    </div>
+      {% endif %}
     <br />
     <div id="content">
       <p>
@@ -94,7 +100,10 @@ Note that ONE Newcomer Award will be given to ONE eligible participant whose des
       {% if user.username and user.challengestatus.register4 %}
       <a href="https://drive.google.com/drive/folders/1R6JlY0le0Tk5_lIzBy7odGElcVgsXbT9" target="_blank" download>Download Challenge Brief</a>
       {% else %}
-      <p><strong><a href={% url 'users:signup4' %} >Sign in to see more of the prompt.</a></strong></p>
+      <div id="telegram" style="margin-top: 10px">
+      <a href={% url 'users:signup4' %}
+        ><img src="../../static/assets/contract.svg" alt="" /> Sign up to see the challenge brief</a>
+    </div>
       {% endif %}
     </div>
     <div id="telegram" style="margin-top: 10px">

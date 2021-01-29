@@ -4,6 +4,12 @@
     <h1>Side Challenge: NUS CFA Digital Badges</h1>
     <br />
     <hr />
+    {% if user.username and user.challengestatus.registerSide %}
+      <div id="telegram" style="margin-top: 10px">
+      <a href="https://drive.google.com/drive/folders/1RMBTqBjabJfPYsrqrWqNyuA7Ab_kUojs" target="_blank" download
+        ><img src="../../static/assets/download.svg" alt="" /> Download Challenge Brief</a>
+    </div>
+      {% endif %}
     <br />
     <div id="content">
       <p>
@@ -61,9 +67,11 @@ For more information, visit <a href="https://cfa.nus.edu.sg">cfa.nus.edu.sg</a>
   <li>$80 worth of Art Friend e-voucher</li>
 </ul>
       {% if user.username and user.challengestatus.registerSide %}
-      <a href="https://drive.google.com/drive/folders/1RMBTqBjabJfPYsrqrWqNyuA7Ab_kUojs" target="_blank" download>Download Challenge Brief</a>
       {% else %}
-      <p><strong><a href={% url 'users:signupside' %} >Sign in to see more of the prompt.</a></strong></p>
+      <div id="telegram" style="margin-top: 10px">
+      <a href={% url 'users:signupside' %}
+        ><img src="../../static/assets/contract.svg" alt="" /> Sign up to see the challenge brief</a>
+    </div>
       {% endif %}
     </div>
     <div id="telegram" style="margin-top: 10px">
