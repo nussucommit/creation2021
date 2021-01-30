@@ -660,6 +660,10 @@ button:focus {
       @extend %justification;
     }
 
+    img {
+      max-width: 100%;
+    }
+
     #telegram {
       padding: 10px;
       width: 100%;

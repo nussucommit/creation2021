@@ -579,6 +579,9 @@ button:focus {
 .statements .statements-cards hr {
   border: 2px solid aliceblue;
 }
+.statements .statements-cards img {
+  max-width: 100%;
+}
 .statements .statements-cards #telegram {
   padding: 10px;
   width: 100%;
