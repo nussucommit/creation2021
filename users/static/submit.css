@@ -75,6 +75,9 @@ body {
 .image {
   width: 90%;
 }
+#image-side {
+  height:70%;
+}
 
 .boxes h4 {
   text-align: center;
