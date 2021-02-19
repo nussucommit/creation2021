@@ -18,27 +18,27 @@ class UserRegisterForm(UserCreationForm):
 class Form1(forms.ModelForm):
     class Meta:
         model = Statement_1
-        fields = ['raw']
+        fields = ['raw','img']
 
 class Form2(forms.ModelForm):
     class Meta:
         model = Statement_2
-        fields = ['raw']
+        fields = ['raw','img']
 
 class Form3(forms.ModelForm):
     class Meta:
         model = Statement_3
-        fields = ['raw']
+        fields = ['raw','img']
         
 class Form4(forms.ModelForm):
     class Meta:
         model = Statement_4
-        fields = ['raw']
+        fields = ['raw','img']
 
 class Form5(forms.ModelForm):
     class Meta:
         model = SideChallenge
-        fields = ['raw']
+        fields = ['raw','img']
 
 class ContactUsForm(forms.ModelForm):
     captcha = ReCaptchaField()
