@@ -7,7 +7,7 @@
     <table id="submissions-table">
       <thead>
         <tr>
-          <th>Image</th>
+          {% comment %} <th>Image</th> {% endcomment %}
           <th>File name</th>
           <th>User</th>
           <th>Uploaded</th>
@@ -16,11 +16,11 @@
       <tbody>
         {% for obj in submissions %}
         <tr>
-          <td class="image">
+          {% comment %} <td class="image">
             <a href="{{ obj.img_url }}" download>
               <img src="{{ obj.img_url }}" alt=""
             /></a>
-          </td>
+          </td> {% endcomment %}
           <td class="filename">
             <a href="{{ obj.raw_url }}"> <p>{{ obj.raw }}</p> </a>
           </td>

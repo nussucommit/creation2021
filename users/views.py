@@ -330,8 +330,8 @@ def profile(request):
         bucket = conn.get_bucket('creation-2021')
 
         for submission in submissionNumber:
-            img_file_path = bucket.get_key(submission.img)
-            submission.img_url = img_file_path.generate_url(expires_in=600)
+            # img_file_path = bucket.get_key(submission.img)
+            # submission.img_url = img_file_path.generate_url(expires_in=600)
 
             raw_file_path = bucket.get_key(submission.raw)
             submission.raw_url = raw_file_path.generate_url(expires_in=600)
@@ -412,16 +412,16 @@ def form(request,pk):
                 status.submitSide = True
             status.save()
             
-            img_lst = [] 
-            for f in request.FILES.getlist('img'): 
-                img_lst.append(f.name)
+            # img_lst = [] 
+            # for f in request.FILES.getlist('img'): 
+            #     img_lst.append(f.name)
 
             raw_lst = []
             for f in request.FILES.getlist('raw'): 
                 raw_lst.append(f.name)
 
-            img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
-            form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{img_fname}"
+            # img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
+            # form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{img_fname}"
             
             raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
             form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{raw_fname}"
