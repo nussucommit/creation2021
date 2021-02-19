@@ -426,6 +426,19 @@ def form(request,pk):
             raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
             form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{raw_fname}"
 
+            username = current_user.username
+            to = current_user.email
+            name = current_user.first_name
+            
+            email = EmailMessage(
+                'Submission Confirmation',
+                f'Hi! Thank you for submitting your work for Creation 2021',
+                settings.EMAIL_HOST_USER,
+                [to],
+            )
+            email.fail_silently = False
+            email.send()
+
             form.save()
 
             # Refreshes the page
