@@ -62,6 +62,7 @@ body {
   align-items: center;
   text-decoration: none;
   padding: 1rem;
+  overflow:hidden;
 }
 
 .boxes h4 {
@@ -74,9 +75,6 @@ body {
 
 .image {
   width: 90%;
-}
-#image-side {
-  height:70%;
 }
 
 .boxes h4 {
@@ -123,3 +121,4 @@ td {
     max-width: 25vw;
   }
 }
+
