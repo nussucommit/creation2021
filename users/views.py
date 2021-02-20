@@ -50,6 +50,9 @@ def registration(request):
 def submission(request):
     return render(request, "users/frontend/submission.html")
 
+def thankyou(request):
+    return render(request, "users/frontend/thankyou.html")
+
 #Backend Views
 
 @allowed_users(allowed_roles=['admin'])
@@ -441,8 +444,8 @@ def form(request,pk):
 
             form.save()
 
-            # Refreshes the page
-            return HttpResponseRedirect(request.path_info)
+            # Redirect to a thank you page
+            return render(request, "users/frontend/thankyou.html")
     # Anything that isn't a POST request, we just create a blank form.
     else:   
         context['form'] = form

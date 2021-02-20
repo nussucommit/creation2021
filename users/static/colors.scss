@@ -745,6 +745,20 @@ button:focus {
   }
 }
 
+#thankyou {
+  margin-left: 50%;
+  margin-top: 10vh;
+  transform: translateX(-50%);
+  text-align: center;
+
+  font-size: 3rem;
+
+  @media screen and (max-width: 700px) {
+    margin-top: 20vh;
+    font-size: 2rem;
+  }
+}
+
 body {
   @extend %gradient-background;
   width: 100vw;

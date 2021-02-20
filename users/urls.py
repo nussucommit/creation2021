@@ -26,7 +26,8 @@ urlpatterns = [
     path('signup4', views.signup_statement_4, name="signup4"),
     path('signupside', views.signup_side_statement, name="signupside"),
     path('profile', views.profile, name='profile'),
-    path('inquiries',views.inquiries, name="inquiries")
+    path('inquiries',views.inquiries, name="inquiries"),
+    path('thankyou',views.thankyou, name="thankyou")
 ]
 
 urlpatterns += [
