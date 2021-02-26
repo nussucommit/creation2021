@@ -366,87 +366,87 @@ def profile(request):
 
     return render(request, 'users/backend/profile.html',context)
 
-@login_required
-def submit(request):
-    current_user = User.objects.get(username = request.user.username)
-    if not hasattr(current_user,'challengestatus'):
-        status = ChallengeStatus(user = current_user)
+# @login_required
+# def submit(request):
+#     current_user = User.objects.get(username = request.user.username)
+#     if not hasattr(current_user,'challengestatus'):
+#         status = ChallengeStatus(user = current_user)
         
-    return render(request, "users/backend/submit.html")
+#     return render(request, "users/backend/submit.html")
 
-@login_required
-def form(request,pk):
-    context = {}
-    if pk == 1:
-        form = Form1(request.POST, request.FILES)
-    elif pk == 2:
-        form = Form2(request.POST, request.FILES)
-    elif pk == 3:
-        form = Form3(request.POST, request.FILES)
-    elif pk == 4:
-        form = Form4(request.POST, request.FILES)
-    else:
-        form = Form5(request.POST, request.FILES)
-    # If we get a POST request, we instantiate a submission form with that POST data.
-    if request.method == 'POST':
-        # captcha_token = request.POST.get("g-recaptcha-response")
-        # cap_url = "https://www.google.com/recaptcha/api/siteverify"
-        # cap_secret = settings.RECAPTCHA_PRIVATE_KEY
-        # cap_data = {"secret":cap_secret, "response":captcha_token}
-        # cap_server_response = requests.post(url=cap_url, data =cap_data)
-        # cap_json = json.loads(cap_server_response.text)
-        # print(cap_server_response.text)
-        # if cap_json['success'] == False:
-        #     messages.warning(request,"Verify Captcha")
-        # else:
-        if form.is_valid():
-            form.instance.user = request.user
-            current_user = User.objects.get(username = request.user.username)
-            status = ChallengeStatus.objects.get(user=current_user)
-            if pk == 1:
-                status.submit1 = True
-            elif pk == 2:
-                status.submit2 = True
-            elif pk == 3:
-                status.submit3 = True
-            elif pk == 4:
-                status.submit4 = True
-            else:
-                status.submitSide = True
-            status.save()
+# @login_required
+# def form(request,pk):
+#     context = {}
+#     if pk == 1:
+#         form = Form1(request.POST, request.FILES)
+#     elif pk == 2:
+#         form = Form2(request.POST, request.FILES)
+#     elif pk == 3:
+#         form = Form3(request.POST, request.FILES)
+#     elif pk == 4:
+#         form = Form4(request.POST, request.FILES)
+#     else:
+#         form = Form5(request.POST, request.FILES)
+#     # If we get a POST request, we instantiate a submission form with that POST data.
+#     if request.method == 'POST':
+#         # captcha_token = request.POST.get("g-recaptcha-response")
+#         # cap_url = "https://www.google.com/recaptcha/api/siteverify"
+#         # cap_secret = settings.RECAPTCHA_PRIVATE_KEY
+#         # cap_data = {"secret":cap_secret, "response":captcha_token}
+#         # cap_server_response = requests.post(url=cap_url, data =cap_data)
+#         # cap_json = json.loads(cap_server_response.text)
+#         # print(cap_server_response.text)
+#         # if cap_json['success'] == False:
+#         #     messages.warning(request,"Verify Captcha")
+#         # else:
+#         if form.is_valid():
+#             form.instance.user = request.user
+#             current_user = User.objects.get(username = request.user.username)
+#             status = ChallengeStatus.objects.get(user=current_user)
+#             if pk == 1:
+#                 status.submit1 = True
+#             elif pk == 2:
+#                 status.submit2 = True
+#             elif pk == 3:
+#                 status.submit3 = True
+#             elif pk == 4:
+#                 status.submit4 = True
+#             else:
+#                 status.submitSide = True
+#             status.save()
             
-            # img_lst = [] 
-            # for f in request.FILES.getlist('img'): 
-            #     img_lst.append(f.name)
+#             # img_lst = [] 
+#             # for f in request.FILES.getlist('img'): 
+#             #     img_lst.append(f.name)
 
-            raw_lst = []
-            for f in request.FILES.getlist('raw'): 
-                raw_lst.append(f.name)
+#             raw_lst = []
+#             for f in request.FILES.getlist('raw'): 
+#                 raw_lst.append(f.name)
 
-            # img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
-            # form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{img_fname}"
+#             # img_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', img_lst[-1]).replace(' ', '_')
+#             # form.instance.img_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{img_fname}"
             
-            raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
-            form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{raw_fname}"
+#             raw_fname = re.sub('[^a-zA-Z0-9 \n\.]', '', raw_lst[-1]).replace(' ', '_')
+#             form.instance.raw_url = f"https://creation-2021.s3.ap-southeast-1.amazonaws.com/{raw_fname}"
 
-            username = current_user.username
-            to = current_user.email
-            name = current_user.first_name
+#             username = current_user.username
+#             to = current_user.email
+#             name = current_user.first_name
             
-            email = EmailMessage(
-                'Submission Confirmation',
-                f'Hi! Thank you for submitting your work for Creation 2021',
-                settings.EMAIL_HOST_USER,
-                [to],
-            )
-            email.fail_silently = False
-            email.send()
+#             email = EmailMessage(
+#                 'Submission Confirmation',
+#                 f'Hi! Thank you for submitting your work for Creation 2021',
+#                 settings.EMAIL_HOST_USER,
+#                 [to],
+#             )
+#             email.fail_silently = False
+#             email.send()
 
-            form.save()
+#             form.save()
 
-            # Redirect to a thank you page
-            return render(request, "users/frontend/thankyou.html")
-    # Anything that isn't a POST request, we just create a blank form.
-    else:   
-        context['form'] = form
-    return render(request, "users/backend/form1.html", context)
+#             # Redirect to a thank you page
+#             return render(request, "users/frontend/thankyou.html")
+#     # Anything that isn't a POST request, we just create a blank form.
+#     else:   
+#         context['form'] = form
+#     return render(request, "users/backend/form1.html", context)

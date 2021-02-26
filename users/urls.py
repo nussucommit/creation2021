@@ -31,7 +31,7 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    path("submit/", views.submit, name="submit"),
-    path("submit/<int:pk>/", views.form, name='submitdetail'),
+    #path("submit/", views.submit, name="submit"),
+    #path("submit/<int:pk>/", views.form, name='submitdetail'),
 ]
 
